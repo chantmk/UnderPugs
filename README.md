@@ -8,3 +8,6 @@ Ref:
   * https://reference.digilentinc.com/learn/programmable-logic/tutorials/basys-3-keyboard-demo/start
 * text : 
   * https://github.com/Derek-X-Wang/VGA-Text-Generator
+* other games 
+  * https://github.com/howardlau1999/flapga-mario
+  * https://github.com/Siliciumer/DOS-Mario-FPGA
