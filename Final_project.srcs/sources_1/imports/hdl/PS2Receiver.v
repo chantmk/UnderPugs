@@ -17,6 +17,9 @@
 // Revision 0.01 - File Created
 // Additional Comments:
 // 
+// Modified to compatible with my term project
+// Company: Chulalongkorn university
+// Engineer: Thammakorn Kobkuachaiyapong
 //////////////////////////////////////////////////////////////////////////////////
 
 
