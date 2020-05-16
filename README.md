@@ -7,7 +7,9 @@ Explanation:
   * release: {"F0",now (what just be released)}
   * hold: F0 won't appear
 
-  this can be handle by state if [15:0] != "F0" this means you are pressing key and if "F0" is appear it's mean that key is just released
+  this can be handle by state 
+  if [15:0] != "F0" : this means you are pressing key 
+  else if [15:0] == "F0" : it's mean that key is just be released
   
 Ref:
 * ISA: 
