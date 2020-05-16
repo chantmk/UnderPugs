@@ -8,8 +8,8 @@ Explanation:
   * hold: F0 won't appear
 
   this can be handle by state 
-  if [15:0] != "F0" : this means you are pressing key 
-  else if [15:0] == "F0" : it's mean that key is just be released
+  1. if [15:0] != "F0" : this means you are pressing key 
+  2. else if [15:0] == "F0" : it's mean that key is just be released
   
 Ref:
 * ISA: 
