@@ -23,7 +23,7 @@
 module vga(
 	input clk
 	,input  reset
-	,input image_state
+	,input screen_state
     ,output Hsync
     ,output Vsync
     ,output [3:0] vgaRed
@@ -34,6 +34,14 @@ module vga(
 	wire video_on;
     wire p_tick;
     wire [9:0] x,y;
+    
+    localparam TITLE_POS_X = 0 ;
+    localparam TITLE_POS_Y = 0 ;
+    localparam NAME_BLOCK_POS_X = 0 ;
+    localparam NAME_BLOCK_POS_Y = 0 ;
+    localparam TEXT_HEIGHT = 16 ;
+    localparam TEXT_WIDTH = 8 ;
+    localparam TEXT_SPACE = 2 ;
     
     vga_sync vga_sync_unit (
         .clk(clk), 
@@ -47,11 +55,9 @@ module vga(
         );
    
         // rgb buffer
-        always @(posedge clk, posedge reset)
-        if (reset)
-            rgb_reg <= 12'b111100000000; //red
-        else 
-            rgb_reg <= 12'b000011110000; //green
+        always @(posedge p_tick)
+        begin      
+        end
         // output
         assign {vgaRed,vgaGreen,vgaBlue} = (video_on) ? rgb_reg : 12'b000000001111; //blue
 endmodule

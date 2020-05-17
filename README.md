@@ -26,6 +26,8 @@ Ref:
   * https://github.com/MadLittleMods/FP-V-GA-Text
 * vga:
   * https://embeddedthoughts.com/2016/07/29/driving-a-vga-monitor-using-an-fpga/
+* image binarizer:
+  * https://www.dcode.fr/binary-image
 * other games: 
   * https://github.com/howardlau1999/flapga-mario
   * https://github.com/Siliciumer/DOS-Mario-FPGA

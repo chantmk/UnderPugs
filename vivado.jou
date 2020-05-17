@@ -13,3 +13,6 @@ start_gui
 open_project D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.xpr
 update_compile_order -fileset sources_1
 synth_design -rtl -name rtl_1
+refresh_design
+refresh_design
+close_design

@@ -55,7 +55,7 @@ module TopSystem(
     vga image_handler(
         .clk(clk),
         .reset(),
-	    .image_state(),
+	    .screen_state(),
         .Hsync(Hsync),
         .Vsync(Vsync),
         .vgaRed(vgaRed),
