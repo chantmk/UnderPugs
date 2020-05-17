@@ -46,6 +46,7 @@
 #MIG
 !*.prj
 !*.mem
+!*.data
 #Project files
 #XPR  +  *.XML ? XPR (Files are merged into a single XPR file for 2014.1 version)
 #Do NOT ignore *.xpr files

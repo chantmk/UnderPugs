@@ -16,3 +16,15 @@ synth_design -rtl -name rtl_1
 refresh_design
 refresh_design
 close_design
+close [ open D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/startScreenROM.v w ]
+add_files D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/startScreenROM.v
+update_compile_order -fileset sources_1
+add_files -norecurse -scan_for_includes {D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/ids.data D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/names.data}
+import_files -norecurse {D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/ids.data D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/names.data}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+close_design
+add_files -norecurse -scan_for_includes {D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/title.data D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/group.data}
+import_files -norecurse {D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/title.data D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/group.data}

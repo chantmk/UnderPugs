@@ -17,6 +17,8 @@ Explanation:
   * x,y: position on your screen 0,0 for top-left corner
   
 Ref:
+* The BOARDS:
+  * https://reference.digilentinc.com/reference/programmable-logic/basys-3/start
 * ISA: 
   * https://opencores.org/projects/8051
 * USB keyboard: 
@@ -30,6 +32,8 @@ Ref:
   * https://www.dcode.fr/binary-image
 * text to image:
   * https://onlinetexttools.com/convert-text-to-image
+* graphic:
+  * https://timetoexplore.net/fpga-index
 * other games: 
   * https://github.com/howardlau1999/flapga-mario
   * https://github.com/Siliciumer/DOS-Mario-FPGA
