@@ -23,6 +23,7 @@ Ref:
   * https://reference.digilentinc.com/learn/programmable-logic/tutorials/basys-3-keyboard-demo/start
 * text: 
   * https://github.com/Derek-X-Wang/VGA-Text-Generator
+  * https://github.com/MadLittleMods/FP-V-GA-Text
 * vga:
   * https://embeddedthoughts.com/2016/07/29/driving-a-vga-monitor-using-an-fpga/
 * other games: 
