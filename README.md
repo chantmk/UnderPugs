@@ -14,7 +14,7 @@ Explanation:
 * VGA: 12 bit color 4r 4g 4b
   * Hsync & Vsync: Sync with your display
   * p_tick: indicate that accessing next pixel
-  * x,y: pos on your screen 0,0 for top-left corner
+  * x,y: position on your screen 0,0 for top-left corner
   
 Ref:
 * ISA: 
