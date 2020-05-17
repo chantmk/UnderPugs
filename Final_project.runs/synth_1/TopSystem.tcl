@@ -17,7 +17,10 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param synth.incrementalSynthesisCache C:/Users/chan_/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-2272-LAPTOP-N3N9V3PL/incrSyn
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -37,6 +40,9 @@ read_verilog -library xil_defaultlib {
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/kb_top.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/quad2SevenSeg.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/segmentDec.v
+  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/sevenSeg.v
+  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/vga.v
+  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/vga_sync.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
