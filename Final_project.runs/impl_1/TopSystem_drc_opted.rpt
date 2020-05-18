@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Mon May 18 14:31:04 2020
+| Date         : Mon May 18 20:14:23 2020
 | Host         : LAPTOP-N3N9V3PL running 64-bit major release  (build 9200)
 | Command      : report_drc -file TopSystem_drc_opted.rpt -pb TopSystem_drc_opted.pb -rpx TopSystem_drc_opted.rpx
 | Design       : TopSystem
@@ -24,12 +24,19 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 0
-+------+----------+-------------+------------+
-| Rule | Severity | Description | Violations |
-+------+----------+-------------+------------+
-+------+----------+-------------+------------+
+             Violations found: 1
++-------------+----------+-------------------------------------------------------------+------------+
+| Rule        | Severity | Description                                                 | Violations |
++-------------+----------+-------------------------------------------------------------+------------+
+| PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 1          |
++-------------+----------+-------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT image_handler/vga_sync_unit/h_count_reg[9]_i_1 is driving clock pin of 5 cells. This could lead to large hold time violations. Involved cells are:
+image_handler/rgb_reg_reg[11], image_handler/rgb_reg_reg[2], image_handler/rgb_reg_reg[3], image_handler/rgb_reg_reg[5], image_handler/rgb_reg_reg[7]
+Related violations: <none>
+
 

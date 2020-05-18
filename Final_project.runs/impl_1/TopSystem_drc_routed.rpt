@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Mon May 18 14:31:37 2020
+| Date         : Mon May 18 20:15:03 2020
 | Host         : LAPTOP-N3N9V3PL running 64-bit major release  (build 9200)
 | Command      : report_drc -file TopSystem_drc_routed.rpt -pb TopSystem_drc_routed.pb -rpx TopSystem_drc_routed.rpx
 | Design       : TopSystem
@@ -24,12 +24,25 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 0
-+------+----------+-------------+------------+
-| Rule | Severity | Description | Violations |
-+------+----------+-------------+------------+
-+------+----------+-------------+------------+
+             Violations found: 2
++-------------+----------+-------------------------------------------------------------+------------+
+| Rule        | Severity | Description                                                 | Violations |
++-------------+----------+-------------------------------------------------------------+------------+
+| PDRC-153    | Warning  | Gated clock check                                           | 1          |
+| PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 1          |
++-------------+----------+-------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+PDRC-153#1 Warning
+Gated clock check  
+Net image_handler/vga_sync_unit/p_tick is a gated clock net sourced by a combinational pin image_handler/vga_sync_unit/h_count_reg[9]_i_1/O, cell image_handler/vga_sync_unit/h_count_reg[9]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT image_handler/vga_sync_unit/h_count_reg[9]_i_1 is driving clock pin of 5 cells. This could lead to large hold time violations. Involved cells are:
+image_handler/rgb_reg_reg[11], image_handler/rgb_reg_reg[2], image_handler/rgb_reg_reg[3], image_handler/rgb_reg_reg[5], image_handler/rgb_reg_reg[7]
+Related violations: <none>
+
 

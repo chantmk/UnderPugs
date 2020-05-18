@@ -35,6 +35,7 @@ module TopSystem(
     ,output [3:0] an
     ,output dp
     );
+    
     wire [31:0] key;
     /*--Keyboard--*/
     kb_top keyboard_handler(
@@ -43,6 +44,7 @@ module TopSystem(
         .PS2Data(PS2Data),
         .keycodev(key)
     );
+    
     /*-Seven segment display-*/
     sevenSeg segDisp(
         .clk(clk),
@@ -51,15 +53,26 @@ module TopSystem(
         .an(an),
         .dp(dp)
     );
+    
+    wire state;
+    wire reset;
     /*--vga--*/
     vga image_handler(
         .clk(clk),
-        .reset(),
-	    .screen_state(),
+        .reset(reset),
+	    .screen_state(state),
         .Hsync(Hsync),
         .Vsync(Vsync),
         .vgaRed(vgaRed),
         .vgaGreen(vgaGreen),
         .vgaBlue(vgaBlue)
     );
+    /*--logic--*/
+//    game_logic logic(
+//        .clk(clk),
+//        .key(key),
+//        .state(state),
+//        .reset(reset)
+//    );
+    
 endmodule
