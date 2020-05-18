@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun May 17 11:52:43 2020
+| Date         : Mon May 18 14:31:11 2020
 | Host         : LAPTOP-N3N9V3PL running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file TopSystem_control_sets_placed.rpt
 | Design       : TopSystem
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    31 |
-| Unused register locations in slices containing registers |   182 |
+| Number of unique control sets                            |    33 |
+| Unused register locations in slices containing registers |   185 |
 +----------------------------------------------------------+-------+
 
 
@@ -37,12 +37,11 @@ Table of Contents
 |      1 |           21 |
 |      2 |            1 |
 |      4 |            1 |
-|      5 |            1 |
-|      6 |            1 |
-|      7 |            1 |
+|      5 |            2 |
+|      7 |            2 |
 |      9 |            1 |
 |     10 |            2 |
-|    16+ |            2 |
+|    16+ |            3 |
 +--------+--------------+
 
 
@@ -52,52 +51,54 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              41 |           29 |
+| No           | No                    | No                     |              47 |           32 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              56 |           13 |
+| Yes          | No                    | No                     |              79 |           31 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |               9 |            3 |
+| Yes          | Yes                   | No                     |               9 |            2 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------------------------+----------------------------------------------------+--------------------------------------------+------------------+----------------+
-|              Clock Signal              |                    Enable Signal                   |              Set/Reset Signal              | Slice Load Count | Bel Load Count |
-+----------------------------------------+----------------------------------------------------+--------------------------------------------+------------------+----------------+
-|  segDisp/genblk1[10].fdiv/clkDiv_reg_0 |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[11].fdiv/clkDiv_reg_0 |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[0].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[4].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[3].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[5].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[8].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[6].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[7].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[12].fdiv/clkDiv_reg_0 |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[14].fdiv/clkDiv_reg_0 |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[15].fdiv/clkDiv_reg_0 |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[9].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[16].fdiv/clkDiv_reg_0 |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[13].fdiv/clkDiv_reg_0 |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[2].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  segDisp/genblk1[1].fdiv/clkDiv_reg_0  |                                                    |                                            |                1 |              1 |
-|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_clk/clear                  |                                            |                1 |              1 |
-|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_data/O_i_1__0_n_0          |                                            |                1 |              1 |
-|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_clk/O_i_1_n_0              |                                            |                1 |              1 |
-|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_data/Iv_i_1__0_n_0         |                                            |                1 |              1 |
-|  segDisp/genblk1[17].fdiv/CLK          |                                                    |                                            |                1 |              2 |
-| ~keyboard_handler/uut/db_clk/O_reg_0   | keyboard_handler/uut/cnt                           | keyboard_handler/uut/cnt[3]_i_1_n_0        |                1 |              4 |
-|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_data/count[4]_i_1__0_n_0   | keyboard_handler/uut/db_data/Iv_i_1__0_n_0 |                2 |              5 |
-|  clk_IBUF_BUFG                         |                                                    |                                            |                5 |              6 |
-|  CLK50MHZ_BUFG                         |                                                    |                                            |                3 |              7 |
-| ~keyboard_handler/uut/db_clk/O_reg_0   |                                                    |                                            |                3 |              9 |
-|  clk_IBUF_BUFG                         | image_handler/vga_sync_unit/h_count_reg[9]_i_1_n_0 |                                            |                2 |             10 |
-|  clk_IBUF_BUFG                         | image_handler/vga_sync_unit/v_count_reg0           |                                            |                2 |             10 |
-|  CLK50MHZ_BUFG                         | keyboard_handler/uut/oflag_i_1_n_0                 |                                            |                2 |             16 |
-|  clk_IBUF_BUFG                         | keyboard_handler/uut/E[0]                          |                                            |                3 |             16 |
-+----------------------------------------+----------------------------------------------------+--------------------------------------------+------------------+----------------+
++----------------------------------------+--------------------------------------------------+--------------------------------------------+------------------+----------------+
+|              Clock Signal              |                   Enable Signal                  |              Set/Reset Signal              | Slice Load Count | Bel Load Count |
++----------------------------------------+--------------------------------------------------+--------------------------------------------+------------------+----------------+
+|  segDisp/genblk1[0].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[8].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[7].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_clk/clear                |                                            |                1 |              1 |
+|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_data/Iv_i_1__0_n_0       |                                            |                1 |              1 |
+|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_data/O_i_1__0_n_0        |                                            |                1 |              1 |
+|  segDisp/genblk1[5].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_clk/O_i_1_n_0            |                                            |                1 |              1 |
+|  segDisp/genblk1[16].fdiv/clkDiv_reg_0 |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[14].fdiv/clkDiv_reg_0 |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[15].fdiv/clkDiv_reg_0 |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[13].fdiv/clkDiv_reg_0 |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[12].fdiv/clkDiv_reg_0 |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[9].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[2].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[10].fdiv/clkDiv_reg_0 |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[1].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[11].fdiv/clkDiv_reg_0 |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[3].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[4].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[6].fdiv/clkDiv_reg_0  |                                                  |                                            |                1 |              1 |
+|  segDisp/genblk1[17].fdiv/CLK          |                                                  |                                            |                1 |              2 |
+| ~keyboard_handler/uut/db_clk/O_reg_0   | keyboard_handler/uut/cnt                         | keyboard_handler/uut/cnt[3]_i_1_n_0        |                1 |              4 |
+|  CLK50MHZ_BUFG                         | keyboard_handler/uut/db_data/count[4]_i_1__0_n_0 | keyboard_handler/uut/db_data/Iv_i_1__0_n_0 |                1 |              5 |
+|  p_tick                                |                                                  |                                            |                2 |              5 |
+|  CLK50MHZ_BUFG                         |                                                  |                                            |                3 |              7 |
+|  clk_IBUF_BUFG                         |                                                  |                                            |                6 |              7 |
+| ~keyboard_handler/uut/db_clk/O_reg_0   |                                                  |                                            |                3 |              9 |
+|  clk_IBUF_BUFG                         | image_handler/vga_sync_unit/v_count_reg0         |                                            |                4 |             10 |
+|  clk_IBUF_BUFG                         | p_tick                                           |                                            |                5 |             10 |
+|  CLK50MHZ_BUFG                         | keyboard_handler/uut/oflag_i_1_n_0               |                                            |                4 |             16 |
+|  clk_IBUF_BUFG                         | keyboard_handler/uut/E[0]                        |                                            |                4 |             16 |
+|  p_tick                                | image_handler/vga_sync_unit/text_pos_y           |                                            |               10 |             23 |
++----------------------------------------+--------------------------------------------------+--------------------------------------------+------------------+----------------+
 
 

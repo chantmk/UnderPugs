@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun May 17 11:53:13 2020
+| Date         : Mon May 18 14:31:38 2020
 | Host         : LAPTOP-N3N9V3PL running 64-bit major release  (build 9200)
 | Command      : report_methodology -file TopSystem_methodology_drc_routed.rpt -pb TopSystem_methodology_drc_routed.pb -rpx TopSystem_methodology_drc_routed.rpx
 | Design       : TopSystem
@@ -23,332 +23,472 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 81
+             Violations found: 113
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
-| TIMING-17 | Warning  | Non-clocked sequential cell   | 64         |
-| TIMING-18 | Warning  | Missing input or output delay | 17         |
+| TIMING-17 | Warning  | Non-clocked sequential cell   | 92         |
+| TIMING-18 | Warning  | Missing input or output delay | 21         |
 +-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 TIMING-17#1 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/cnt_reg[0]/C is not reached by a timing clock
+The clock pin image_handler/data_flag_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#2 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/cnt_reg[1]/C is not reached by a timing clock
+The clock pin image_handler/data_flag_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#3 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/cnt_reg[2]/C is not reached by a timing clock
+The clock pin image_handler/rgb_reg_reg[11]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#4 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/cnt_reg[3]/C is not reached by a timing clock
+The clock pin image_handler/rgb_reg_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#5 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/datacur_reg[0]/C is not reached by a timing clock
+The clock pin image_handler/rgb_reg_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#6 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/datacur_reg[1]/C is not reached by a timing clock
+The clock pin image_handler/rgb_reg_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#7 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/datacur_reg[2]/C is not reached by a timing clock
+The clock pin image_handler/rgb_reg_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#8 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/datacur_reg[3]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_x_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#9 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/datacur_reg[4]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_x_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#10 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/datacur_reg[5]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_x_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#11 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/datacur_reg[6]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_x_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#12 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/datacur_reg[7]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_x_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#13 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_clk/Iv_reg/C is not reached by a timing clock
+The clock pin image_handler/text_pos_x_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#14 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_clk/O_reg/C is not reached by a timing clock
+The clock pin image_handler/text_pos_x_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#15 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_clk/count_reg[0]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_x_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#16 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_clk/count_reg[1]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#17 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_clk/count_reg[2]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[0]_rep/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#18 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_clk/count_reg[3]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#19 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_clk/count_reg[4]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[1]_rep/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#20 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_data/Iv_reg/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[1]_rep__0/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#21 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_data/O_reg/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#22 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_data/count_reg[0]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[2]_rep/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#23 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_data/count_reg[1]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#24 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_data/count_reg[2]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[3]_rep/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#25 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_data/count_reg[3]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#26 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/db_data/count_reg[4]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[4]_rep/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#27 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/flag_reg/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#28 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[0]/C is not reached by a timing clock
+The clock pin image_handler/text_pos_y_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#29 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[10]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/cnt_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#30 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[11]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/cnt_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#31 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[12]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/cnt_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#32 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[13]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/cnt_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#33 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[14]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/datacur_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#34 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[15]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/datacur_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#35 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[1]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/datacur_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#36 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[2]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/datacur_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#37 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[3]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/datacur_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#38 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[4]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/datacur_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#39 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[5]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/datacur_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#40 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[6]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/datacur_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#41 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[7]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_clk/Iv_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#42 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[8]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_clk/O_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#43 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/keycode_reg[9]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_clk/count_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#44 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/oflag_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_clk/count_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#45 Warning
 Non-clocked sequential cell  
-The clock pin keyboard_handler/uut/pflag_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_clk/count_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#46 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[10].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_clk/count_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#47 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[11].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_clk/count_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#48 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[12].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_data/Iv_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#49 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[13].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_data/O_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#50 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[14].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_data/count_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#51 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[15].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_data/count_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#52 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[16].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_data/count_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#53 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[17].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_data/count_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#54 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[1].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/db_data/count_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#55 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[2].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/flag_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#56 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[3].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/keycode_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#57 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[4].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/keycode_reg[10]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#58 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[5].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/keycode_reg[11]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#59 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[6].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/keycode_reg[12]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#60 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[7].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/keycode_reg[13]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#61 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[8].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/keycode_reg[14]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#62 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[9].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/keycode_reg[15]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#63 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/q7seg/ps_reg[0]/C is not reached by a timing clock
+The clock pin keyboard_handler/uut/keycode_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#64 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/keycode_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#65 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/keycode_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#66 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/keycode_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#67 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/keycode_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#68 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/keycode_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#69 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/keycode_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#70 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/keycode_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#71 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/keycode_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#72 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/oflag_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#73 Warning
+Non-clocked sequential cell  
+The clock pin keyboard_handler/uut/pflag_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#74 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[10].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#75 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[11].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#76 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[12].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#77 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[13].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#78 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[14].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#79 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[15].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#80 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[16].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#81 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[17].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#82 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[1].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#83 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[2].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#84 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[3].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#85 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[4].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#86 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[5].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#87 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[6].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#88 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[7].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#89 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[8].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#90 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[9].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#91 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/q7seg/ps_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#92 Warning
 Non-clocked sequential cell  
 The clock pin segDisp/q7seg/ps_reg[1]/C is not reached by a timing clock
 Related violations: <none>
@@ -436,6 +576,26 @@ Related violations: <none>
 TIMING-18#17 Warning
 Missing input or output delay  
 An output delay is missing on vgaGreen[3] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An output delay is missing on vgaRed[0] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An output delay is missing on vgaRed[1] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An output delay is missing on vgaRed[2] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An output delay is missing on vgaRed[3] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 

@@ -20,18 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module startScreenROM #(parameter ADDR_WIDTH=8, DATA_WIDTH=144, DEPTH=128)(
+module startScreenROM (
     input clk
-    ,input [ADDR_WIDTH-1:0] addr_y
-    ,input [ADDR_WIDTH-1:0] addr_x
+    ,input [9:0] addr_y
+    ,input [9:0] addr_x
     ,input [1:0] data_flag
     ,output reg data
     );
     
-    reg [DATA_WIDTH-1:0] ids_array [DEPTH-1:0] ;
-    reg [DATA_WIDTH-1:0] names_array [DEPTH-1:0] ;
-    reg [DATA_WIDTH-1:0] title_array [DEPTH-1:0] ;
-    reg [DATA_WIDTH-1:0] group_array [DEPTH-1:0] ;
+    reg [135:0] ids_array [120:0] ;
+    reg [144:0] names_array [120:0] ;
+    reg [245:0] title_array [45:0] ;
+    reg [244:0] group_array [28:0] ;
     
     initial
     begin

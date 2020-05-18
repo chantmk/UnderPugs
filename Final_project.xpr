@@ -147,26 +147,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/HWProject/ids.data">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/ids.data"/>
-          <Attr Name="ImportTime" Val="1589716347"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/HWProject/names.data">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/names.data"/>
-          <Attr Name="ImportTime" Val="1589716318"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/HWProject/title.data">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/title.data"/>
-          <Attr Name="ImportTime" Val="1589726254"/>
+          <Attr Name="ImportTime" Val="1589786600"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -174,7 +158,23 @@
       <File Path="$PSRCDIR/sources_1/imports/HWProject/group.data">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/group.data"/>
-          <Attr Name="ImportTime" Val="1589726187"/>
+          <Attr Name="ImportTime" Val="1589786531"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/HWProject/ids.data">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/ids.data"/>
+          <Attr Name="ImportTime" Val="1589786552"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/HWProject/names.data">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/names.data"/>
+          <Attr Name="ImportTime" Val="1589786578"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

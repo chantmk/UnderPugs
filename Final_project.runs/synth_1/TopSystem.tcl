@@ -17,8 +17,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache C:/Users/chan_/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-2272-LAPTOP-N3N9V3PL/incrSyn
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
@@ -33,6 +33,12 @@ set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
 set_property ip_output_repo d:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
+read_mem {
+  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/HWProject/title.data
+  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/HWProject/group.data
+  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/HWProject/ids.data
+  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/HWProject/names.data
+}
 read_verilog -library xil_defaultlib {
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/hdl/PS2Receiver.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/clockDivider.v
@@ -41,6 +47,7 @@ read_verilog -library xil_defaultlib {
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/quad2SevenSeg.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/segmentDec.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/sevenSeg.v
+  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/startScreenROM.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/vga.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/vga_sync.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v

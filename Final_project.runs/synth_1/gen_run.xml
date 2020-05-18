@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1589691059">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1589786969">
   <File Type="PA-TCL" Name="TopSystem.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="TopSystem_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="TopSystem_reports.tcl"/>
@@ -70,6 +70,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/startScreenROM.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/vga.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -88,6 +95,38 @@
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HWProject/title.data">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/title.data"/>
+        <Attr Name="ImportTime" Val="1589786600"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HWProject/group.data">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/group.data"/>
+        <Attr Name="ImportTime" Val="1589786531"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HWProject/ids.data">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/ids.data"/>
+        <Attr Name="ImportTime" Val="1589786552"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/HWProject/names.data">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/names.data"/>
+        <Attr Name="ImportTime" Val="1589786578"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
