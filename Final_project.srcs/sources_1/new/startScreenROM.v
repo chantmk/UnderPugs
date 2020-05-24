@@ -28,10 +28,10 @@ module startScreenROM (
     ,output reg data
     );
     
-    reg [135:0] ids_array [120:0] ;
-    reg [144:0] names_array [120:0] ;
-    reg [245:0] title_array [45:0] ;
-    reg [244:0] group_array [28:0] ;
+    reg [0:135] ids_array [120:0] ;
+    reg [0:144] names_array [120:0] ;
+    reg [0:245] title_array [45:0] ;
+    reg [0:244] group_array [28:0] ;
     
     initial
     begin

@@ -64,8 +64,6 @@ module startScreen(
     if(x>=TITLE_POS_X & x<=TITLE_POS_X+TITLE_WIDTH & y>=TITLE_POS_Y & y<=TITLE_POS_Y+TITLE_HEIGHT)
     begin
         data_flag <= 2'b00;
-//      text_pos_x <= TITLE_POS_X -x ;
-//      text_pos_y <= TITLE_POS_Y -y ;
         text_pos_x <= x - TITLE_POS_X ;
         text_pos_y <= y - TITLE_POS_Y ; 
         case(color_flag)
@@ -77,7 +75,6 @@ module startScreen(
     begin
         data_flag <= 2'b01;
         text_pos_x <= x - NAME_BLOCK_POS_X ;
-//      text_pos_x <= NAME_BLOCK_POS_X - x ;
         text_pos_y <= y - NAME_BLOCK_POS_Y ; 
         case(color_flag)
         0: rgb_reg <= BG_COLOR;
@@ -88,7 +85,6 @@ module startScreen(
     begin
         data_flag <= 2'b10;
         text_pos_x <= x - ID_BLOCK_POS_X ;
-//      text_pos_x <= ID_BLOCK_POS_X - x;
         text_pos_y <= y - ID_BLOCK_POS_Y ; 
         case(color_flag)
         0: rgb_reg <= BG_COLOR;
@@ -99,7 +95,6 @@ module startScreen(
     begin
         data_flag=2'b11;
         text_pos_x <= x-GROUP_BLOCK_POS_X ;
-//      text_pos_x <= GROUP_BLOCK_POS_X - x ;
         text_pos_y <= y-GROUP_BLOCK_POS_Y ; 
         case(color_flag)
         0: rgb_reg <= BG_COLOR;
