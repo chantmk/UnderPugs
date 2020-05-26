@@ -61,6 +61,11 @@ module TopSystem(
         .clk(clk),
         .reset(reset),
 	    .screen_state(state),
+	    .xPlayer(xPlayer),
+	    .yPlayer(yPlayer),
+	    .hpPlayer(hpPlayer),
+	    .hpMonster(hpMonster),
+	    .pos(pos),
         .Hsync(Hsync),
         .Vsync(Vsync),
         .vgaRed(vgaRed),
@@ -68,11 +73,15 @@ module TopSystem(
         .vgaBlue(vgaBlue)
     );
     /*--logic--*/
-//    game_logic logic(
-//        .clk(clk),
-//        .key(key),
-//        .state(state),
-//        .reset(reset)
-//    );
+    game_logic logic(
+        .clk(clk),
+        .key(key),
+        .state(state),
+        .reset(reset),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .hpPlayer(hpPlayer),
+        .hpMonster(hpMonster)
+    );
     
 endmodule

@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun May 17 13:12:25 2020
+# Process ID: 6092
+# Current directory: D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5876 D:\ThammakornK\Documents\Chula\3_Junior\2\HW_Lab\HWProject\Final_project.xpr
+# Log file: D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/vivado.log
+# Journal file: D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.xpr
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+refresh_design
+refresh_design
+close_design
+close [ open D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/startScreenROM.v w ]
+add_files D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/startScreenROM.v
+update_compile_order -fileset sources_1
+add_files -norecurse -scan_for_includes {D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/ids.data D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/names.data}
+import_files -norecurse {D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/ids.data D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/names.data}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+close_design
+add_files -norecurse -scan_for_includes {D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/title.data D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/group.data}
+import_files -norecurse {D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/title.data D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/group.data}

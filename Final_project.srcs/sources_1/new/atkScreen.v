@@ -70,7 +70,7 @@ module atkScreen(
     end
     else
     begin
-        if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end//green
+        if( (x-xPlayer)**2+(y-yPlayer)**2 <=100**2) begin rgb <= 12'b000011110000; end//green
         else begin rgb <= 12'b000000000000 ; end
     end
     end
