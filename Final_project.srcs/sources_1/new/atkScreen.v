@@ -31,33 +31,42 @@ module atkScreen(
     ,output reg [11:0] rgb
     );
     
-    localparam HEART_POSX = 0;
-    localparam HEART_POSY = 0;
-    localparam HEALTHBAR_POSX = 0;
-    localparam HEALTHBAR_POSy = 0;
-    localparam HEALTHBAR_WIDTH = 0;
-    localparam HEALTHBAR_HEIGHT = 0;
-    localparam ATKBOX_POSX = 0;
-    localparam ATKBOX_POSY = 0;
-    localparam ATKBOX_WIDTH = 0;
-    localparam ATKBOX_HEGIHT = 0;
-    localparam BAR1X1 = 0;
-    localparam BAR1X2 = 0;
-    localparam BAR2X1 = 0;
-    localparam BAR2X2 = 0;
-    localparam BAR3X1 = 0;
-    localparam BAR3X2 = 0;
-    localparam BAR4X1 = 0;
-    localparam BAR4X2 = 0;
-    localparam BAR5X1 = 0;
-    localparam BAR5X2 = 0;
+    localparam STANDARD_SIZE = 16;
+    localparam HEART_POSX = 206; // Heart pos for left-top corner
+    localparam HEART_POSY = 66;  // Heart use standard size(ss)
+    localparam HEALTHBAR_POSX = 234;
+    localparam HEALTHBAR_POSy = 66;
+    localparam HEALTHBAR_WIDTH = 200; // H=ss
+    localparam MONSTER_POSX = 275;
+    localparam MONSTER_POSY = 102;
+    localparam MONSTER_WIDTH = 89;
+    localparam MONSTER_HEGIHT = 128;
+    localparam ATKBOX_POSX = 96; //border = 3
+    localparam ATKBOX_POSY = 266;
+    localparam ATKBOX_WIDTH = 448;
+    localparam ATKBOX_HEGIHT = 120;
+    localparam POINTER_HEIGHT = 0;
+    localparam POINTER_CORNEROFFSET = 0;
+    localparam BAR1X = 0;
+    localparam BAR1OFFSET = 0;
+    localparam BAR2X = 0;
+    localparam BAR2OFFSET = 0;
+    localparam BAR3X = 0;
+    localparam BAR3OFFSET = 0;
+    localparam BAR4X = 0;
+    localparam BAR4OFFSET = 0;
+    
 
-    localparam ENABLE = 0;
+    parameter ENABLE = 0;
     
     always @(p_tick)
     begin
     if(ENABLE)
     begin
+        if(ENABLE)
+        begin
+        end
+        else rgb <= 12'b000000000000;
     end
     else
     begin
