@@ -30,9 +30,39 @@ module atkScreen(
     ,input hpMonster
     ,output reg [11:0] rgb
     );
+    
+    localparam HEART_POSX = 0;
+    localparam HEART_POSY = 0;
+    localparam HEALTHBAR_POSX = 0;
+    localparam HEALTHBAR_POSy = 0;
+    localparam HEALTHBAR_WIDTH = 0;
+    localparam HEALTHBAR_HEIGHT = 0;
+    localparam ATKBOX_POSX = 0;
+    localparam ATKBOX_POSY = 0;
+    localparam ATKBOX_WIDTH = 0;
+    localparam ATKBOX_HEGIHT = 0;
+    localparam BAR1X1 = 0;
+    localparam BAR1X2 = 0;
+    localparam BAR2X1 = 0;
+    localparam BAR2X2 = 0;
+    localparam BAR3X1 = 0;
+    localparam BAR3X2 = 0;
+    localparam BAR4X1 = 0;
+    localparam BAR4X2 = 0;
+    localparam BAR5X1 = 0;
+    localparam BAR5X2 = 0;
+
+    localparam ENABLE = 0;
+    
     always @(p_tick)
     begin
-    if( (x-xPlayer)**2+(y-yPlayer)**2 <=100**2) begin rgb <= 12'b000011110000; end//green
-    else begin rgb <= 12'b000000000000 ; end
+    if(ENABLE)
+    begin
+    end
+    else
+    begin
+        if( (x-xPlayer)**2+(y-yPlayer)**2 <=100**2) begin rgb <= 12'b000011110000; end//green
+        else begin rgb <= 12'b000000000000 ; end
+    end
     end
 endmodule
