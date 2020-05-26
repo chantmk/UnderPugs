@@ -54,7 +54,7 @@ module TopSystem(
         .dp(dp)
     );
     
-    wire state;
+    reg [2:0] state=3'b011;
     wire reset;
     /*--vga--*/
     vga image_handler(

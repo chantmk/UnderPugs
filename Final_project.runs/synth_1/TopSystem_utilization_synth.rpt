@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun May 24 10:54:27 2020
+| Date         : Tue May 26 21:04:01 2020
 | Host         : LAPTOP-N3N9V3PL running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TopSystem_utilization_synth.rpt -pb TopSystem_utilization_synth.pb
 | Design       : TopSystem
@@ -30,14 +30,14 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  549 |     0 |     20800 |  2.64 |
-|   LUT as Logic          |  549 |     0 |     20800 |  2.64 |
+| Slice LUTs*             |  190 |     0 |     20800 |  0.91 |
+|   LUT as Logic          |  190 |     0 |     20800 |  0.91 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |  143 |     0 |     41600 |  0.34 |
-|   Register as Flip Flop |  143 |     0 |     41600 |  0.34 |
+| Slice Registers         |  107 |     0 |     41600 |  0.26 |
+|   Register as Flip Flop |  107 |     0 |     41600 |  0.26 |
 |   Register as Latch     |    0 |     0 |     41600 |  0.00 |
-| F7 Muxes                |   55 |     0 |     16300 |  0.34 |
-| F8 Muxes                |   10 |     0 |      8150 |  0.12 |
+| F7 Muxes                |    0 |     0 |     16300 |  0.00 |
+| F8 Muxes                |    0 |     0 |      8150 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 143   |          Yes |       Reset |            - |
+| 107   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -77,11 +77,12 @@ Table of Contents
 3. DSP
 ------
 
-+-----------+------+-------+-----------+-------+
-| Site Type | Used | Fixed | Available | Util% |
-+-----------+------+-------+-----------+-------+
-| DSPs      |    0 |     0 |        90 |  0.00 |
-+-----------+------+-------+-----------+-------+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Fixed | Available | Util% |
++----------------+------+-------+-----------+-------+
+| DSPs           |    6 |     0 |        90 |  6.67 |
+|   DSP48E1 only |    6 |       |           |       |
++----------------+------+-------+-----------+-------+
 
 
 4. IO and GT Specific
@@ -149,17 +150,16 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  363 |                 LUT |
-| FDRE     |  143 |        Flop & Latch |
-| LUT5     |  116 |                 LUT |
-| LUT4     |   60 |                 LUT |
-| MUXF7    |   55 |               MuxFx |
-| LUT2     |   30 |                 LUT |
-| LUT3     |   28 |                 LUT |
-| LUT1     |   28 |                 LUT |
+| FDRE     |  107 |        Flop & Latch |
+| LUT2     |   81 |                 LUT |
+| LUT1     |   44 |                 LUT |
+| LUT6     |   41 |                 LUT |
 | OBUF     |   26 |                  IO |
-| MUXF8    |   10 |               MuxFx |
-| CARRY4   |    6 |          CarryLogic |
+| CARRY4   |   24 |          CarryLogic |
+| LUT4     |   22 |                 LUT |
+| LUT5     |   15 |                 LUT |
+| LUT3     |    9 |                 LUT |
+| DSP48E1  |    6 |    Block Arithmetic |
 | IBUF     |    3 |                  IO |
 | BUFG     |    2 |               Clock |
 +----------+------+---------------------+

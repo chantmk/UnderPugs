@@ -38,6 +38,7 @@ read_mem {
 }
 read_verilog -library xil_defaultlib {
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/hdl/PS2Receiver.v
+  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/atkScreen.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/clockDivider.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/hdl/debouncer.v
   D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/kb_top.v
