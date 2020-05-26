@@ -2,24 +2,25 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Tue May 26 21:03:16 2020
-# Process ID: 15532
+# Start of session at: Tue May 26 22:00:59 2020
+# Process ID: 16388
 # Current directory: D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.runs/synth_1
 # Command line: vivado.exe -log TopSystem.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TopSystem.tcl
 # Log file: D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.runs/synth_1/TopSystem.vds
 # Journal file: D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source TopSystem.tcl -notrace
+create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 320.336 ; gain = 82.383
 Command: synth_design -top TopSystem -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9836 
+INFO: Helper process launched with PID 17296 
 WARNING: [Synth 8-2611] redeclaration of ansi port clkDiv is not allowed [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/clockDivider.v:26]
 WARNING: [Synth 8-2611] redeclaration of ansi port seg is not allowed [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/segmentDec.v:28]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 443.688 ; gain = 110.387
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 443.988 ; gain = 110.637
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'TopSystem' [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:23]
 INFO: [Synth 8-6157] synthesizing module 'kb_top' [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/kb_top.v:23]
@@ -128,6 +129,7 @@ INFO: [Synth 8-155] case statement is not full and has no default [D:/Thammakorn
 INFO: [Synth 8-6155] done synthesizing module 'vga' (12#1) [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/vga.v:23]
 WARNING: [Synth 8-350] instance 'image_handler' of module 'vga' requires 13 connections, but only 8 given [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:60]
 WARNING: [Synth 8-3848] Net reset in module/entity TopSystem does not have driver. [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:58]
+WARNING: [Synth 8-3848] Net state in module/entity TopSystem does not have driver. [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:57]
 INFO: [Synth 8-6155] done synthesizing module 'TopSystem' (13#1) [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:23]
 WARNING: [Synth 8-3331] design atkScreen has unconnected port clk
 WARNING: [Synth 8-3331] design atkScreen has unconnected port p_tick
@@ -142,7 +144,7 @@ WARNING: [Synth 8-3331] design vga has unconnected port yPlayer[10]
 WARNING: [Synth 8-3331] design vga has unconnected port hpPlayer
 WARNING: [Synth 8-3331] design vga has unconnected port pos
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 478.820 ; gain = 145.520
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 479.410 ; gain = 146.059
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -152,6 +154,9 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 WARNING: [Synth 8-3295] tying undriven pin image_handler:reset to constant 0 [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:60]
+WARNING: [Synth 8-3295] tying undriven pin image_handler:screen_state[2] to constant 0 [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:60]
+WARNING: [Synth 8-3295] tying undriven pin image_handler:screen_state[1] to constant 0 [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:60]
+WARNING: [Synth 8-3295] tying undriven pin image_handler:screen_state[0] to constant 0 [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:60]
 WARNING: [Synth 8-3295] tying undriven pin image_handler:xPlayer[9] to constant 0 [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:60]
 WARNING: [Synth 8-3295] tying undriven pin image_handler:xPlayer[8] to constant 0 [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:60]
 WARNING: [Synth 8-3295] tying undriven pin image_handler:xPlayer[7] to constant 0 [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:60]
@@ -177,10 +182,10 @@ WARNING: [Synth 8-3295] tying undriven pin image_handler:hpMonster to constant 0
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 478.820 ; gain = 145.520
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 479.410 ; gain = 146.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 478.820 ; gain = 145.520
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 479.410 ; gain = 146.059
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -191,30 +196,30 @@ Parsing XDC File [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Fin
 Finished Parsing XDC File [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TopSystem_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/TopSystem_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 819.926 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 818.148 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 819.934 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 818.148 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 819.934 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 819.934 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 818.148 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 818.148 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 819.934 ; gain = 486.633
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 818.148 ; gain = 484.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 819.934 ; gain = 486.633
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 818.148 ; gain = 484.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 819.934 ; gain = 486.633
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 818.148 ; gain = 484.797
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "O" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "count" won't be mapped to RAM because it is too sparse
@@ -224,7 +229,7 @@ INFO: [Synth 8-5546] ROM "names_array" won't be mapped to RAM because it is too 
 INFO: [Synth 8-5546] ROM "ids_array" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "group_array" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 819.934 ; gain = 486.633
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 818.148 ; gain = 484.797
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -429,19 +434,22 @@ INFO: [Synth 8-3886] merging instance 'keyboard_handler/uut/dataprev_reg[4]' (FD
 INFO: [Synth 8-3886] merging instance 'keyboard_handler/uut/dataprev_reg[5]' (FDE) to 'keyboard_handler/uut/keycode_reg[5]'
 INFO: [Synth 8-3886] merging instance 'keyboard_handler/uut/dataprev_reg[6]' (FDE) to 'keyboard_handler/uut/keycode_reg[6]'
 INFO: [Synth 8-3886] merging instance 'keyboard_handler/uut/dataprev_reg[7]' (FDE) to 'keyboard_handler/uut/keycode_reg[7]'
-INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[0]' (FDE) to 'image_handler/rgb_reg_reg[11]'
-INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[1]' (FDE) to 'image_handler/rgb_reg_reg[11]'
-INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[2]' (FDE) to 'image_handler/rgb_reg_reg[11]'
-INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[3]' (FDE) to 'image_handler/rgb_reg_reg[11]'
+INFO: [Synth 8-3886] merging instance 'image_handler/ss/rgb_reg_reg[0]' (FDR) to 'image_handler/ss/rgb_reg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'image_handler/ss/rgb_reg_reg[1]' (FDR) to 'image_handler/ss/rgb_reg_reg[2]'
+INFO: [Synth 8-3886] merging instance 'image_handler/ss/rgb_reg_reg[4]' (FDR) to 'image_handler/ss/rgb_reg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'image_handler/ss/rgb_reg_reg[6]' (FDR) to 'image_handler/ss/rgb_reg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'image_handler/ss/rgb_reg_reg[8]' (FDR) to 'image_handler/ss/rgb_reg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'image_handler/ss/rgb_reg_reg[9]' (FDR) to 'image_handler/ss/rgb_reg_reg[10]'
+INFO: [Synth 8-3886] merging instance 'image_handler/ss/rgb_reg_reg[10]' (FDR) to 'image_handler/ss/rgb_reg_reg[11]'
+INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[0]' (FDE) to 'image_handler/rgb_reg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[1]' (FDE) to 'image_handler/rgb_reg_reg[2]'
 INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[4]' (FDE) to 'image_handler/rgb_reg_reg[5]'
-INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[5]' (FDE) to 'image_handler/rgb_reg_reg[6]'
 INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[6]' (FDE) to 'image_handler/rgb_reg_reg[7]'
-INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[8]' (FDE) to 'image_handler/rgb_reg_reg[11]'
-INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[9]' (FDE) to 'image_handler/rgb_reg_reg[11]'
+INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[8]' (FDE) to 'image_handler/rgb_reg_reg[10]'
+INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[9]' (FDE) to 'image_handler/rgb_reg_reg[10]'
 INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[10]' (FDE) to 'image_handler/rgb_reg_reg[11]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\image_handler/rgb_reg_reg[11] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 819.934 ; gain = 486.633
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:29 . Memory (MB): peak = 818.148 ; gain = 484.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -475,13 +483,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 857.629 ; gain = 524.328
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:39 . Memory (MB): peak = 820.492 ; gain = 487.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 880.047 ; gain = 546.746
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:42 . Memory (MB): peak = 865.078 ; gain = 531.727
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -493,7 +501,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 880.938 ; gain = 547.637
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:43 . Memory (MB): peak = 870.938 ; gain = 537.586
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -517,7 +525,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 880.938 ; gain = 547.637
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:44 . Memory (MB): peak = 870.938 ; gain = 537.586
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -530,7 +538,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 880.938 ; gain = 547.637
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:44 . Memory (MB): peak = 870.938 ; gain = 537.586
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -542,25 +550,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 880.938 ; gain = 547.637
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:44 . Memory (MB): peak = 870.938 ; gain = 537.586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 880.938 ; gain = 547.637
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:44 . Memory (MB): peak = 870.938 ; gain = 537.586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 880.938 ; gain = 547.637
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 870.938 ; gain = 537.586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 880.938 ; gain = 547.637
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 870.938 ; gain = 537.586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -573,78 +581,80 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+--------+------+
-|      |Cell    |Count |
-+------+--------+------+
-|1     |BUFG    |     2|
-|2     |CARRY4  |    24|
-|3     |DSP48E1 |     6|
-|4     |LUT1    |    44|
-|5     |LUT2    |    81|
-|6     |LUT3    |     9|
-|7     |LUT4    |    22|
-|8     |LUT5    |    15|
-|9     |LUT6    |    41|
-|10    |FDRE    |   107|
-|11    |IBUF    |     3|
-|12    |OBUF    |    26|
-+------+--------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |     6|
+|3     |LUT1   |    28|
+|4     |LUT2   |    30|
+|5     |LUT3   |    28|
+|6     |LUT4   |    60|
+|7     |LUT5   |   116|
+|8     |LUT6   |   363|
+|9     |MUXF7  |    55|
+|10    |MUXF8  |    10|
+|11    |FDRE   |   143|
+|12    |IBUF   |     3|
+|13    |OBUF   |    26|
++------+-------+------+
 
 Report Instance Areas: 
 +------+-----------------------+----------------+------+
 |      |Instance               |Module          |Cells |
 +------+-----------------------+----------------+------+
-|1     |top                    |                |   380|
-|2     |  image_handler        |vga             |   178|
-|3     |    as                 |atkScreen       |    98|
-|4     |    vga_sync_unit      |vga_sync        |    79|
-|5     |  keyboard_handler     |kb_top          |   127|
-|6     |    uut                |PS2Receiver     |    95|
-|7     |      db_clk           |debouncer       |    15|
-|8     |      db_data          |debouncer_17    |    16|
-|9     |  segDisp              |sevenSeg        |    44|
-|10    |    \genblk1[0].fdiv   |clockDivider    |     2|
-|11    |    \genblk1[10].fdiv  |clockDivider_0  |     2|
-|12    |    \genblk1[11].fdiv  |clockDivider_1  |     2|
-|13    |    \genblk1[12].fdiv  |clockDivider_2  |     2|
-|14    |    \genblk1[13].fdiv  |clockDivider_3  |     2|
-|15    |    \genblk1[14].fdiv  |clockDivider_4  |     2|
-|16    |    \genblk1[15].fdiv  |clockDivider_5  |     2|
-|17    |    \genblk1[16].fdiv  |clockDivider_6  |     2|
-|18    |    \genblk1[17].fdiv  |clockDivider_7  |     2|
-|19    |    \genblk1[1].fdiv   |clockDivider_8  |     2|
-|20    |    \genblk1[2].fdiv   |clockDivider_9  |     2|
-|21    |    \genblk1[3].fdiv   |clockDivider_10 |     2|
-|22    |    \genblk1[4].fdiv   |clockDivider_11 |     2|
-|23    |    \genblk1[5].fdiv   |clockDivider_12 |     2|
-|24    |    \genblk1[6].fdiv   |clockDivider_13 |     2|
-|25    |    \genblk1[7].fdiv   |clockDivider_14 |     2|
-|26    |    \genblk1[8].fdiv   |clockDivider_15 |     2|
-|27    |    \genblk1[9].fdiv   |clockDivider_16 |     2|
-|28    |    q7seg              |quad2SevenSeg   |     8|
+|1     |top                    |                |   870|
+|2     |  image_handler        |vga             |   668|
+|3     |    ss                 |startScreen     |   541|
+|4     |      ssROM            |startScreenROM  |   506|
+|5     |    vga_sync_unit      |vga_sync        |   122|
+|6     |  keyboard_handler     |kb_top          |   127|
+|7     |    uut                |PS2Receiver     |    95|
+|8     |      db_clk           |debouncer       |    15|
+|9     |      db_data          |debouncer_17    |    16|
+|10    |  segDisp              |sevenSeg        |    44|
+|11    |    \genblk1[0].fdiv   |clockDivider    |     2|
+|12    |    \genblk1[10].fdiv  |clockDivider_0  |     2|
+|13    |    \genblk1[11].fdiv  |clockDivider_1  |     2|
+|14    |    \genblk1[12].fdiv  |clockDivider_2  |     2|
+|15    |    \genblk1[13].fdiv  |clockDivider_3  |     2|
+|16    |    \genblk1[14].fdiv  |clockDivider_4  |     2|
+|17    |    \genblk1[15].fdiv  |clockDivider_5  |     2|
+|18    |    \genblk1[16].fdiv  |clockDivider_6  |     2|
+|19    |    \genblk1[17].fdiv  |clockDivider_7  |     2|
+|20    |    \genblk1[1].fdiv   |clockDivider_8  |     2|
+|21    |    \genblk1[2].fdiv   |clockDivider_9  |     2|
+|22    |    \genblk1[3].fdiv   |clockDivider_10 |     2|
+|23    |    \genblk1[4].fdiv   |clockDivider_11 |     2|
+|24    |    \genblk1[5].fdiv   |clockDivider_12 |     2|
+|25    |    \genblk1[6].fdiv   |clockDivider_13 |     2|
+|26    |    \genblk1[7].fdiv   |clockDivider_14 |     2|
+|27    |    \genblk1[8].fdiv   |clockDivider_15 |     2|
+|28    |    \genblk1[9].fdiv   |clockDivider_16 |     2|
+|29    |    q7seg              |quad2SevenSeg   |     8|
 +------+-----------------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 880.938 ; gain = 547.637
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 870.938 ; gain = 537.586
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 880.938 ; gain = 206.523
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 880.938 ; gain = 547.637
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:35 . Memory (MB): peak = 870.938 ; gain = 198.848
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 870.938 ; gain = 537.586
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 30 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 71 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 880.938 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 870.938 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-72 Infos, 59 Warnings, 0 Critical Warnings and 0 Errors encountered.
+75 Infos, 63 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 880.938 ; gain = 560.516
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 880.938 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:48 . Memory (MB): peak = 870.938 ; gain = 550.602
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 870.938 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.runs/synth_1/TopSystem.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TopSystem_utilization_synth.rpt -pb TopSystem_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue May 26 21:04:01 2020...
+INFO: [Common 17-206] Exiting Vivado at Tue May 26 22:02:09 2020...
