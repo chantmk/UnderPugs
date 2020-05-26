@@ -23,7 +23,12 @@
 module vga(
 	input clk
 	,input  reset
-	,input screen_state
+	,input [2:0] screen_state
+	,input [11:0] xPlayer
+	,input [11:0] yPlayer
+	,input hpPlayer
+	,input hpMonster
+	,input pos
     ,output Hsync
     ,output Vsync
     ,output [3:0] vgaRed
@@ -84,17 +89,16 @@ module vga(
 //    );
 
     wire [11:0] rgb_atk = BG_COLOR;
-//    atkscreen as(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .hpPlayer(hpPlayer),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .hpMonster(hpMonster),
-//        .rgb(rgb_atk)
-//    );
+    atkscreen as(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .hpMonster(hpMonster),
+        .rgb(rgb_atk)
+    );
 
     wire [11:0] rgb_def = BG_COLOR;
 //    defScreen ds(

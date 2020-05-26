@@ -25,10 +25,14 @@ module atkScreen(
     ,input p_tick
     ,input [9:0] x
     ,input [9:0] y
-    ,input hpPlayer
-    ,input xPlayer
-    ,input yPlayer
+    ,input [9:0] xPlayer
+    ,input [9:0] yPlayer
     ,input hpMonster
-    ,output rgb
+    ,output reg [11:0] rgb
     );
+    always @(p_tick)
+    begin
+    if( (x-xPlayer)**2+(y-yPlayer)**2 <=100**2) begin rgb <= 12'b000011110000; end//green
+    else begin rgb <= 12'b000000000000 ; end
+    end
 endmodule
