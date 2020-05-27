@@ -33,10 +33,15 @@ module atkState(
     reg [11:0] xCurrent;
     reg [11:0] yCurrent;
     reg [6:0] VhpMonster;
+    wire tClk;
+    reg left_right;
+    reg stop;
     
     initial begin 
-        xCurrent = 200;
-        yCurrent = 200;
+        xCurrent = 320;
+        yCurrent = 393;
+        stop = 0;
+        left_right = 1; //right
     end
     
     assign xPlayer = xCurrent;
@@ -45,11 +50,27 @@ module atkState(
     always @(posedge tClk)
         begin
         case(direction)
-            5'b00001: xCurrent <= xCurrent-1;//left A
-            5'b00010: yCurrent <= yCurrent-1;//W
-            5'b00100: yCurrent <= yCurrent+1;//D
-            5'b01000: xCurrent <= xCurrent+1;//D
-            5'b10000: xCurrent <= xCurrent;//Spacebar  
+            5'b10000: begin
+                xCurrent <= xCurrent;//Spacebar  
+                stop = 1; end
         endcase
+        if (!stop)begin
+            if (left_right == 1)//right
+                begin 
+                    xCurrent <= xCurrent+1;
+                    if (xCurrent == 544)
+                        begin
+                            left_right = 0; //left
+                        end
+                end
+            else if (left_right == 0) //left
+                begin
+                    xCurrent <= xCurrent-1;
+                    if (xCurrent == 96)
+                        begin
+                            left_right = 1; //right
+                        end
+                end
+        end
     end
 endmodule
