@@ -38,13 +38,16 @@ module game_logic(
     assign state = Vstate;
     
     initial begin
-        Vstate <= 3;
+        Vstate <= 4;
         direction <= 5'b00000;
     end
     
-    
-    //wire [2:0] Ostate = Vstate;
-    
+    wire Ostate = Vstate;
+    wire game_clk;
+    clockDiv clkDiv(
+        .clock_in(clk),
+        .clock_out(game_clk)
+    );
     always @(posedge clk)
         begin
             case(key[7:0])
@@ -55,13 +58,21 @@ module game_logic(
             8'h29: direction = 5'b10000;//spacebar   
             endcase
         end
-     atkState superatk( .clk(clk),
+//     atkState superatk( .clk(clk),
+//                    .game_clk(game_clk),
+//                    .direction(direction),
+//                    .reset(reset),
+//                    .xPlayer(xPlayer),
+//                    .yPlayer(yPlayer),
+//                    .hpPlayer(hpPlayer),
+//                    .hpMonster(hpMonster));
+     defState superdef( .clk(clk),
+                    .game_clk(game_clk),
                     .direction(direction),
                     .reset(reset),
                     .xPlayer(xPlayer),
                     .yPlayer(yPlayer),
                     .hpPlayer(hpPlayer),
                     .hpMonster(hpMonster));
-     
      
 endmodule

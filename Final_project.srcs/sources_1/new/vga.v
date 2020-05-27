@@ -101,17 +101,17 @@ module vga(
     );
 
     wire [11:0] rgb_def;
-//    defScreen ds(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .hpPlayer(hpPlayer),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .hpMonster(hpMonster),
-//        .rgb(rgb_def)
-//    );
+    defScreen ds(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .hpPlayer(hpPlayer),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .hpMonster(hpMonster),
+        .rgb(rgb_def)
+    );
 
         // rgb buffer
         always @(posedge clk)

@@ -22,6 +22,7 @@
 
 module atkState(
      input clk
+    ,input game_clk
     ,input [4:0]direction
     ,input [3:0]state
     ,output reset
@@ -33,7 +34,6 @@ module atkState(
     reg [11:0] xCurrent;
     reg [11:0] yCurrent;
     reg [6:0] VhpMonster;
-    wire tClk;
     reg left_right;
     reg stop;
     
@@ -46,9 +46,8 @@ module atkState(
     
     assign xPlayer = xCurrent;
     assign yPlayer = yCurrent;
-    clockDiv cDiv(clk,tClk);
     
-    always @(posedge tClk || direction)
+    always @(posedge game_clk || direction)
         begin
             case(direction)
             5'b10000: begin
@@ -57,7 +56,7 @@ module atkState(
             endcase
         end
     
-    always @(posedge tClk)
+    always @(posedge game_clk)
         begin
         if (!stop)
         begin
@@ -78,9 +77,5 @@ module atkState(
                         end
                 end
         end
-        else if (stop)
-            begin
-            //TODO: compute damage and attack 
-            end
     end
 endmodule

@@ -22,8 +22,9 @@
 
 module defState(
         input clk
+        ,input game_clk
         ,input [4:0]direction
-        ,input [3:0]state
+        ,input [2:0]state
         ,input [2:0]bullet
         ,output reset
         ,output [11:0] xPlayer
@@ -44,11 +45,10 @@ module defState(
     
     assign xPlayer = xCurrent;
     assign yPlayer = yCurrent;
-    clockDiv cDiv(clk,tClk);
     
     
    
-    always @(posedge tClk)
+    always @(posedge game_clk)
         begin
         case(direction)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
             5'b00001: 
