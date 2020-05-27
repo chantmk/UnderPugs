@@ -16,7 +16,7 @@ set rt::rc [catch {
     set rt::cmdEcho 0
     rt::set_parameter writeXmsg true
     rt::set_parameter enableParallelHelperSpawn true
-    set ::env(RT_TMP) "D:/HWLabProject/HWProject/.Xil/Vivado-11180-DESKTOP-U6NGQK0/realtime/tmp"
+    set ::env(RT_TMP) "D:/Vivado/HWProject/.Xil/Vivado-6628-DESKTOP-VBJV3Q3/realtime/tmp"
     if { [ info exists ::env(RT_TMP) ] } {
       file delete -force $::env(RT_TMP)
       file mkdir $::env(RT_TMP)
@@ -33,23 +33,23 @@ set rt::rc [catch {
 
     set rt::useElabCache false
     if {$rt::useElabCache == false} {
-      rt::read_verilog -include D:/HWLabProject/HWProject/Final_project.srcs/sources_1/imports/HWProject {
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/imports/hdl/PS2Receiver.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/atkScreen.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/atkState.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/clockDiv.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/imports/new/clockDivider.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/imports/hdl/debouncer.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/game_logic.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/kb_top.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/imports/new/quad2SevenSeg.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/imports/new/segmentDec.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/sevenSeg.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/startScreen.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/startScreenROM.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/vga.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/vga_sync.v
-      D:/HWLabProject/HWProject/Final_project.srcs/sources_1/new/TopSystem.v
+      rt::read_verilog -include D:/Vivado/HWProject/Final_project.srcs/sources_1/imports/HWProject {
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/imports/hdl/PS2Receiver.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/atkScreen.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/atkState.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/clockDiv.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/imports/new/clockDivider.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/imports/hdl/debouncer.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/game_logic.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/kb_top.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/imports/new/quad2SevenSeg.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/imports/new/segmentDec.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/sevenSeg.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/startScreen.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/startScreenROM.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/vga.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/vga_sync.v
+      D:/Vivado/HWProject/Final_project.srcs/sources_1/new/TopSystem.v
     }
       rt::filesetChecksum
     }
@@ -67,7 +67,7 @@ set rt::rc [catch {
     rt::set_parameter rstSrlDepthThreshold 4
 # MODE: 
     rt::set_parameter webTalkPath {}
-    rt::set_parameter enableSplitFlowPath "D:/HWLabProject/HWProject/.Xil/Vivado-11180-DESKTOP-U6NGQK0/"
+    rt::set_parameter enableSplitFlowPath "D:/Vivado/HWProject/.Xil/Vivado-6628-DESKTOP-VBJV3Q3/"
     set ok_to_delete_rt_tmp true 
     if { [rt::get_parameter parallelDebug] } { 
        set ok_to_delete_rt_tmp false 
