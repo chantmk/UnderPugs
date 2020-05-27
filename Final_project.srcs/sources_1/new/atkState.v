@@ -64,7 +64,7 @@ module atkState(
             if (left_right == 1)//right
                 begin 
                     xCurrent <= xCurrent+1;
-                    if (xCurrent == 544)
+                    if (xCurrent >= 544)
                         begin
                             left_right = 0; //left
                         end
@@ -72,7 +72,7 @@ module atkState(
             else if (left_right == 0) //left
                 begin
                     xCurrent <= xCurrent-1;
-                    if (xCurrent == 96)
+                    if (xCurrent <= 96)
                         begin
                             left_right = 1; //right
                         end
