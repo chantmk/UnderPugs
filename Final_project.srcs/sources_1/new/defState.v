@@ -50,7 +50,7 @@ module defState(
    
     always @(posedge tClk)
         begin
-        case(direction)// assume play area 256x208 from (192,210)to(448,418) and MC R=10
+        case(direction)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
             5'b00001: 
                 begin
                     if(xCurrent > 192)xCurrent <= xCurrent-1;//A
@@ -61,11 +61,11 @@ module defState(
                 end
             5'b00100: 
                 begin
-                    if(xCurrent < 418)yCurrent <= yCurrent+1;//D
+                    if(xCurrent < 402)yCurrent <= yCurrent+1;//D
                 end
             5'b01000: 
                 begin
-                    if(yCurrent < 448)xCurrent <= xCurrent+1;//D
+                    if(yCurrent < 432)xCurrent <= xCurrent+1;//D
                 end
 //            5'b10000: 
 //                begin
@@ -74,5 +74,5 @@ module defState(
         endcase
     end
      // todo bullet movement
-     // check collihion
+     // check collision
 endmodule
