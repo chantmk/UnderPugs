@@ -1,6 +1,7 @@
 *
 !*/
 !.gitignore
+!*.md
 !*.v
 !*.mem
 !*.bit
