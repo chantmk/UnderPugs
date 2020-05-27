@@ -23,7 +23,7 @@
 module game_logic(
     input clk
     ,input [15:0] key
-    ,output state
+    ,output [2:0] state
     ,output reset
     ,output [11:0] xPlayer
     ,output [11:0] yPlayer
@@ -35,13 +35,15 @@ module game_logic(
     reg [2:0] Vstate;
     reg [1:0] Vreset;
     
+    assign state = Vstate;
+    
     initial begin
-        Vstate = 3;
-        direction = 5'b00000;
+        Vstate <= 3;
+        direction <= 5'b00000;
     end
     
-    wire Ostate = Vstate;
     
+    //wire [2:0] Ostate = Vstate;
     
     always @(posedge clk)
         begin
@@ -61,5 +63,5 @@ module game_logic(
                     .hpPlayer(hpPlayer),
                     .hpMonster(hpMonster));
      
-     assign state = 3;
+     
 endmodule

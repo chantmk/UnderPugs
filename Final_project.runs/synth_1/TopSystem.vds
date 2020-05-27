@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Wed May 27 20:18:52 2020
-# Process ID: 17600
+# Start of session at: Wed May 27 20:24:31 2020
+# Process ID: 17920
 # Current directory: D:/HW_lab/underTale/HWProject/Final_project.runs/synth_1
 # Command line: vivado.exe -log TopSystem.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TopSystem.tcl
 # Log file: D:/HW_lab/underTale/HWProject/Final_project.runs/synth_1/TopSystem.vds
@@ -15,11 +15,11 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 4928 
+INFO: Helper process launched with PID 17560 
 WARNING: [Synth 8-2611] redeclaration of ansi port clkDiv is not allowed [D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/new/clockDivider.v:26]
 WARNING: [Synth 8-2611] redeclaration of ansi port seg is not allowed [D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/new/segmentDec.v:28]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 465.727 ; gain = 108.777
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 465.961 ; gain = 110.359
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'TopSystem' [D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/TopSystem.v:23]
 INFO: [Synth 8-6157] synthesizing module 'kb_top' [D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/kb_top.v:23]
@@ -174,7 +174,7 @@ WARNING: [Synth 8-3331] design game_logic has unconnected port key[10]
 WARNING: [Synth 8-3331] design game_logic has unconnected port key[9]
 WARNING: [Synth 8-3331] design game_logic has unconnected port key[8]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 501.262 ; gain = 144.313
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 501.258 ; gain = 145.656
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -187,10 +187,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 501.262 ; gain = 144.313
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 501.258 ; gain = 145.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 501.262 ; gain = 144.313
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 501.258 ; gain = 145.656
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -201,30 +201,30 @@ Parsing XDC File [D:/HW_lab/underTale/HWProject/Final_project.srcs/constrs_1/imp
 Finished Parsing XDC File [D:/HW_lab/underTale/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/HW_lab/underTale/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TopSystem_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/TopSystem_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 839.563 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 840.969 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 839.563 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 840.969 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 839.563 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 839.563 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 840.969 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 840.969 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 839.563 ; gain = 482.613
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 840.969 ; gain = 485.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 839.563 ; gain = 482.613
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 840.969 ; gain = 485.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 839.563 ; gain = 482.613
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 840.969 ; gain = 485.367
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "O" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "count" won't be mapped to RAM because it is too sparse
@@ -239,7 +239,7 @@ INFO: [Synth 8-5546] ROM "names_array" won't be mapped to RAM because it is too 
 INFO: [Synth 8-5546] ROM "ids_array" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "group_array" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 839.563 ; gain = 482.613
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 840.969 ; gain = 485.367
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -284,7 +284,7 @@ Detailed RTL Component Info :
 	   6 Input      5 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 2     
 	   4 Input      4 Bit        Muxes := 2     
-	   6 Input      2 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 9     
 	   3 Input      1 Bit        Muxes := 1     
@@ -343,7 +343,7 @@ Detailed RTL Component Info :
 Module atkState 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   6 Input      2 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 2     
 	   6 Input      1 Bit        Muxes := 2     
 Module game_logic 
 Detailed RTL Component Info : 
@@ -473,7 +473,7 @@ INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[9]' (FDE) to 'i
 INFO: [Synth 8-3886] merging instance 'image_handler/rgb_reg_reg[10]' (FDE) to 'image_handler/rgb_reg_reg[11]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\image_handler/rgb_reg_reg[11] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 839.563 ; gain = 482.613
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 840.969 ; gain = 485.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -507,13 +507,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 876.926 ; gain = 519.977
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 880.617 ; gain = 525.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 900.527 ; gain = 543.578
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 903.695 ; gain = 548.094
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -525,7 +525,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 901.539 ; gain = 544.590
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 904.582 ; gain = 548.980
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -549,7 +549,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 901.539 ; gain = 544.590
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 904.582 ; gain = 548.980
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -562,7 +562,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 901.539 ; gain = 544.590
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 904.582 ; gain = 548.980
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -574,25 +574,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 901.539 ; gain = 544.590
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 904.582 ; gain = 548.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 901.539 ; gain = 544.590
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 904.582 ; gain = 548.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 901.539 ; gain = 544.590
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 904.582 ; gain = 548.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 901.539 ; gain = 544.590
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 904.582 ; gain = 548.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -611,7 +611,7 @@ Report Cell Usage:
 |1     |BUFG    |     2|
 |2     |CARRY4  |    37|
 |3     |DSP48E1 |     6|
-|4     |LUT1    |    37|
+|4     |LUT1    |    45|
 |5     |LUT2    |   119|
 |6     |LUT3    |     8|
 |7     |LUT4    |    26|
@@ -626,7 +626,7 @@ Report Instance Areas:
 +------+-----------------------+----------------+------+
 |      |Instance               |Module          |Cells |
 +------+-----------------------+----------------+------+
-|1     |top                    |                |   492|
+|1     |top                    |                |   500|
 |2     |  image_handler        |vga             |   175|
 |3     |    as                 |atkScreen       |    97|
 |4     |    vga_sync_unit      |vga_sync        |    77|
@@ -634,8 +634,8 @@ Report Instance Areas:
 |6     |    uut                |PS2Receiver     |    95|
 |7     |      db_clk           |debouncer       |    15|
 |8     |      db_data          |debouncer_17    |    16|
-|9     |  logic                |game_logic      |   108|
-|10    |    superatk           |atkState        |   103|
+|9     |  logic                |game_logic      |   116|
+|10    |    superatk           |atkState        |   111|
 |11    |      cDiv             |clockDiv        |    47|
 |12    |  segDisp              |sevenSeg        |    44|
 |13    |    \genblk1[0].fdiv   |clockDivider    |     2|
@@ -659,27 +659,27 @@ Report Instance Areas:
 |31    |    q7seg              |quad2SevenSeg   |     8|
 +------+-----------------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 901.539 ; gain = 544.590
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 904.582 ; gain = 548.980
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 901.539 ; gain = 206.289
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 901.539 ; gain = 544.590
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 904.582 ; gain = 209.270
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 904.582 ; gain = 548.980
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 43 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 901.539 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 904.582 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 86 Infos, 60 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 901.539 ; gain = 556.980
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 901.539 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 904.582 ; gain = 561.504
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 904.582 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/HW_lab/underTale/HWProject/Final_project.runs/synth_1/TopSystem.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TopSystem_utilization_synth.rpt -pb TopSystem_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed May 27 20:19:25 2020...
+INFO: [Common 17-206] Exiting Vivado at Wed May 27 20:25:04 2020...

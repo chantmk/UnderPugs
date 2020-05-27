@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Wed May 27 20:20:28 2020
+| Date             : Wed May 27 20:26:07 2020
 | Host             : MSI running 64-bit major release  (build 9200)
 | Command          : report_power -file TopSystem_power_routed.rpt -pb TopSystem_power_summary_routed.pb -rpx TopSystem_power_routed.rpx
 | Design           : TopSystem
@@ -36,8 +36,8 @@ Table of Contents
 | Dynamic (W)              | 0.038        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.5         |
-| Junction Temperature (C) | 25.5         |
+| Max Ambient (C)          | 84.4         |
+| Junction Temperature (C) | 25.6         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,14 +52,14 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.001 |      516 |       --- |             --- |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |     0.001 |      524 |       --- |             --- |
 |   LUT as Logic |     0.001 |      228 |     20800 |            1.10 |
 |   CARRY4       |    <0.001 |       37 |      8150 |            0.45 |
 |   Register     |    <0.001 |      160 |     41600 |            0.38 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |       60 |       --- |             --- |
-| Signals        |     0.002 |      539 |       --- |             --- |
+| Signals        |     0.002 |      540 |       --- |             --- |
 | DSPs           |     0.005 |        6 |        90 |            6.67 |
 | I/O            |     0.029 |       29 |       106 |           27.36 |
 | Static Power   |     0.072 |          |           |                 |
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.019 |       0.009 |      0.010 |
+| Vccint    |       1.000 |     0.019 |       0.010 |      0.010 |
 | Vccaux    |       1.800 |     0.014 |       0.001 |      0.013 |
 | Vcco33    |       3.300 |     0.009 |       0.008 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -139,12 +139,13 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-----------------+-----------+
-| Name            | Power (W) |
-+-----------------+-----------+
-| TopSystem       |     0.038 |
-|   image_handler |     0.007 |
-|     as          |     0.007 |
-+-----------------+-----------+
++--------------------+-----------+
+| Name               | Power (W) |
++--------------------+-----------+
+| TopSystem          |     0.038 |
+|   image_handler    |     0.007 |
+|     as             |     0.007 |
+|   keyboard_handler |     0.001 |
++--------------------+-----------+
 
 

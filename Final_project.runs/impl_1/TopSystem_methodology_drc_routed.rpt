@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed May 27 20:20:28 2020
+| Date         : Wed May 27 20:26:07 2020
 | Host         : MSI running 64-bit major release  (build 9200)
 | Command      : report_methodology -file TopSystem_methodology_drc_routed.rpt -pb TopSystem_methodology_drc_routed.pb -rpx TopSystem_methodology_drc_routed.rpx
 | Design       : TopSystem
@@ -67,7 +67,7 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -3.575 ns between image_handler/vga_sync_unit/h_count_reg_reg[0]/C (clocked by sys_clk_pin) and image_handler/rgb_reg_reg[7]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -3.854 ns between image_handler/vga_sync_unit/h_count_reg_reg[3]/C (clocked by sys_clk_pin) and image_handler/rgb_reg_reg[7]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-17#1 Warning

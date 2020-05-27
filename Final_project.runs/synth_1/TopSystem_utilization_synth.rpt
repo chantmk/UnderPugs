@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed May 27 20:19:25 2020
+| Date         : Wed May 27 20:25:04 2020
 | Host         : MSI running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TopSystem_utilization_synth.rpt -pb TopSystem_utilization_synth.pb
 | Design       : TopSystem
@@ -153,7 +153,7 @@ Table of Contents
 | FDRE     |  160 |        Flop & Latch |
 | LUT2     |  119 |                 LUT |
 | LUT6     |   47 |                 LUT |
-| LUT1     |   37 |                 LUT |
+| LUT1     |   45 |                 LUT |
 | CARRY4   |   37 |          CarryLogic |
 | OBUF     |   26 |                  IO |
 | LUT4     |   26 |                 LUT |
