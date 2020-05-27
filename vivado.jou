@@ -2,20 +2,13 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Wed May 27 21:07:04 2020
-# Process ID: 6628
-# Current directory: D:/Vivado/HWProject
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6772 D:\Vivado\HWProject\Final_project.xpr
-# Log file: D:/Vivado/HWProject/vivado.log
-# Journal file: D:/Vivado/HWProject\vivado.jou
+# Start of session at: Wed May 27 22:55:22 2020
+# Process ID: 8416
+# Current directory: D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19268 D:\ThammakornK\Documents\Chula\3_Junior\2\HW_Lab\HWProject\Final_project.xpr
+# Log file: D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/vivado.log
+# Journal file: D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project D:/Vivado/HWProject/Final_project.xpr
+open_project D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.xpr
 update_compile_order -fileset sources_1
-close [ open D:/Vivado/HWProject/Final_project.srcs/sources_1/new/defState.v w ]
-add_files D:/Vivado/HWProject/Final_project.srcs/sources_1/new/defState.v
-update_compile_order -fileset sources_1
-launch_runs synth_1 -jobs 4
-wait_on_run synth_1
-reset_run synth_1
-synth_design -rtl -name rtl_1
