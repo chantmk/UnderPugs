@@ -2,4 +2,8 @@
 !.gitignore
 !*.v
 !*.mem
+<<<<<<< HEAD
 !*.bit
+=======
+*.jou
+>>>>>>> e5e278ad759d251deaa16067507918c1c0f2d8f2
