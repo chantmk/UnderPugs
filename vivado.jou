@@ -12,3 +12,10 @@
 start_gui
 open_project D:/Vivado/HWProject/Final_project.xpr
 update_compile_order -fileset sources_1
+close [ open D:/Vivado/HWProject/Final_project.srcs/sources_1/new/defState.v w ]
+add_files D:/Vivado/HWProject/Final_project.srcs/sources_1/new/defState.v
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+synth_design -rtl -name rtl_1
