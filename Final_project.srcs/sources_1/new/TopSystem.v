@@ -56,11 +56,24 @@ module TopSystem(
     
     wire [2:0] state;
     wire reset;
+    wire [11:0] xPlayer;
+    wire [11:0] yPlayer;
+        /*--logic--*/
+    game_logic logic(
+        .clk(clk),
+        .key(key),
+        .state(state),
+        .reset(reset),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .hpPlayer(hpPlayer),
+        .hpMonster(hpMonster)
+    );
     /*--vga--*/
     vga image_handler(
         .clk(clk),
         .reset(reset),
-	    .screen_state(state),
+	    .screen_state(3),
 	    .xPlayer(xPlayer),
 	    .yPlayer(yPlayer),
 	    .hpPlayer(hpPlayer),
@@ -72,16 +85,6 @@ module TopSystem(
         .vgaGreen(vgaGreen),
         .vgaBlue(vgaBlue)
     );
-    /*--logic--*/
-    game_logic logic(
-        .clk(clk),
-        .key(key),
-        .state(state),
-        .reset(reset),
-        .xPlayer(xPlayer),
-        .yPlayer(yPlayer),
-        .hpPlayer(hpPlayer),
-        .hpMonster(hpMonster)
-    );
+
     
 endmodule

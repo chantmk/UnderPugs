@@ -17,6 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param synth.incrementalSynthesisCache D:/HW_lab/underTale/HWProject/.Xil/Vivado-11768-MSI/incrSyn
 set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
@@ -25,33 +26,36 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.cache/wt [current_project]
-set_property parent.project_path D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.xpr [current_project]
+set_property webtalk.parent_dir D:/HW_lab/underTale/HWProject/Final_project.cache/wt [current_project]
+set_property parent.project_path D:/HW_lab/underTale/HWProject/Final_project.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
-set_property ip_output_repo d:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.cache/ip [current_project]
+set_property ip_output_repo d:/HW_lab/underTale/HWProject/Final_project.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_mem {
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/HWProject/title.data
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/HWProject/group.data
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/HWProject/ids.data
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/HWProject/names.data
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/HWProject/title.data
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/HWProject/group.data
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/HWProject/ids.data
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/HWProject/names.data
 }
 read_verilog -library xil_defaultlib {
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/hdl/PS2Receiver.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/atkScreen.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/clockDivider.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/hdl/debouncer.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/kb_top.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/quad2SevenSeg.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/imports/new/segmentDec.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/sevenSeg.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/startScreen.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/startScreenROM.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/vga.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/vga_sync.v
-  D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/sources_1/new/TopSystem.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/hdl/PS2Receiver.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/atkScreen.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/atkState.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/clockDiv.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/new/clockDivider.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/hdl/debouncer.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/game_logic.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/kb_top.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/new/quad2SevenSeg.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/imports/new/segmentDec.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/sevenSeg.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/startScreen.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/startScreenROM.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/vga.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/vga_sync.v
+  D:/HW_lab/underTale/HWProject/Final_project.srcs/sources_1/new/TopSystem.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -61,8 +65,8 @@ read_verilog -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc
-set_property used_in_implementation false [get_files D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc]
+read_xdc D:/HW_lab/underTale/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc
+set_property used_in_implementation false [get_files D:/HW_lab/underTale/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

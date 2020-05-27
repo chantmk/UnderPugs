@@ -37,11 +37,13 @@ module game_logic(
     
     initial begin
         Vstate = 3;
+        direction = 5'b00000;
     end
     
-    assign state = Vstate;
+    wire Ostate = Vstate;
     
-    always @(key)
+    
+    always @(posedge clk)
         begin
             case(key[7:0])
             8'h1C: direction = 5'b00001;//left A
@@ -53,10 +55,11 @@ module game_logic(
         end
      atkState superatk( .clk(clk),
                     .direction(direction),
-                    .state(state),
                     .reset(reset),
                     .xPlayer(xPlayer),
                     .yPlayer(yPlayer),
                     .hpPlayer(hpPlayer),
                     .hpMonster(hpMonster));
+     
+     assign state = 3;
 endmodule

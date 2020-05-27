@@ -35,21 +35,21 @@ module atkState(
     reg [6:0] VhpMonster;
     
     initial begin 
-        xCurrent = 320;
-        yCurrent = 150;
+        xCurrent = 200;
+        yCurrent = 200;
     end
     
     assign xPlayer = xCurrent;
     assign yPlayer = yCurrent;
- 
-        always @(direction)
+    clockDiv cDiv(clk,tClk);
+    always @(posedge tClk)
         begin
-            case(direction)
-                5'h00001: xCurrent <= xCurrent-1;//left A
-                5'h00010: yCurrent <= yCurrent+1;//W
-                5'h00100: yCurrent <= yCurrent-1;//D
-                5'h01000: xCurrent <= xCurrent+1;//D
-                5'h10000: xCurrent <= xCurrent;//Spacebar  
-                endcase
-        end
+        case(direction)
+            5'h00001: xCurrent <= xCurrent-1;//left A
+            5'h00010: yCurrent <= yCurrent+1;//W
+            5'h00100: yCurrent <= yCurrent-1;//D
+            5'h01000: xCurrent <= xCurrent+1;//D
+            5'h10000: xCurrent <= xCurrent;//Spacebar  
+        endcase
+    end
 endmodule

@@ -67,17 +67,18 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param synth.incrementalSynthesisCache D:/HW_lab/underTale/HWProject/.Xil/Vivado-11768-MSI/incrSyn
   set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a35tcpg236-1
   set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.cache/wt [current_project]
-  set_property parent.project_path D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.xpr [current_project]
-  set_property ip_output_repo D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.cache/ip [current_project]
+  set_property webtalk.parent_dir D:/HW_lab/underTale/HWProject/Final_project.cache/wt [current_project]
+  set_property parent.project_path D:/HW_lab/underTale/HWProject/Final_project.xpr [current_project]
+  set_property ip_output_repo D:/HW_lab/underTale/HWProject/Final_project.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.runs/synth_1/TopSystem.dcp
-  read_xdc D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc
+  add_files -quiet D:/HW_lab/underTale/HWProject/Final_project.runs/synth_1/TopSystem.dcp
+  read_xdc D:/HW_lab/underTale/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc
   link_design -top TopSystem -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]

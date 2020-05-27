@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue May 26 22:03:50 2020
-| Host         : LAPTOP-N3N9V3PL running 64-bit major release  (build 9200)
+| Date         : Wed May 27 20:16:22 2020
+| Host         : MSI running 64-bit major release  (build 9200)
 | Command      : report_methodology -file TopSystem_methodology_drc_routed.rpt -pb TopSystem_methodology_drc_routed.pb -rpx TopSystem_methodology_drc_routed.rpx
 | Design       : TopSystem
 | Device       : xc7a35tcpg236-1
@@ -23,16 +23,53 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 85
+             Violations found: 104
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
-| TIMING-17 | Warning  | Non-clocked sequential cell   | 64         |
-| TIMING-18 | Warning  | Missing input or output delay | 21         |
+| SYNTH-10  | Warning  | Wide multiplier               | 6          |
+| TIMING-16 | Warning  | Large setup violation         | 1          |
+| TIMING-17 | Warning  | Non-clocked sequential cell   | 84         |
+| TIMING-18 | Warning  | Missing input or output delay | 13         |
 +-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+SYNTH-10#1 Warning
+Wide multiplier  
+Detected multiplier at image_handler/as/rgb3 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#2 Warning
+Wide multiplier  
+Detected multiplier at image_handler/as/rgb3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#3 Warning
+Wide multiplier  
+Detected multiplier at image_handler/as/rgb3__1 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#4 Warning
+Wide multiplier  
+Detected multiplier at image_handler/as/rgb3__2 of size 16x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#5 Warning
+Wide multiplier  
+Detected multiplier at image_handler/as/rgb3__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#6 Warning
+Wide multiplier  
+Detected multiplier at image_handler/as/rgb3__4 of size 18x16, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -3.944 ns between image_handler/vga_sync_unit/v_count_reg_reg[1]/C (clocked by sys_clk_pin) and image_handler/rgb_reg_reg[7]/D (clocked by sys_clk_pin). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
 TIMING-17#1 Warning
 Non-clocked sequential cell  
 The clock pin keyboard_handler/uut/cnt_reg[0]/C is not reached by a timing clock
@@ -260,95 +297,195 @@ Related violations: <none>
 
 TIMING-17#46 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[10].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#47 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[11].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#48 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[12].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#49 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[13].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#50 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[14].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#51 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[15].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#52 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[16].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#53 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[17].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#54 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[1].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#55 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[2].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/xCurrent_reg[9]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#56 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[3].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/yCurrent_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#57 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[4].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/yCurrent_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#58 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[5].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/yCurrent_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#59 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[6].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/yCurrent_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#60 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[7].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/yCurrent_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#61 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[8].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/yCurrent_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#62 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/genblk1[9].fdiv/clkDiv_reg/C is not reached by a timing clock
+The clock pin logic/superatk/yCurrent_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#63 Warning
 Non-clocked sequential cell  
-The clock pin segDisp/q7seg/ps_reg[0]/C is not reached by a timing clock
+The clock pin logic/superatk/yCurrent_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#64 Warning
+Non-clocked sequential cell  
+The clock pin logic/superatk/yCurrent_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#65 Warning
+Non-clocked sequential cell  
+The clock pin logic/superatk/yCurrent_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#66 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[10].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#67 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[11].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#68 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[12].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#69 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[13].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#70 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[14].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#71 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[15].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#72 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[16].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#73 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[17].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#74 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[1].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#75 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[2].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#76 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[3].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#77 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[4].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#78 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[5].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#79 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[6].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#80 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[7].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#81 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[8].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#82 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/genblk1[9].fdiv/clkDiv_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#83 Warning
+Non-clocked sequential cell  
+The clock pin segDisp/q7seg/ps_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#84 Warning
 Non-clocked sequential cell  
 The clock pin segDisp/q7seg/ps_reg[1]/C is not reached by a timing clock
 Related violations: <none>
@@ -400,62 +537,22 @@ Related violations: <none>
 
 TIMING-18#10 Warning
 Missing input or output delay  
-An output delay is missing on vgaBlue[0] relative to clock(s) sys_clk_pin
+An output delay is missing on vgaGreen[0] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#11 Warning
 Missing input or output delay  
-An output delay is missing on vgaBlue[1] relative to clock(s) sys_clk_pin
+An output delay is missing on vgaGreen[1] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#12 Warning
 Missing input or output delay  
-An output delay is missing on vgaBlue[2] relative to clock(s) sys_clk_pin
+An output delay is missing on vgaGreen[2] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#13 Warning
 Missing input or output delay  
-An output delay is missing on vgaBlue[3] relative to clock(s) sys_clk_pin
-Related violations: <none>
-
-TIMING-18#14 Warning
-Missing input or output delay  
-An output delay is missing on vgaGreen[0] relative to clock(s) sys_clk_pin
-Related violations: <none>
-
-TIMING-18#15 Warning
-Missing input or output delay  
-An output delay is missing on vgaGreen[1] relative to clock(s) sys_clk_pin
-Related violations: <none>
-
-TIMING-18#16 Warning
-Missing input or output delay  
-An output delay is missing on vgaGreen[2] relative to clock(s) sys_clk_pin
-Related violations: <none>
-
-TIMING-18#17 Warning
-Missing input or output delay  
 An output delay is missing on vgaGreen[3] relative to clock(s) sys_clk_pin
-Related violations: <none>
-
-TIMING-18#18 Warning
-Missing input or output delay  
-An output delay is missing on vgaRed[0] relative to clock(s) sys_clk_pin
-Related violations: <none>
-
-TIMING-18#19 Warning
-Missing input or output delay  
-An output delay is missing on vgaRed[1] relative to clock(s) sys_clk_pin
-Related violations: <none>
-
-TIMING-18#20 Warning
-Missing input or output delay  
-An output delay is missing on vgaRed[2] relative to clock(s) sys_clk_pin
-Related violations: <none>
-
-TIMING-18#21 Warning
-Missing input or output delay  
-An output delay is missing on vgaRed[3] relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 

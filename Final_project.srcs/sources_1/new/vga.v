@@ -38,7 +38,7 @@ module vga(
 	
     localparam BG_COLOR = 12'b000000000000 ;
     
-    reg [11:0] rgb_reg = BG_COLOR;
+    reg [11:0] rgb_reg;
 	wire video_on;
     wire p_tick;
     wire [9:0] x,y;
@@ -54,7 +54,7 @@ module vga(
         .y(y)
     );
 
-    wire [11:0] rgb_start = BG_COLOR;
+    wire [11:0] rgb_start;
     startScreen ss(
         .clk(clk),
         .p_tick(p_tick),
@@ -63,7 +63,7 @@ module vga(
         .rgb(rgb_start)
     );
     
-    wire [11:0] rgb_mode = BG_COLOR;
+    wire [11:0] rgb_mode;
 //    modeScreen mds(
 //        .clk(clk),
 //        .p_tick(p_tick),
@@ -75,7 +75,7 @@ module vga(
 //        .rgb(rgb_mode)
 //    );
 
-    wire [11:0] rgb_map = BG_COLOR;
+    wire [11:0] rgb_map;
 //    mapScreen ms(
 //        .clk(clk),
 //        .p_tick(p_tick),
@@ -88,7 +88,7 @@ module vga(
 //        .rgb(rgb_map)
 //    );
 
-    wire [11:0] rgb_atk = BG_COLOR;
+    wire [11:0] rgb_atk;
     atkScreen as(
         .clk(clk),
         .p_tick(p_tick),
@@ -100,7 +100,7 @@ module vga(
         .rgb(rgb_atk)
     );
 
-    wire [11:0] rgb_def = BG_COLOR;
+    wire [11:0] rgb_def;
 //    defScreen ds(
 //        .clk(clk),
 //        .p_tick(p_tick),
@@ -114,14 +114,14 @@ module vga(
 //    );
 
         // rgb buffer
-        always @(screen_state)
+        always @(posedge clk)
         begin
             case(screen_state)
-            0: rgb_reg <= rgb_start;
-            1: rgb_reg <= rgb_mode;
-            2: rgb_reg <= rgb_map;
-            3: rgb_reg <= rgb_atk;
-            4: rgb_reg <= rgb_def;
+            3'b000: rgb_reg <= rgb_start;
+            3'b001: rgb_reg <= rgb_mode;
+            3'b010: rgb_reg <= rgb_map;
+            3'b011: rgb_reg <= rgb_atk;
+            3'b100: rgb_reg <= rgb_def;
             endcase
         end
         // output
