@@ -78,5 +78,9 @@ module atkState(
                         end
                 end
         end
+        else if (stop)
+            begin
+            //TODO: compute damage and attack 
+            end
     end
 endmodule
