@@ -47,14 +47,20 @@ module atkState(
     assign xPlayer = xCurrent;
     assign yPlayer = yCurrent;
     clockDiv cDiv(clk,tClk);
-    always @(posedge tClk)
+    
+    always @(posedge tClk || direction)
         begin
-        case(direction)
+            case(direction)
             5'b10000: begin
                 xCurrent <= xCurrent;//Spacebar  
                 stop = 1; end
-        endcase
-        if (!stop)begin
+            endcase
+        end
+    
+    always @(posedge tClk)
+        begin
+        if (!stop)
+        begin
             if (left_right == 1)//right
                 begin 
                     xCurrent <= xCurrent+1;
