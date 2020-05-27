@@ -45,11 +45,11 @@ module atkState(
     always @(posedge tClk)
         begin
         case(direction)
-            5'h00001: xCurrent <= xCurrent-1;//left A
-            5'h00010: yCurrent <= yCurrent+1;//W
-            5'h00100: yCurrent <= yCurrent-1;//D
-            5'h01000: xCurrent <= xCurrent+1;//D
-            5'h10000: xCurrent <= xCurrent;//Spacebar  
+            5'b00001: xCurrent <= xCurrent-1;//left A
+            5'b00010: yCurrent <= yCurrent-1;//W
+            5'b00100: yCurrent <= yCurrent+1;//D
+            5'b01000: xCurrent <= xCurrent+1;//D
+            5'b10000: xCurrent <= xCurrent;//Spacebar  
         endcase
     end
 endmodule
