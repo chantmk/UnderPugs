@@ -73,7 +73,7 @@ module TopSystem(
     vga image_handler(
         .clk(clk),
         .reset(reset),
-	    .screen_state(3),
+	    .screen_state(state),
 	    .xPlayer(xPlayer),
 	    .yPlayer(yPlayer),
 	    .hpPlayer(hpPlayer),
