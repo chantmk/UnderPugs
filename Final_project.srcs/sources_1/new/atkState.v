@@ -23,8 +23,9 @@
 module atkState(
      input clk
     ,input game_clk
-    ,input [4:0]direction
-    ,input [2:0]state
+    ,input [4:0] direction
+    ,input [2:0] state
+    ,input [2:0] monster
     ,output reset
     ,output [9:0] xPlayer
     ,output [9:0] yPlayer
@@ -36,62 +37,67 @@ module atkState(
     reg [6:0] VhpMonster;
     reg left_right;
     reg stop;
+    reg [6:0] damage; 
     
     initial begin 
         xCurrent = 320;
         yCurrent = 393;
         stop = 0;
         left_right = 1; //right
-        VhpMonster = 30; //min 0 max 100
+        VhpMonster = 100; //min 0 max 100
     end
     
     assign xPlayer = xCurrent;
     assign yPlayer = yCurrent;
     assign hpMonster = VhpMonster;
     
+    damageCompute dc(
+                    .xCurrent(xCurrent),
+                    .monster(monster),
+                    .damage(damage)
+                    );
+                    
     always @(direction)
         begin
+        if (state==3)begin
             case(direction)
             5'b10000: begin
-                xCurrent <= xCurrent;//Spacebar  
-                stop = 1; end
+                xCurrent <= xCurrent;//Spacebar  , attack
+                stop = 1;
+                if (VhpMonster <= damage) VhpMonster = 0; //win
+                    // TODO: reset VhpMonster after 1 sec -> VhpMonster = 100;
+                    // TODO: change state to map
+                else VhpMonster = VhpMonster - damage;
+                stop = 0;
+                // TODO: change state to defState
+                end   
             endcase
+        end
         end
     
     always @(posedge game_clk)
         begin
+        if (state == 3) begin
         if (!stop)
-        begin
-            if (left_right == 1)//right
-                begin 
-                    xCurrent <= xCurrent+1;
-                    if (xCurrent >= 544)
-                        begin
-                            left_right = 0; //left
-                        end
-                end
-            else if (left_right == 0) //left
-                begin
-                    xCurrent <= xCurrent-1;
-                    if (xCurrent <= 96)
-                        begin
-                            left_right = 1; //right
-                        end
-                end
-        end
-        else if(stop)//attack
-        begin
-            if (xCurrent>=300 || xCurrent<=340)//perfect hit -> damage=30
             begin
-                if(VhpMonster <=30)
-                begin
-                    VhpMonster = 0; //win
-                end
-                else
-                begin
-                    VhpMonster = VhpMonster - 30; 
-                end
+                if (left_right == 1)//right
+                    begin 
+                        xCurrent <= xCurrent+1;
+                        if (xCurrent >= 544)
+                            begin
+                                left_right = 0; //left
+                            end
+                    end
+                else if (left_right == 0) //left
+                    begin
+                        xCurrent <= xCurrent-1;
+                        if (xCurrent <= 96)
+                            begin
+                                left_right = 1; //right
+                            end
+                    end
             end
         end
-    end
+        end
+
 endmodule
