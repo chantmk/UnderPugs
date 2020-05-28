@@ -25,16 +25,16 @@ module defState(
         ,input game_clk
         ,input [4:0]direction
         ,input [2:0]state
-        ,input [2:0]bullet
+        ,input [2:0]bulletType
         ,output reset
-        ,output [11:0] xPlayer
-        ,output [11:0] yPlayer
+        ,output [9:0] xPlayer
+        ,output [9:0] yPlayer
         ,output [6:0] hpPlayer
-	    ,output [6:0] hpMonster
+	    ,output [6:0] hpMonster //min 0 max 100
     );
     
-    reg [11:0] xCurrent;
-    reg [11:0] yCurrent;
+    reg [9:0] xCurrent;
+    reg [9:0] yCurrent;
     reg [6:0] VhpMonster;
     reg [6:0] VhpPlayer;
     

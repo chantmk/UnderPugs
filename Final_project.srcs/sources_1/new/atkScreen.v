@@ -27,7 +27,7 @@ module atkScreen(
     ,input [9:0] y
     ,input [9:0] xPlayer
     ,input [9:0] yPlayer
-    ,input [6:0] hpMonster
+    ,input [6:0] hpMonster //min 0 max 100
     ,output reg [11:0] rgb
     );
     
@@ -37,6 +37,7 @@ module atkScreen(
     localparam HEALTHBAR_POSX = 234;
     localparam HEALTHBAR_POSy = 66;
     localparam HEALTHBAR_WIDTH = 200; // H=ss
+    localparam HEALTHBAR_HEIGHT = 20; // H=ss
     localparam MONSTER_POSX = 275;
     localparam MONSTER_POSY = 102;
     localparam MONSTER_WIDTH = 89;
@@ -70,10 +71,11 @@ module atkScreen(
     end
     else
     begin
+        //insert constant value instead of localparam to recude render lag
         if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end//green
-        else if( (x==219 | x==421) && (y>=99 && y<=121)) begin rgb <= 12'b111100000000; end//red
-        else if( (x>=219 && x<=421) && (y==99 | y==121)) begin rgb <= 12'b111100000000; end//red
-        else if( x>=220 && x<=(220+hpMonster*2) && y>=100 && y<=120) begin rgb <= 12'b111100000000; end//red
+        else if( (x==233 | x==435) && (y>=65 && y<=87)) begin rgb <= 12'b111100000000; end//red
+        else if( (x>=233 && x<=435) && (y==65 | y==87)) begin rgb <= 12'b111100000000; end//red
+        else if( x>=234 && x<=(234+hpMonster*2) && y>=66 && y<=88) begin rgb <= 12'b111100000000; end//red
         else begin rgb <= 12'b000000000000 ; end
     end
     end

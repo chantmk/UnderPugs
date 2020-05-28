@@ -57,7 +57,7 @@ module TopSystem(
     wire [2:0] state;
     wire reset;
     wire [6:0] hpMonster,hpPlayer;
-    wire [11:0] xPlayer,yPlayer;
+    wire [9:0] xPlayer,yPlayer;
         /*--logic--*/
     game_logic logic(
         .clk(clk),

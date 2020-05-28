@@ -24,10 +24,10 @@ module vga(
 	input clk
 	,input  reset
 	,input [2:0] screen_state
-	,input [11:0] xPlayer
-	,input [11:0] yPlayer
+	,input [9:0] xPlayer
+	,input [9:0] yPlayer
 	,input [6:0] hpPlayer
-	,input [6:0] hpMonster
+	,input [6:0] hpMonster //min 0 max 100
 	,input pos
     ,output Hsync
     ,output Vsync

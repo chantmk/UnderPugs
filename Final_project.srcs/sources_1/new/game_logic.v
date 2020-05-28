@@ -25,8 +25,8 @@ module game_logic(
     ,input [15:0] key
     ,output reg [2:0] state
     ,output reg reset
-    ,output reg [11:0] xPlayer
-    ,output reg [11:0] yPlayer
+    ,output reg [9:0] xPlayer
+    ,output reg [9:0] yPlayer
     ,output reg [6:0] hpPlayer
 	,output reg [6:0] hpMonster
     );
@@ -61,7 +61,7 @@ module game_logic(
         end
      wire a_reset;
      wire [6:0] a_hpPlayer,a_hpMonster;
-     wire [11:0] a_xPlayer,a_yPlayer;
+     wire [9:0] a_xPlayer,a_yPlayer;
      atkState superatk( .clk(clk),
                     .game_clk(game_clk),
                     .direction(direction),
@@ -72,7 +72,7 @@ module game_logic(
                     .hpMonster(a_hpMonster));
      wire d_reset;
      wire [6:0] d_hpPlayer,d_hpMonster;
-     wire [11:0] d_xPlayer,d_yPlayer;
+     wire [9:0] d_xPlayer,d_yPlayer;
      defState superdef( .clk(clk),
                     .game_clk(game_clk),
                     .direction(direction),

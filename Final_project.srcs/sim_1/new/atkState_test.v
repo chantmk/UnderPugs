@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 05/27/2020 08:30:40 PM
+// Create Date: 05/28/2020 03:08:57 PM
 // Design Name: 
-// Module Name: testGameLogic
+// Module Name: atkState_test
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,17 +20,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module testGameLogic();
-    wire reset;
-    wire [6:0] hpPlayer,hpMonster;
-    wire [9:0] xPlayer,yPlayer;
+module atkState_test();
+    wire reset,hpPlayer,hpMonster;
+    wire [11:0] xPlayer,yPlayer;
     wire [2:0] state;
-    reg clk,game_clk;
-    reg [4:0] direction;
-    game_logic logic(
+    reg clk,key;
+    atkState as(
         .clk(clk),
-        .game_clk(game_clk),
-        .direction(direction),
+        .key(key),
         .state(state),
         .reset(reset),
         .xPlayer(xPlayer),
@@ -38,7 +35,6 @@ module testGameLogic();
         .hpPlayer(hpPlayer),
         .hpMonster(hpMonster)
     );
-
     always
         #5 clk=~clk;
     initial
@@ -53,4 +49,5 @@ module testGameLogic();
     //$dumpfile("time.dump");
     //$dumpvars(2,a1);
     //$monitor("time %t: {%b %b} <- {%d %d %d}", $time,cout,borrow,D,C,B,A,up,down,set9,set0,clk);
+    
 endmodule
