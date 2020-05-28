@@ -55,13 +55,13 @@ module vga(
     );
 
     wire [11:0] rgb_start;
-    startScreen ss(
-        .clk(clk),
-        .p_tick(p_tick),
-        .x(x),
-        .y(y),
-        .rgb(rgb_start)
-    );
+//    startScreen ss(
+//        .clk(clk),
+//        .p_tick(p_tick),
+//        .x(x),
+//        .y(y),
+//        .rgb(rgb_start)
+//    );
     
     wire [11:0] rgb_mode;
 //    modeScreen mds(

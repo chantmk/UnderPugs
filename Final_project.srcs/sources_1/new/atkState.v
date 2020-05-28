@@ -24,7 +24,7 @@ module atkState(
      input clk
     ,input game_clk
     ,input [4:0]direction
-    ,input [3:0]state
+    ,input [2:0]state
     ,output reset
     ,output [11:0] xPlayer
     ,output [11:0] yPlayer

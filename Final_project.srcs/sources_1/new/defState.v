@@ -29,8 +29,8 @@ module defState(
         ,output reset
         ,output [11:0] xPlayer
         ,output [11:0] yPlayer
-        ,output hpPlayer
-	    ,output hpMonster
+        ,output [6:0] hpPlayer
+	    ,output [6:0] hpMonster
     );
     
     reg [11:0] xCurrent;

@@ -23,22 +23,23 @@
 module game_logic(
     input clk
     ,input [15:0] key
-    ,output [2:0] state
-    ,output reset
-    ,output [11:0] xPlayer
-    ,output [11:0] yPlayer
-    ,output hpPlayer
-	,output hpMonster
+    ,output reg [2:0] state
+    ,output reg reset
+    ,output reg [11:0] xPlayer
+    ,output reg [11:0] yPlayer
+    ,output reg [6:0] hpPlayer
+	,output reg [6:0] hpMonster
     );
     
     reg [4:0] direction;
     reg [2:0] Vstate;
     reg [1:0] Vreset;
     
-    assign state = Vstate;
+    
+    //assign state = Vstate;
     
     initial begin
-        Vstate <= 3;
+        state <= 3;
         direction <= 5'b00000;
     end
     
@@ -58,21 +59,38 @@ module game_logic(
             8'h29: direction = 5'b10000;//spacebar   
             endcase
         end
-//     atkState superatk( .clk(clk),
-//                    .game_clk(game_clk),
-//                    .direction(direction),
-//                    .reset(reset),
-//                    .xPlayer(xPlayer),
-//                    .yPlayer(yPlayer),
-//                    .hpPlayer(hpPlayer),
-//                    .hpMonster(hpMonster));
+     wire a_reset;
+     wire [6:0] a_hpPlayer,a_hpMonster;
+     wire [11:0] a_xPlayer,a_yPlayer;
+     atkState superatk( .clk(clk),
+                    .game_clk(game_clk),
+                    .direction(direction),
+                    .reset(a_reset),
+                    .xPlayer(a_xPlayer),
+                    .yPlayer(a_yPlayer),
+                    .hpPlayer(a_hpPlayer),
+                    .hpMonster(a_hpMonster));
+     wire d_reset;
+     wire [6:0] d_hpPlayer,d_hpMonster;
+     wire [11:0] d_xPlayer,d_yPlayer;
      defState superdef( .clk(clk),
                     .game_clk(game_clk),
                     .direction(direction),
-                    .reset(reset),
-                    .xPlayer(xPlayer),
-                    .yPlayer(yPlayer),
-                    .hpPlayer(hpPlayer),
-                    .hpMonster(hpMonster));
+                    .reset(d_reset),
+                    .xPlayer(d_xPlayer),
+                    .yPlayer(d_yPlayer),
+                    .hpPlayer(d_hpPlayer),
+                    .hpMonster(d_hpMonster));
+                    
+     always @ (state)
+        begin
+            case(state)
+                0: ;
+                1: ;
+                2: ;
+                4: {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {a_reset,a_xPlayer,a_yPlayer,a_hpPlayer,a_hpMonster};
+                3: {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {d_reset,d_xPlayer,d_yPlayer,d_hpPlayer,d_hpMonster};
+            endcase
+        end
      
 endmodule
