@@ -37,7 +37,7 @@ module atkState(
     reg [6:0] VhpMonster;
     reg left_right;
     reg stop;
-    reg [6:0] damage; 
+    wire [6:0] damage; 
     
     initial begin 
         xCurrent = 320;
@@ -52,11 +52,15 @@ module atkState(
     assign hpMonster = VhpMonster;
     
     damageCompute dc(
+                    .game_clk(game_clk),
                     .xCurrent(xCurrent),
                     .monster(monster),
                     .damage(damage)
                     );
-                    
+    always @(state)
+        begin
+            if (state == 3) begin stop =0; end
+        end  
     always @(direction)
         begin
         if (state==3)begin
@@ -64,12 +68,14 @@ module atkState(
             5'b10000: begin
                 xCurrent <= xCurrent;//Spacebar  , attack
                 stop = 1;
-                if (VhpMonster <= damage) VhpMonster = 0; //win
+                if (VhpMonster <= damage) begin VhpMonster = 0; //win
                     // TODO: reset VhpMonster after 1 sec -> VhpMonster = 100;
                     // TODO: change state to map
-                else VhpMonster = VhpMonster - damage;
-                stop = 0;
-                // TODO: change state to defState
+                end
+                else begin VhpMonster = VhpMonster - damage;
+                    //stop = 0;
+                    // TODO: change state to defState
+                    end;
                 end   
             endcase
         end

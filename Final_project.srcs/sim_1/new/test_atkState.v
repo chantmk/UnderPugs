@@ -25,15 +25,17 @@ module test_atkState();
     wire [6:0] hpPlayer,hpMonster;
     wire [9:0] xPlayer,yPlayer;
     reg [2:0] state;
+    reg [2:0] monster = 0;
     reg clk,game_clk;
     reg [4:0] direction;
+    
     atkState as(
         .clk(clk),
         .game_clk(game_clk),
         .direction(direction),
         .state(state),
         .reset(reset),
-        .monster(1),
+        .monster(monster),
         .xPlayer(xPlayer),
         .yPlayer(yPlayer),
         .hpPlayer(hpPlayer),
@@ -44,6 +46,7 @@ module test_atkState();
     initial
     begin
         #0
+        direction = 5'b00000;
         game_clk=0;
         state = 3;
         
