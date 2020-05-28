@@ -79,5 +79,19 @@ module atkState(
                         end
                 end
         end
+        else if(stop)//attack
+        begin
+            if (xCurrent>=300 || xCurrent<=340)//perfect hit -> damage=30
+            begin
+                if(VhpMonster <=30)
+                begin
+                    VhpMonster = 0; //win
+                end
+                else
+                begin
+                    VhpMonster = VhpMonster - 30; 
+                end
+            end
+        end
     end
 endmodule
