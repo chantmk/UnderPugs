@@ -58,6 +58,8 @@ module test_atkState();
         #100
         state = 3;
         #100
+        direction = 5'b10000;
+        #100
         //…...
         $finish;
     end

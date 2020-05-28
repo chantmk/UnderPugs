@@ -32,18 +32,20 @@ module game_logic(
     );
     
     reg [4:0] direction;
-    reg [2:0] Vstate;
+    wire [2:0] Vstate = state;
     reg [1:0] Vreset;
+    reg an0,an1,an2,an3,an4;
+
     
     
     //assign state = Vstate;
-    
     initial begin
+        //Vstate <= 3;
         state <= 3;
         direction <= 5'b00000;
     end
     
-    wire Ostate = Vstate;
+    //wire Ostate = Vstate;
     wire game_clk;
     clockDiv clkDiv(
         .clock_in(clk),
@@ -65,6 +67,7 @@ module game_logic(
      atkState superatk( .clk(clk),
                     .game_clk(game_clk),
                     .direction(direction),
+                    .state(an3),
                     .reset(a_reset),
                     .xPlayer(a_xPlayer),
                     .yPlayer(a_yPlayer),
@@ -88,7 +91,10 @@ module game_logic(
                 0: ;
                 1: ;
                 2: ;
-                3: {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {a_reset,a_xPlayer,a_yPlayer,a_hpPlayer,a_hpMonster};
+                3: begin
+                    {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {a_reset,a_xPlayer,a_yPlayer,a_hpPlayer,a_hpMonster};
+                    {an0,an1,an2,an3,an4} = 5'b00010;
+                   end
                 4: {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {d_reset,d_xPlayer,d_yPlayer,d_hpPlayer,d_hpMonster};
             endcase
         end

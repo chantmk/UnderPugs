@@ -24,7 +24,8 @@ module atkState(
      input clk
     ,input game_clk
     ,input [4:0] direction
-    ,input [2:0] state
+    ,input state
+    ,input nState
     ,input [2:0] monster
     ,output reset
     ,output [9:0] xPlayer
@@ -37,6 +38,7 @@ module atkState(
     reg [6:0] VhpMonster;
     reg left_right;
     reg stop;
+    //reg state = 1;
     wire [6:0] damage; 
     
     initial begin 
@@ -57,33 +59,38 @@ module atkState(
                     .monster(monster),
                     .damage(damage)
                     );
-    always @(state)
-        begin
-            if (state == 3) begin stop =0; end
-        end  
+//    always @(nState)
+//        begin
+//            if (nState) begin stop =0; end
+//        end  
     always @(direction)
         begin
-        if (state==3)begin
+        if (state)begin
             case(direction)
             5'b10000: begin
-                xCurrent <= xCurrent;//Spacebar  , attack
-                stop = 1;
-                if (VhpMonster <= damage) begin VhpMonster = 0; //win
+                xCurrent = xCurrent;//Spacebar  , attack
+                
+                //stop = 1;
+                if ((VhpMonster <= damage) && (!stop)) begin VhpMonster = 10; //win
                     // TODO: reset VhpMonster after 1 sec -> VhpMonster = 100;
                     // TODO: change state to map
+                    
                 end
-                else begin VhpMonster = VhpMonster - damage;
-                    //stop = 0;
+                else if ((VhpMonster > damage) && (!stop))begin 
+                    VhpMonster = VhpMonster - damage;
+                    
                     // TODO: change state to defState
                     end;
+                stop = 1;
                 end   
+                
             endcase
         end
-        end
+    end
     
     always @(posedge game_clk)
         begin
-        if (state == 3) begin
+        if (state) begin
         if (!stop)
             begin
                 if (left_right == 1)//right

@@ -27,10 +27,10 @@ module testGameLogic();
     wire [2:0] state;
     reg clk,game_clk;
     reg [4:0] direction;
+    reg {15:0] key;
     game_logic logic(
         .clk(clk),
-        .game_clk(game_clk),
-        .direction(direction),
+        .key(key),
         .state(state),
         .reset(reset),
         .xPlayer(xPlayer),
