@@ -22,23 +22,38 @@
 
 module test_defState();
     wire reset;
+    wire [2:0] bulletRender;
+    wire [5:0] bulletType;
     wire [6:0] hpPlayer,hpMonster;
     wire [9:0] xPlayer,yPlayer;
-    reg [2:0] state,bulletType;
+    wire [29:0] bulletX,bulletY;
     reg clk,game_clk;
+    reg [2:0] state,monsterType;
     reg [4:0] direction;
+    wire [9:0] abx = bulletX[29:20];
+    wire [9:0] aby = bulletY[29:20];
+    wire [9:0] bbx = bulletX[19:10];
+    wire [9:0] bby = bulletY[19:10];
+    wire [9:0] cbx = bulletX[9:0];
+    wire [9:0] cby = bulletY[9:0];
+    
     defState ds(
         .clk(clk),
         .game_clk(game_clk),
         .direction(direction),
-        .bulletType(bulletType),
+        .monsterType(monsterType),
         .state(state),
         .reset(reset),
         .xPlayer(xPlayer),
         .yPlayer(yPlayer),
         .hpPlayer(hpPlayer),
-        .hpMonster(hpMonster)
+        .hpMonster(hpMonster),
+        .bulletType(bulletType),
+        .bulletPosX(bulletX),
+        .bulletPosY(bulletY),
+        .bulletRender(bulletRender)
     );
+
     always
         #5 game_clk=~game_clk;
     initial
