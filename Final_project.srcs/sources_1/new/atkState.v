@@ -28,8 +28,8 @@ module atkState(
     ,output reset
     ,output [11:0] xPlayer
     ,output [11:0] yPlayer
-    ,output hpPlayer
-	,output hpMonster
+    ,output [6:0] hpPlayer
+	,output [6:0] hpMonster
     );
     reg [11:0] xCurrent;
     reg [11:0] yCurrent;
@@ -42,10 +42,12 @@ module atkState(
         yCurrent = 393;
         stop = 0;
         left_right = 1; //right
+        VhpMonster = 30;
     end
     
     assign xPlayer = xCurrent;
     assign yPlayer = yCurrent;
+    assign hpMonster = VhpMonster;
     
     always @(posedge game_clk || direction)
         begin

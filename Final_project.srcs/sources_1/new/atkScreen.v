@@ -27,7 +27,7 @@ module atkScreen(
     ,input [9:0] y
     ,input [9:0] xPlayer
     ,input [9:0] yPlayer
-    ,input hpMonster
+    ,input [6:0] hpMonster
     ,output reg [11:0] rgb
     );
     
@@ -71,6 +71,9 @@ module atkScreen(
     else
     begin
         if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end//green
+        else if( (x==219 | x==421) && (y>=99 && y<=121)) begin rgb <= 12'b111100000000; end//red
+        else if( (x>=219 && x<=421) && (y==99 | y==121)) begin rgb <= 12'b111100000000; end//red
+        else if( x>=220 && x<=(220+hpMonster*2) && y>=100 && y<=120) begin rgb <= 12'b111100000000; end//red
         else begin rgb <= 12'b000000000000 ; end
     end
     end

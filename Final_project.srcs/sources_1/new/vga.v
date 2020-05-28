@@ -26,8 +26,8 @@ module vga(
 	,input [2:0] screen_state
 	,input [11:0] xPlayer
 	,input [11:0] yPlayer
-	,input hpPlayer
-	,input hpMonster
+	,input [6:0] hpPlayer
+	,input [6:0] hpMonster
 	,input pos
     ,output Hsync
     ,output Vsync
