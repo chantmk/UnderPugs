@@ -50,8 +50,7 @@ module test_defState();
         .hpMonster(hpMonster),
         .bulletType(bulletType),
         .bulletPosX(bulletX),
-        .bulletPosY(bulletY),
-        .bulletRender(bulletRender)
+        .bulletPosY(bulletY)
     );
 
     always
@@ -62,8 +61,8 @@ module test_defState();
         game_clk=0;
         
         #200
-        monsterType = 3'b000;
-        direction = 5'b01000;
+        monsterType = 3'b001;
+        direction = 5'b00100;
         #1000
         
         //…...
