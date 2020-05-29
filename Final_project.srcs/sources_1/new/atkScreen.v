@@ -57,6 +57,36 @@ module atkScreen(
     localparam BAR4X = 0;
     localparam BAR4OFFSET = 0;
     
+    localparam HeartT = 206;
+    localparam HeartL = 66;
+    localparam HeartD = 221;
+    localparam HeartR = 81;
+    localparam BloodT = 206;
+    localparam BloodL = 66;
+    localparam BloodD = 221;
+    localparam BloodR = 81;
+    localparam BurgerPugT = 275;
+    localparam BurgerPugL = 102;
+    localparam BurgerPugD = 363;
+    localparam BurgerPugR = 229;
+    localparam PizzaPugT = 256;
+    localparam PizzaPugL = 106;
+    localparam PizzaPugD = 372;
+    localparam PizzaPugR = 217;
+    localparam KebabPugT = 266;
+    localparam KebabPugL = 102;
+    localparam KebabPugD = 375;
+    localparam KebabPugR = 229;
+    localparam LolipopPugT = 265;
+    localparam LolipopPugL = 102;
+    localparam LolipopPugD = 375;
+    localparam LolipopPugR = 229;
+    localparam BoxT = 96;
+    localparam BoxL = 266;
+    localparam BoxD = 543;
+    localparam BoxR = 385;
+    localparam Triangle = 20;
+    localparam TriangleY = 393;
 
     parameter ENABLE = 0;
     
