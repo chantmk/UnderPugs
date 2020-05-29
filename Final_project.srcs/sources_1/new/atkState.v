@@ -25,7 +25,6 @@ module atkState(
     ,input game_clk
     ,input [4:0] direction
     ,input state
-    ,input nState
     ,input [2:0] monster
     ,output reset
     ,output [9:0] xPlayer
@@ -59,10 +58,12 @@ module atkState(
                     .monster(monster),
                     .damage(damage)
                     );
-//    always @(nState)
-//        begin
-//            if (nState) begin stop =0; end
-//        end  
+    always @(state)
+        begin
+            if (state) begin 
+            //stop =0; 
+            end
+        end  
     always @(direction)
         begin
         if (state)begin
