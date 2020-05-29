@@ -38,6 +38,15 @@ module startScreen(
     localparam START_POS2Y = 0;
     localparam START_WIDTH = START_POS2X-START_POS1X;
     
+    localparam UnderpugsT = 99;
+    localparam UnderpugsL = 155;
+    localparam UnderpugsD = 542;
+    localparam UnderpugsR = 199;
+    localparam StartT = 245;
+    localparam StartL = 306;
+    localparam StartD = 394;
+    localparam StartR = 325;
+    
     reg addr_title;
     wire data_title;
     spriteROM #(
