@@ -40,9 +40,9 @@ module paletteROM #(DATA_WIDTH=8,COLOR_WIDTH=12,DEPTH=0,PALETTEFILE="")(
     begin
         if(PALETTEFILE>0)
         begin
-            color[11:7] <= mem[data*3];
-            color[7:4] <= mem[(data*3)+1];
-            color[3:0] <= mem[(data*3)+2];
+            color[11:7] <= mem[(data*3)]>>4;
+            color[7:4] <= mem[(data*3)+1]>>4;
+            color[3:0] <= mem[(data*3)+2]>>4;
         end
         else
         begin
