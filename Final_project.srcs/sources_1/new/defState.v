@@ -52,12 +52,12 @@ module defState(
     
     initial begin 
         xCurrent = 600;
-        yCurrent = 600;
+        yCurrent = 380;
         VhpPlayer = 60;
         left_right = 3'b111; //right abc
         up_down = 3'b111; //down abc
         {abx,bbx,cbx} = {10'd0000000400,10'd0000000420,10'd0000000430}; //[192,432]
-        {aby,bby,cby} = {10'd0000000350,10'd0000000360,10'd0000000370};// [210,402]
+        {aby,bby,cby} = {10'd0000000278,10'd0000000278,10'd0000000278};// [210,402]
         {abt,bbt,cbt} = {6{1'b0}};
         {abr,bbr,cbr} = {3{1'b0}};
     end
@@ -66,7 +66,7 @@ module defState(
     assign yPlayer = yCurrent;
     assign hpPlayer = VhpPlayer;
     
-    // MC 16x16 bullet 16x16 and 32x32 and 140x32 and dynamic
+    // MC 16x16 bullet 16x16 and 32x32 and 32x140 and dynamic
     always @(posedge game_clk)
         begin
         case(monsterType)
@@ -249,30 +249,30 @@ module defState(
                             cbr = 0;
                         end  
                 end
-            3'b010:
+            3'b010://32x140
                 begin
-                    if(((xCurrent>=abx) && (xCurrent<=abx+140))&& ((yCurrent>=aby) && (yCurrent<=aby+32))) //top-left
+                    if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+140))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
                             abx = 0;
                             aby = 0;
                             abr = 0;
                         end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+140))&& ((yCurrent>=aby) && (yCurrent<=aby+32)))//top-right
+                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+140)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
                             abx = 0;
                             aby = 0;
                             abr = 0;
                         end
-                    else if(((xCurrent>=abx) && (xCurrent<=abx+140))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+32)))//bottom-left
+                    else if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
                             abx = 0;
                             aby = 0;
                             abr = 0;
                         end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+140))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+32)))//bottom-right
+                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
                             abx = 0;
@@ -280,28 +280,28 @@ module defState(
                             abr = 0;
                         end
                     //bullet b    
-                    if(((xCurrent>=bbx) && (xCurrent<=bbx+140))&& ((yCurrent>=bby) && (yCurrent<=bby+32))) //top-left
+                    if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+140))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
                             bbx = 0;
                             bby = 0;
                             bbr = 0;
                         end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+140))&& ((yCurrent>=bby) && (yCurrent<=bby+32)))//top-right
+                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+140)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
                             bbx = 0;
                             bby = 0;
                             bbr = 0;
                         end
-                    else if(((xCurrent>=bbx) && (xCurrent<=bbx+140))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+32)))//bottom-left
+                    else if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
                             bbx = 0;
                             bby = 0;
                             bbr = 0;
                         end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+140))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+32)))//bottom-right
+                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
                             bbx = 0;
@@ -309,28 +309,28 @@ module defState(
                             bbr = 0;
                         end 
                     //bullet c    
-                    if(((xCurrent>=cbx) && (xCurrent<=cbx+140))&& ((yCurrent>=cby) && (yCurrent<=cby+32))) //top-left
+                    if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+140))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
                             cbx = 0;
                             cby = 0;
                             cbr = 0;
                         end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+140))&& ((yCurrent>=cby) && (yCurrent<=cby+32)))//top-right
+                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+140)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
                             cbx = 0;
                             cby = 0;
                             cbr = 0;
                         end
-                    else if(((xCurrent>=cbx) && (xCurrent<=cbx+140))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+32)))//bottom-left
+                    else if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
                             cbx = 0;
                             cby = 0;
                             cbr = 0;
                         end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+140))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+32)))//bottom-right
+                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
                             cbx = 0;
@@ -617,12 +617,94 @@ module defState(
                 end
             3'b010:
                 begin
+                    case(left_right)
+                        3'b000:
+                            begin
+                                abx = abx-1;
+                                bbx = bbx-1;
+                                cbx = cbx-1;
+                                if(abx==192)left_right[2]=1;
+                                if(bbx==192)left_right[1]=1;
+                                if(cbx==192)left_right[0]=1;
+                            end
+                        3'b001:
+                            begin
+                                abx = abx-1;
+                                bbx = bbx-1;
+                                cbx = cbx+1;
+                                if(abx==192)left_right[2]=1;
+                                if(bbx==192)left_right[1]=1;
+                                if(cbx==432)left_right[0]=0;
+                            end
+                        3'b010:
+                            begin
+                                abx = abx-1;
+                                bbx = bbx+1;
+                                cbx = cbx-1;
+                                if(abx==192)left_right[2]=1;
+                                if(bbx==432)left_right[1]=0;
+                                if(cbx==192)left_right[0]=1;
+                            end
+                        3'b011:
+                            begin
+                                abx = abx-1;
+                                bbx = bbx+1;
+                                cbx = cbx+1;
+                                if(abx==192)left_right[2]=1;
+                                if(bbx==432)left_right[1]=0;
+                                if(cbx==432)left_right[0]=0;
+                            end
+                        3'b100:
+                            begin
+                                abx = abx+1;
+                                bbx = bbx-1;
+                                cbx = cbx-1;
+                                if(abx==432)left_right[2]=0;
+                                if(bbx==192)left_right[1]=1;
+                                if(cbx==192)left_right[0]=1;
+                            end
+                        3'b101:
+                            begin
+                                abx = abx+1;
+                                bbx = bbx-1;
+                                cbx = cbx+1;
+                                if(abx==432)left_right[2]=0;
+                                if(bbx==192)left_right[1]=1;
+                                if(cbx==432)left_right[0]=0;
+                            end
+                        3'b110:
+                            begin
+                                abx = abx+1;
+                                bbx = bbx+1;
+                                cbx = cbx-1;
+                                if(abx==432)left_right[2]=0;
+                                if(bbx==432)left_right[1]=0;
+                                if(cbx==192)left_right[0]=1;
+                            end
+                        3'b111:
+                            begin
+                                abx = abx+1;
+                                bbx = bbx+1;
+                                cbx = cbx+1;
+                                if(abx==432)left_right[2]=0;
+                                if(bbx==432)left_right[1]=0;
+                                if(cbx==432)left_right[0]=0;
+                            end  
+                    endcase
                 end
             3'b011:
                 begin
                 end
         endcase
         end 
+        
+    always@(posedge game_clk)
+        begin
+            if(monsterType == 3'b010)
+                begin
+                    if(yCurrent<=401)yCurrent =yCurrent+1;
+                end
+        end    
      
      // check collision
 endmodule

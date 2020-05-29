@@ -61,7 +61,7 @@ module test_defState();
         game_clk=0;
         
         #200
-        monsterType = 3'b001;
+        monsterType = 3'b010;
 //        direction = 5'b01000;
         #1000
         
