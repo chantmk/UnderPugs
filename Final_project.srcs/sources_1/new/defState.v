@@ -43,17 +43,21 @@ module defState(
     reg [9:0] abx,aby,bbx,bby,cbx,cby; //where a,b,c bullet should render , only support 3 bullet/state
     reg [1:0] abt,bbt,cbt; //[a,b,c] bullet type : 0 for enermy0, 1 for enermy1 ,...
     reg abr,bbr,cbr; // [a,b,c] bullet render or not , 0 no render, 1 render
+    reg [3:0]left_right;
+    reg [3:0]up_down;
     
     assign bulletPosX = {abx,bbx,cbx};
     assign bulletPosY = {aby,bby,cby};
     assign bulletType = {abt,bbt,cbt};
     
     initial begin 
-        xCurrent = 300;
-        yCurrent = 250;
+        xCurrent = 600;
+        yCurrent = 600;
         VhpPlayer = 60;
-        {abx,bbx,cbx} = {10'd0000000321,10'd0000000331,10'd0000000341}; //[192,432]
-        {aby,bby,cby} = {10'd0000000200,10'd0000000200,10'd0000000010};// [210,402]
+        left_right = 3'b111; //right abc
+        up_down = 3'b111; //down abc
+        {abx,bbx,cbx} = {10'd0000000400,10'd0000000420,10'd0000000430}; //[192,432]
+        {aby,bby,cby} = {10'd0000000350,10'd0000000360,10'd0000000370};// [210,402]
         {abt,bbt,cbt} = {6{1'b0}};
         {abr,bbr,cbr} = {3{1'b0}};
     end
@@ -154,21 +158,7 @@ module defState(
                             cbx = 0;
                             cby = 0;
                             cbr = 0;
-                        end  
-//                    if((xCurrent == bbx) && (yCurrent == bby)) 
-//                        begin
-//                            VhpPlayer = VhpPlayer-10;
-//                            bbx = 0;
-//                            bby = 0;
-//                            bbr = 0;
-//                        end
-//                    if((xCurrent == cbx) && (yCurrent == cby)) 
-//                        begin
-//                            VhpPlayer = VhpPlayer-10;
-//                            cbx = 0;
-//                            cby = 0;
-//                            cbr = 0;
-//                        end
+                        end     
                 end
             3'b001:
                 begin
@@ -467,6 +457,172 @@ module defState(
         endcase
     end
      // todo bullet movement
+     
+    always@(posedge game_clk)
+        begin
+            case(monsterType)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
+            3'b000://16x16 
+                begin
+                    case(left_right)
+                        3'b000:
+                            begin
+                                abx = abx-1;
+                                bbx = bbx-1;
+                                cbx = cbx-1;
+                                if(abx==192)left_right[2]=1;
+                                if(bbx==192)left_right[1]=1;
+                                if(cbx==192)left_right[0]=1;
+                            end
+                        3'b001:
+                            begin
+                                abx = abx-1;
+                                bbx = bbx-1;
+                                cbx = cbx+1;
+                                if(abx==192)left_right[2]=1;
+                                if(bbx==192)left_right[1]=1;
+                                if(cbx==432)left_right[0]=0;
+                            end
+                        3'b010:
+                            begin
+                                abx = abx-1;
+                                bbx = bbx+1;
+                                cbx = cbx-1;
+                                if(abx==192)left_right[2]=1;
+                                if(bbx==432)left_right[1]=0;
+                                if(cbx==192)left_right[0]=1;
+                            end
+                        3'b011:
+                            begin
+                                abx = abx-1;
+                                bbx = bbx+1;
+                                cbx = cbx+1;
+                                if(abx==192)left_right[2]=1;
+                                if(bbx==432)left_right[1]=0;
+                                if(cbx==432)left_right[0]=0;
+                            end
+                        3'b100:
+                            begin
+                                abx = abx+1;
+                                bbx = bbx-1;
+                                cbx = cbx-1;
+                                if(abx==432)left_right[2]=0;
+                                if(bbx==192)left_right[1]=1;
+                                if(cbx==192)left_right[0]=1;
+                            end
+                        3'b101:
+                            begin
+                                abx = abx+1;
+                                bbx = bbx-1;
+                                cbx = cbx+1;
+                                if(abx==432)left_right[2]=0;
+                                if(bbx==192)left_right[1]=1;
+                                if(cbx==432)left_right[0]=0;
+                            end
+                        3'b110:
+                            begin
+                                abx = abx+1;
+                                bbx = bbx+1;
+                                cbx = cbx-1;
+                                if(abx==432)left_right[2]=0;
+                                if(bbx==432)left_right[1]=0;
+                                if(cbx==192)left_right[0]=1;
+                            end
+                        3'b111:
+                            begin
+                                abx = abx+1;
+                                bbx = bbx+1;
+                                cbx = cbx+1;
+                                if(abx==432)left_right[2]=0;
+                                if(bbx==432)left_right[1]=0;
+                                if(cbx==432)left_right[0]=0;
+                            end  
+                    endcase
+                end
+            3'b001:// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
+                begin//32x32
+                    case(up_down)
+                        3'b000:
+                            begin
+                                aby = aby-1;
+                                bby = bby-1;
+                                cby = cby-1;
+                                if(aby==210)up_down[2]=1;
+                                if(bby==210)up_down[1]=1;
+                                if(cby==210)up_down[0]=1;
+                            end
+                        3'b001:
+                            begin
+                                aby = aby-1;
+                                bby = bby-1;
+                                cby = cby+1;
+                                if(aby==210)up_down[2]=1;
+                                if(bby==210)up_down[1]=1;
+                                if(cby==386)up_down[0]=0;
+                            end
+                        3'b010:
+                            begin
+                                aby = aby-1;
+                                bby = bby+1;
+                                cby = cby-1;
+                                if(aby==210)up_down[2]=1;
+                                if(bby==386)up_down[1]=0;
+                                if(cby==210)up_down[0]=1;
+                            end
+                        3'b011:
+                            begin
+                                aby = aby-1;
+                                bby = bby+1;
+                                cby = cby+1;
+                                if(aby==210)up_down[2]=1;
+                                if(bby==386)up_down[1]=0;
+                                if(cby==386)up_down[0]=0;
+                            end
+                        3'b100:
+                            begin
+                                aby = aby+1;
+                                bby = bby-1;
+                                cby = cby-1;
+                                if(aby==386)up_down[2]=0;
+                                if(bby==210)up_down[1]=1;
+                                if(cby==210)up_down[0]=1;
+                            end
+                        3'b101:
+                            begin
+                                aby = aby+1;
+                                bby = bby-1;
+                                cby = cby+1;
+                                if(aby==386)up_down[2]=0;
+                                if(bby==210)up_down[1]=1;
+                                if(cby==386)up_down[0]=0;
+                            end
+                        3'b110:
+                            begin
+                                aby = aby+1;
+                                bby = bby+1;
+                                cby = cby-1;
+                                if(aby==386)up_down[2]=0;
+                                if(bby==386)up_down[1]=0;
+                                if(cby==210)up_down[0]=1;
+                            end
+                        3'b111:
+                            begin
+                                aby = aby+1;
+                                bby = bby+1;
+                                cby = cby+1;
+                                if(aby==386)up_down[2]=0;
+                                if(bby==386)up_down[1]=0;
+                                if(cby==386)up_down[0]=0;
+                            end  
+                    endcase
+                end
+            3'b010:
+                begin
+                end
+            3'b011:
+                begin
+                end
+        endcase
+        end 
      
      // check collision
 endmodule
