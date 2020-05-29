@@ -54,16 +54,16 @@ module game_logic(
     always @(key)
         begin
             case(key[7:0])
-            8'h1C: direction = 5'b00001;//left A
-            8'h1D: direction = 5'b00010;//up W
-            8'h1B: direction = 5'b00100;//down S
-            8'h23: direction = 5'b01000;//right D
-            8'h29: direction = 5'b10000;//spacebar   
-            8'h45: state = 0;//spacebar
-            8'h16: state = 1;//spacebar
-            8'h1E: state = 2;//spacebar
-            8'h26: state = 3;//spacebar
-            8'h25: state = 4;//spacebar
+            8'h1C: direction <= 5'b00001;//left A
+            8'h1D: direction <= 5'b00010;//up W
+            8'h1B: direction <= 5'b00100;//down S
+            8'h23: direction <= 5'b01000;//right D
+            8'h29: direction <= 5'b10000;//spacebar   
+            8'h45: state <= 0;//spacebar
+            8'h16: state <= 1;//spacebar
+            8'h1E: state <= 2;//spacebar
+            8'h26: state <= 3;//spacebar
+            8'h25: state <= 4;//spacebar
             endcase
         end
      wire a_reset;
