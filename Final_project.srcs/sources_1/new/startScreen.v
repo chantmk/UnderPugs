@@ -27,22 +27,22 @@ module startScreen(
     ,input [9:0] y
     ,output reg [7:0] data
     );
-    localparam TITLE_POS1X = 0;
-    localparam TITLE_POS1Y = 0;
-    localparam TITLE_POS2X = 0;
-    localparam TITLE_POS2Y = 0;
-    localparam TITLE_WIDTH = TITLE_POS2X-TITLE_POS1X;
-    localparam START_POS1X = 0;
-    localparam START_POS1Y = 0;
-    localparam START_POS2X = 0;
-    localparam START_POS2Y = 0;
-    localparam START_WIDTH = START_POS2X-START_POS1X;
+    localparam TITLE_POS1X = 98;
+    localparam TITLE_POS1Y = 155;
+    localparam TITLE_POS2X = 543;
+    localparam TITLE_POS2Y = 200;
+    localparam TITLE_WIDTH = 445;
+    localparam START_POS1X = 245;
+    localparam START_POS1Y = 306;
+    localparam START_POS2X = 395;
+    localparam START_POS2Y = 326;
+    localparam START_WIDTH = 150;
     
-    reg addr_title;
-    wire data_title;
+    reg [14:0] addr_title;
+    wire [7:0] data_title;
     spriteROM #(
-        .DEPTH(),
-        .DEPTH_BIT(),
+        .DEPTH(20025),
+        .DEPTH_BIT(15),
         .MEMFILE("underpugs.mem")
         ) underpug (
         .clk(clk),
@@ -50,28 +50,28 @@ module startScreen(
         .data(data_title)
         );
     
-    reg addr_start;
-    wire data_start;
+    reg [11:0] addr_start;
+    wire [7:0] data_start;
     spriteROM #(
-        .DEPTH(),
-        .DEPTH_BIT(),
+        .DEPTH(3000),
+        .DEPTH_BIT(12),
         .MEMFILE("start.mem")
         ) start (
         .clk(clk),
         .addr(addr_start),
-        .data(data)
+        .data(data_start)
         );
 
     always @(p_tick)
     begin
         if(x>=TITLE_POS1X && x<=TITLE_POS2X && y>=TITLE_POS1Y && y<=TITLE_POS2Y)
         begin
-            addr_title = TITLE_WIDTH*(x-TITLE_POS1X) + (y-TITLE_POS1Y);
+            addr_title = TITLE_WIDTH*(y-TITLE_POS1Y) + (x-TITLE_POS1X);
             data = data_title;
         end
         else if(x>=START_POS1X && x<=START_POS2X && y>=START_POS1Y && y<=START_POS2Y)
         begin
-            addr_start = START_WIDTH*(x-START_POS1X) + (y-START_POS1Y);
+            addr_start = START_WIDTH*(y-START_POS1Y) + (x-START_POS1X);
             data = data_start;
         end
         else
