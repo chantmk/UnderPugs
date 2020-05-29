@@ -28,7 +28,8 @@ module vga(
 	,input [9:0] yPlayer
 	,input [6:0] hpPlayer
 	,input [6:0] hpMonster //min 0 max 100
-	,input pos
+	,input [59:0] pos
+	,input [5:0] bulletType
     ,output Hsync
     ,output Vsync
     ,output [3:0] vgaRed
@@ -101,17 +102,19 @@ module vga(
     );
 
     wire [11:0] rgb_def;
-//    defScreen ds(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .hpPlayer(hpPlayer),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .hpMonster(hpMonster),
-//        .rgb(rgb_def)
-//    );
+    defScreen ds(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .pos(pos),
+        .bulletType(bulletType),
+        .hpPlayer(hpPlayer),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .hpMonster(hpMonster),
+        .rgb(rgb_def)
+    );
 
         // rgb buffer
         always @(posedge clk)

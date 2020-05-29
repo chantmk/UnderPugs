@@ -27,7 +27,7 @@ module testGameLogic();
     wire [2:0] state;
     reg clk,game_clk;
     reg [4:0] direction;
-    reg {15:0] key;
+    //reg {15:0] key;
     game_logic logic(
         .clk(clk),
         .key(key),
@@ -45,7 +45,7 @@ module testGameLogic();
     begin
         #0
         clk=0;
-        key=16'hF029;
+        //key=16'hF029;
         #200
         //…...
         $finish;

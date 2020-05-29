@@ -58,6 +58,8 @@ module TopSystem(
     wire reset;
     wire [6:0] hpMonster,hpPlayer;
     wire [9:0] xPlayer,yPlayer;
+    wire [59:0] pos; //bullet pos
+    wire [5:0] bulletType;
         /*--logic--*/
     game_logic logic(
         .clk(clk),
@@ -67,7 +69,9 @@ module TopSystem(
         .xPlayer(xPlayer),
         .yPlayer(yPlayer),
         .hpPlayer(hpPlayer),
-        .hpMonster(hpMonster)
+        .hpMonster(hpMonster),
+        .pos(pos),
+        .bulletType(bulletType)
     );
     /*--vga--*/
     vga image_handler(

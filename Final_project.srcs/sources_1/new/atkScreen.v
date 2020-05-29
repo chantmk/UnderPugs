@@ -73,15 +73,19 @@ module atkScreen(
     begin
         //insert constant value instead of localparam to recude render lag
         if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end//green
+        //border 1px hp bar
         else if( (x==233 | x==435) && (y>=65 && y<=87)) begin rgb <= 12'b111100000000; end//red
         else if( (x>=233 && x<=435) && (y==65 | y==87)) begin rgb <= 12'b111100000000; end//red
+        //hp bar
         else if( x>=234 && x<=(234+hpMonster*2) && y>=66 && y<=88) begin rgb <= 12'b111100000000; end//red
         else begin rgb <= 12'b000000000000 ; end
         
+        //barcode 1px atkBox
         if ((x>=300 && x<=340) && (y>=230 && y<=350)) begin rgb <= 12'b111111111111; end
         if (((x>=263 && x<=283) | (x>=364 && x<=389)) && (y>=230 && y<=350)) begin rgb <= 12'b011101110111; end
         if (((x>=210 && x<=220) | (x>=432 && x<=442)) && (y>=230 && y<=350)) begin rgb <= 12'b001100110011; end
         if (((x>=162 && x<=167) | (x>=446 && x<=451)) && (y>=230 && y<=350)) begin rgb <= 12'b000100010001; end
+        //border atkBox
         if( (x==95 | x==545) && (y>=229 && y<=351)) begin rgb <= 12'b111111111111; end
         if( (x>=95 && x<=545) && (y==229 | y==351)) begin rgb <= 12'b111111111111; end
     end

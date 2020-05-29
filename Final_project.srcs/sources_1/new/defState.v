@@ -34,7 +34,6 @@ module defState(
 	    ,output [5:0] bulletType
 	    ,output [29:0] bulletPosX
 	    ,output [29:0] bulletPosY
-	    ,output [2:0] bulletRender
     );
     
     reg [9:0] xCurrent;
@@ -48,14 +47,13 @@ module defState(
     assign bulletPosX = {abx,bbx,cbx};
     assign bulletPosY = {aby,bby,cby};
     assign bulletType = {abt,bbt,cbt};
-    assign bulletRender = {abr,bbr,cbr};
     
     initial begin 
         xCurrent = 300;
         yCurrent = 300;
-        VhpPlayer = 100;
-        {abx,bbx,cbx} = {10'd0000000321,10'd0000000331,10'd0000000341};
-        {aby,bby,cby} = {10'd0000000314,10'd0000000314,10'd0000000314};
+        VhpPlayer = 60;
+        {abx,bbx,cbx} = {10'd0000000321,10'd0000000331,10'd0000000341}; //[192,432]
+        {aby,bby,cby} = {10'd0000000314,10'd0000000314,10'd0000000314};// [210,402]
         {abt,bbt,cbt} = {6{1'b0}};
         {abr,bbr,cbr} = {3{1'b0}};
     end
