@@ -82,7 +82,7 @@ module atkState(
                     VhpMonster = VhpMonster - damage;
                     
                     // TODO: change state to defState
-                    end;
+                    end
                 stop = 1;
                 end   
             endcase

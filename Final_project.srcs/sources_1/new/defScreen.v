@@ -33,6 +33,85 @@ module defScreen(
     ,input [59:0]pos //pos of {bulletX,bulletY} 
     ,output reg [11:0] rgb
     );
+    
+    localparam BurgerPugT = 278;
+    localparam BurgerPugL = 39;
+    localparam BurgerPugD = 366;
+    localparam BurgerPugR = 166;
+    localparam Box1T = 192;
+    localparam Box1L = 196;
+    localparam Box1D = 447;
+    localparam Box1R = 403;
+    localparam Milk1T = 207;
+    localparam Milk1L = 420;
+    localparam Milk1D = 226;
+    localparam Milk1R = 439;
+    localparam Blood1T = 234;
+    localparam Blood1L = 420;
+    localparam Blood1D = 433;
+    localparam Blood1R = 437;
+    localparam Bone1 = 16;
+    localparam Burger = 16;
+    
+    localparam PizzaPugT = 256;
+    localparam PizzaPugL = 41;
+    localparam PizzaPugD = 383;
+    localparam PizzaPugR = 168;
+    localparam Box2T = 208;
+    localparam Box2L = 179;
+    localparam Box2D = 431;
+    localparam Box2R = 402;
+    localparam Milk2T = 203;
+    localparam Milk2L = 420;
+    localparam Milk2D = 222;
+    localparam Milk2R = 439;
+    localparam Blood2T = 234;
+    localparam Blood2L = 422;
+    localparam Blood2D = 432;
+    localparam Blood2R = 437;
+    localparam Bone2 = 16;
+    localparam Pizza = 32;
+    
+    localparam KebabPugT = 267;
+    localparam KebabPugL = 37;
+    localparam KebabPugD = 373;
+    localparam KebabPugR = 148;
+    localparam Box3T = 209;
+    localparam Box3L = 181;
+    localparam Box3D = 432;
+    localparam Box3R = 404;
+    localparam Milk3T = 206;
+    localparam Milk3L = 420;
+    localparam Milk3D = 225;
+    localparam Milk3R = 439;
+    localparam Blood3T = 232;
+    localparam Blood3L = 422;
+    localparam Blood3D = 431;
+    localparam Blood3R = 437;
+    localparam Bone3 = 16;
+    localparam KebabH = 32;
+    localparam KebabW = 140;
+    
+    localparam LolipopPugT = 268;
+    localparam LolipopPugL = 64;
+    localparam LolipopPugD = 378;
+    localparam LolipopPugR = 191;
+    localparam Box4T = 99;
+    localparam Box4L = 227;
+    localparam Box4D = 546;
+    localparam Box4R = 386;
+    localparam Milk4T = 211;
+    localparam Milk4L = 403;
+    localparam Milk4D = 230;
+    localparam Milk4R = 422;
+    localparam Blood4T = 237;
+    localparam Blood4L = 405;
+    localparam Blood4D = 436;
+    localparam Blood4R = 420;
+    localparam Bone4 = 16;
+    localparam LolipopH = 16;
+    localparam LolipopW = 140;
+    
     parameter ENABLE = 0;
     
         
