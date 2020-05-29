@@ -55,40 +55,43 @@ module vga(
         .y(y)
     );
 
-    wire [11:0] rgb_start;
+//    wire [7:0] data_start;
 //    startScreen ss(
 //        .clk(clk),
 //        .p_tick(p_tick),
 //        .x(x),
 //        .y(y),
-//        .rgb(rgb_start)
-//    );
+//        .data(data_start)
+//    )
+
+//    wire [7:0] data_end;
+//    wire [7:0] data_title;
+//    wire [7:0] data_map;
+//    wire [7:0] data_atk;
+//    wire [7:0] data_def;
+//    reg [7:0] data;
+//    paletteROM #(
+//        .PALETTEFILE(""))(
+//        .clk(clk),
+//        .data(data),
+//        .color(rgb_reg)
+//        );
     
-    wire [11:0] rgb_mode;
-//    modeScreen mds(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .hpPlayer(hpPlayer),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .rgb(rgb_mode)
-//    );
-
-    wire [11:0] rgb_map;
-//    mapScreen ms(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .hpPlayer(hpPlayer),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .pos(posMon),
-//        .rgb(rgb_map)
-//    );
-
+//    always @(posedge clk)
+//    begin
+//        case(screen_state)
+//        3'b000: data <= data_start;
+//        3'b001: data <= data_end;
+//        3'b010: data <= data_title;
+//        3'b011: data <= data_greet
+//        3'b100: data <= data_map;
+//        3'b101: data <= data_atk;
+//        3'b110: data <= data_def;
+//        default: data <= 0;
+//        endcase
+//    end
+    
+   
     wire [11:0] rgb_atk;
     atkScreen as(
         .clk(clk),
@@ -116,17 +119,17 @@ module vga(
         .rgb(rgb_def)
     );
 
-        // rgb buffer
-        always @(posedge clk)
+    // rgb buffer
+    always @(posedge clk)
         begin
             case(screen_state)
-            3'b000: rgb_reg <= rgb_start;
-            3'b001: rgb_reg <= rgb_mode;
-            3'b010: rgb_reg <= rgb_map;
+            3'b000: rgb_reg <= BG_COLOR;
+            3'b001: rgb_reg <= BG_COLOR;
+            3'b010: rgb_reg <= BG_COLOR;
             3'b011: rgb_reg <= rgb_atk;
             3'b100: rgb_reg <= rgb_def;
             endcase
         end
-        // output
-        assign {vgaRed,vgaGreen,vgaBlue} = (video_on) ? rgb_reg : BG_COLOR; //black
+    // output
+    assign {vgaRed,vgaGreen,vgaBlue} = (video_on) ? rgb_reg : BG_COLOR; //black
 endmodule

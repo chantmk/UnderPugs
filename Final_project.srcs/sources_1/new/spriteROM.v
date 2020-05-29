@@ -20,10 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module spriteROM #(ADDR_WIDTH=10,DATA_WIDTH=8,DEPTH=32,MEMFILE="")(
+module spriteROM #(ADDR_WIDTH=10,DATA_WIDTH=8,DEPTH=32,DEPTH_BIT=5,MEMFILE="")(
     input clk
-    ,input [ADDR_WIDTH-1:0] x
-    ,input [ADDR_WIDTH-1:0] y
+    ,input [DEPTH_BIT-1:0] addr
     ,output reg [DATA_WIDTH-1:0] data
     );
     reg [DATA_WIDTH-1:0] mem [0:DEPTH-1]; 
@@ -39,6 +38,6 @@ module spriteROM #(ADDR_WIDTH=10,DATA_WIDTH=8,DEPTH=32,MEMFILE="")(
     
     always @(posedge clk)
     begin
-        data <= mem[16*x+y+1];
+        data <= mem[addr];
     end
 endmodule
