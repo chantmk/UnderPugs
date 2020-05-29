@@ -39,6 +39,6 @@ module spriteROM #(ADDR_WIDTH=10,DATA_WIDTH=8,DEPTH=32,MEMFILE="")(
     
     always @(posedge clk)
     begin
-        data <= mem[x*y];
+        data <= mem[16*x+y+1];
     end
 endmodule

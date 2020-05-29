@@ -83,6 +83,7 @@ module TopSystem(
 	    .hpPlayer(hpPlayer),
 	    .hpMonster(hpMonster),
 	    .pos(pos),
+	    .bulletType(bulletType),
         .Hsync(Hsync),
         .Vsync(Vsync),
         .vgaRed(vgaRed),
