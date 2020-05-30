@@ -66,8 +66,24 @@ module vga(
 
     wire [7:0] data_end;
     wire [7:0] data_title;
+    titleScreen ts(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .data(data_title)
+        );
+        
     wire [7:0] data_greet;
     wire [7:0] data_map;
+    mapScreen ms(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .data(data_map)
+        );
+        
     wire [7:0] data_atk;
     wire [7:0] data_def;
 

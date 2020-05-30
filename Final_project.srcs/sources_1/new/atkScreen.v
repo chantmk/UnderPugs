@@ -102,7 +102,8 @@ module atkScreen(
     else
     begin
         //insert constant value instead of localparam to recude render lag
-        if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end//green
+//        if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end//green
+        if( y>= yPlayer+15 && (y-yPlayer) <= 2*(x - xPlayer) && (y-yPlayer) <= -2*(x-xPlayer)) begin rgb <= 12'b000011110000; end
         //border 1px hp bar
         else if( (x==233 | x==435) && (y>=65 && y<=87)) begin rgb <= 12'b111100000000; end//red
         else if( (x>=233 && x<=435) && (y==65 | y==87)) begin rgb <= 12'b111100000000; end//red

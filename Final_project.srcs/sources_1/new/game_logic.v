@@ -38,12 +38,10 @@ module game_logic(
     reg [1:0] Vreset;
     reg an0,an1,an2,an3,an4;
 
-    
-    
     //assign state = Vstate;
     initial begin
         //Vstate <= 3;
-        state <= 0;
+        state <= 2;
         direction <= 5'b00000;
     end
     
