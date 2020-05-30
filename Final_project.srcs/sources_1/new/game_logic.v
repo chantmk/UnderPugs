@@ -41,7 +41,7 @@ module game_logic(
     //assign state = Vstate;
     initial begin
         //Vstate <= 3;
-        state <= 2;
+        state <= 4;
         direction <= 5'b00000;
     end
     
