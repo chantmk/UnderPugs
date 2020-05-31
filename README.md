@@ -41,4 +41,5 @@ Ref:
   * https://github.com/AdrianFPGA/basys3
 * vga simulator: may useful for someone who doesn't have any vga display
   * https://ericeastwood.com/lab/vga-simulator/
-
+* clock divider :
+ * https://www.fpga4student.com/2017/08/verilog-code-for-clock-divider-on-fpga.html
