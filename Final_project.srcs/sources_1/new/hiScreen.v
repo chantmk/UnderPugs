@@ -53,7 +53,7 @@ module hiScreen(
     reg [14:0] addr_hi;
     wire [7:0] data_hi;
     spriteROM #(
-        .DEPTH(12600),
+        .DEPTH(12640),
         .DEPTH_BIT(14),
         .MEMFILE("hi.mem")
         ) hi (
