@@ -37,6 +37,7 @@ module startScreen(
     localparam START_POS2X = 395;
     localparam START_POS2Y = 326;
     localparam START_WIDTH = 150;
+    localparam DIVISOR = 28'd50000000;
     
     reg [14:0] addr_title;
     wire [7:0] data_title;
@@ -61,7 +62,19 @@ module startScreen(
         .addr(addr_start),
         .data(data_start)
         );
-
+    
+    reg [27:0] counter;
+    reg clk_blink;
+    always @(posedge clk)
+    begin
+        counter <= counter + 28'd1;
+        if(counter>=(DIVISOR-1))
+        begin
+        counter <= 28'd0;
+        clk_blink <= ~clk_blink;
+        end
+    end
+    
     always @(p_tick)
     begin
         if(x>=TITLE_POS1X && x<=TITLE_POS2X && y>=TITLE_POS1Y && y<=TITLE_POS2Y)
@@ -71,8 +84,12 @@ module startScreen(
         end
         else if(x>=START_POS1X && x<=START_POS2X && y>=START_POS1Y && y<=START_POS2Y)
         begin
+        if(clk_blink)
+        begin
             addr_start = START_WIDTH*(y-START_POS1Y) + (x-START_POS1X);
             data = data_start;
+        end
+        else data = 0;
         end
         else
         begin
