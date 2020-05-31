@@ -32,63 +32,30 @@ module defScreen(
     ,input [5:0] bulletType //type of a,b,c bulelt *if state has only 1 monster,bulletType of a,b,c are same with monsterType
     ,input [59:0]pos //pos of {bulletX,bulletY} 
     ,output reg [11:0] rgb
+    ,output reg [7:0] data
     );
     
     localparam BurgerPugT = 278;
     localparam BurgerPugL = 39;
     localparam BurgerPugD = 366;
     localparam BurgerPugR = 166;
-    localparam Box1T = 192;
-    localparam Box1L = 196;
-    localparam Box1D = 447;
-    localparam Box1R = 403;
-    localparam Milk1T = 207;
-    localparam Milk1L = 420;
-    localparam Milk1D = 226;
-    localparam Milk1R = 439;
-    localparam Blood1T = 234;
-    localparam Blood1L = 420;
-    localparam Blood1D = 433;
-    localparam Blood1R = 437;
-    localparam Bone1 = 16;
+    localparam MilkT = 207;
+    localparam MilkL = 420;
+    localparam MilkD = 226;
+    localparam MilkR = 439;
+    localparam Bone = 16;
     localparam Burger = 16;
     
     localparam PizzaPugT = 256;
     localparam PizzaPugL = 41;
     localparam PizzaPugD = 383;
     localparam PizzaPugR = 168;
-    localparam Box2T = 208;
-    localparam Box2L = 179;
-    localparam Box2D = 431;
-    localparam Box2R = 402;
-    localparam Milk2T = 203;
-    localparam Milk2L = 420;
-    localparam Milk2D = 222;
-    localparam Milk2R = 439;
-    localparam Blood2T = 234;
-    localparam Blood2L = 422;
-    localparam Blood2D = 432;
-    localparam Blood2R = 437;
-    localparam Bone2 = 16;
     localparam Pizza = 32;
     
     localparam KebabPugT = 267;
     localparam KebabPugL = 37;
     localparam KebabPugD = 373;
     localparam KebabPugR = 148;
-    localparam Box3T = 209;
-    localparam Box3L = 181;
-    localparam Box3D = 432;
-    localparam Box3R = 404;
-    localparam Milk3T = 206;
-    localparam Milk3L = 420;
-    localparam Milk3D = 225;
-    localparam Milk3R = 439;
-    localparam Blood3T = 232;
-    localparam Blood3L = 422;
-    localparam Blood3D = 431;
-    localparam Blood3R = 437;
-    localparam Bone3 = 16;
     localparam KebabH = 32;
     localparam KebabW = 140;
     
@@ -96,24 +63,10 @@ module defScreen(
     localparam LolipopPugL = 64;
     localparam LolipopPugD = 378;
     localparam LolipopPugR = 191;
-    localparam Box4T = 99;
-    localparam Box4L = 227;
-    localparam Box4D = 546;
-    localparam Box4R = 386;
-    localparam Milk4T = 211;
-    localparam Milk4L = 403;
-    localparam Milk4D = 230;
-    localparam Milk4R = 422;
-    localparam Blood4T = 237;
-    localparam Blood4L = 405;
-    localparam Blood4D = 436;
-    localparam Blood4R = 420;
-    localparam Bone4 = 16;
     localparam LolipopH = 16;
     localparam LolipopW = 140;
     
     parameter ENABLE = 0;
-    
         
     wire [9:0] abx = pos[59:50]; //bullet a is @ (x,y) = (abx,aby)
     wire [9:0] aby = pos[29:20];
@@ -121,6 +74,126 @@ module defScreen(
     wire [9:0] bby = pos[19:10];
     wire [9:0] cbx = pos[39:30];//bullet c is @ (x,y) = (cbx,cby)
     wire [9:0] cby = pos[9:0];
+    
+    reg [14:0] addr_milk;
+    wire [7:0] data_milk;
+    spriteROM #(
+        .DEPTH(400),
+        .DEPTH_BIT(9),
+        .MEMFILE("milk.mem")
+        ) milk (
+        .clk(clk),
+        .addr(addr_milk),
+        .data(data_milk)
+        );
+        
+    reg [11:0] addr_burgerP;
+    wire [7:0] data_burgerP;
+    spriteROM #(
+        .DEPTH(11392),
+        .DEPTH_BIT(14),
+        .MEMFILE("burger-pug.mem")
+        ) burgerP (
+        .clk(clk),
+        .addr(addr_burgerP),
+        .data(data_burgerP)
+        );
+        
+    reg [11:0] addr_pizzaP;
+    wire [7:0] data_pizzaP;
+    spriteROM #(
+        .DEPTH(16384),
+        .DEPTH_BIT(14),
+        .MEMFILE("pizza-pug.mem")
+        ) pizzaP (
+        .clk(clk),
+        .addr(addr_pizzaP),
+        .data(data_pizzaP)
+        );
+        
+    reg [11:0] addr_kebabP;
+    wire [7:0] data_kebabP;
+    spriteROM #(
+        .DEPTH(11984),
+        .DEPTH_BIT(14),
+        .MEMFILE("kebab-pug.mem")
+        ) kebabP (
+        .clk(clk),
+        .addr(addr_kebabP),
+        .data(data_kebabP)
+        );
+        
+    reg [11:0] addr_lolipopP;
+    wire [7:0] data_lolipopP;
+    spriteROM #(
+        .DEPTH(11984),
+        .DEPTH_BIT(14),
+        .MEMFILE("lolipop-pug2.mem")
+        ) lolipopP (
+        .clk(clk),
+        .addr(addr_lolipopP),
+        .data(data_lolipopP)
+        );
+        
+    reg [14:0] addr_bone;
+    wire [7:0] data_bone;
+    spriteROM #(
+        .DEPTH(256),
+        .DEPTH_BIT(8),
+        .MEMFILE("bone.mem")
+        ) bone (
+        .clk(clk),
+        .addr(addr_bone),
+        .data(data_bone)
+        );
+        
+    reg [14:0] addr_burger;
+    wire [7:0] data_burger;
+    spriteROM #(
+        .DEPTH(256),
+        .DEPTH_BIT(8),
+        .MEMFILE("burger.mem")
+        ) burger (
+        .clk(clk),
+        .addr(addr_burger),
+        .data(data_burger)
+        );
+        
+    reg [14:0] addr_pizza;
+    wire [7:0] data_pizza;
+    spriteROM #(
+        .DEPTH(1024),
+        .DEPTH_BIT(10),
+        .MEMFILE("pizza.mem")
+        ) pizza (
+        .clk(clk),
+        .addr(addr_pizza),
+        .data(data_pizza)
+        );
+        
+    reg [14:0] addr_kebab;
+    wire [7:0] data_kebab;
+    spriteROM #(
+        .DEPTH(4480),
+        .DEPTH_BIT(13),
+        .MEMFILE("kebab.mem")
+        ) kebab (
+        .clk(clk),
+        .addr(addr_kebab),
+        .data(data_kebab)
+        );
+        
+    reg [14:0] addr_lolipop;
+    wire [7:0] data_lolipop;
+    spriteROM #(
+        .DEPTH(2240),
+        .DEPTH_BIT(12),
+        .MEMFILE("lolipop.mem")
+        ) lolipop (
+        .clk(clk),
+        .addr(addr_lolipop),
+        .data(data_lolipop)
+        );
     
     always @(p_tick)
     begin
@@ -131,6 +204,110 @@ module defScreen(
         end
         else rgb <= 12'b000000000000;
     end
+    
+    else if (x>=MilkT && x<=MilkD && y>=MilkL && y<=MilkR)
+    begin
+        addr_milk = 20*(y-MilkL) + (x-MilkT);
+        data = data_milk;
+    end
+    else if (x>=xPlayer && x<=(xPlayer+16) && y>=yPlayer && y<=(yPlayer+16))
+    begin
+        addr_bone = 16*(y-yPlayer) + (x-xPlayer);
+        data = data_bone;
+    end
+    else if (bulletType==1) //TODO
+    begin
+        if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
+        begin
+            addr_burgerP = 89*(y-BurgerPugL) + (x-BurgerPugT);
+            data = data_burgerP;
+        end
+        else if (x>=pos[59:50] && x<=(pos[59:50]+16) && y>=pos[49:40] && y<=(pos[49:40]+16))
+        begin
+            addr_burger = 16*(y-pos[49:40]) + (x-pos[59:50]);
+            data = data_burger;
+        end
+        else if (x>=pos[39:30] && x<=(pos[39:30]+16) && y>=pos[29:20] && y<=(pos[29:20]+16))
+        begin
+            addr_burger = 16*(y-pos[29:20]) + (x-pos[39:30]);
+            data = data_burger;
+        end
+        else if (x>=pos[19:10] && x<=(pos[19:10]+16) && y>=pos[9:0] && y<=(pos[9:0]+16))
+        begin
+            addr_burger = 16*(y-pos[19:10]) + (x-pos[9:0]);
+            data = data_burger;
+        end
+    end
+    else if (bulletType==2) //TODO
+    begin
+        if(x>=PizzaPugT && x<=PizzaPugD && y>=PizzaPugL && y<=PizzaPugR)
+        begin
+            addr_pizzaP = 128*(y-PizzaPugL) + (x-PizzaPugT);
+            data = data_pizzaP;
+        end
+        else if (x>=pos[59:50] && x<=(pos[59:50]+32) && y>=pos[49:40] && y<=(pos[49:40]+32))
+        begin
+            addr_pizza = 32*(y-pos[49:40]) + (x-pos[59:50]);
+            data = data_pizza;
+        end
+        else if (x>=pos[39:30] && x<=(pos[39:30]+32) && y>=pos[29:20] && y<=(pos[29:20]+32))
+        begin
+            addr_pizza = 32*(y-pos[29:40]) + (x-pos[39:50]);
+            data = data_pizza;
+        end
+        else if (x>=pos[19:10] && x<=(pos[19:10]+32) && y>=pos[9:0] && y<=(pos[9:0]+32))
+        begin
+            addr_pizza = 32*(y-pos[9:0]) + (x-pos[19:10]);
+            data = data_pizza;
+        end
+    end
+    else if (bulletType==3) //TODO
+    begin
+        if(x>=KebabPugT && x<=KebabPugD && y>=KebabPugL && y<=KebabPugR)
+        begin
+            addr_kebabP = 107*(y-KebabPugL) + (x-KebabPugT);
+            data = data_kebabP;
+        end
+        else if (x>=pos[59:50] && x<=(pos[59:50]+140) && y>=pos[49:40] && y<=(pos[49:40]+140))
+        begin
+            addr_kebab = 140*(y-pos[49:40]) + (x-pos[59:50]);
+            data = data_kebab;
+        end
+        else if (x>=pos[39:30] && x<=(pos[39:30]+140) && y>=pos[29:20] && y<=(pos[29:20]+140))
+        begin
+            addr_kebab = 140*(y-pos[29:20]) + (x-pos[39:30]);
+            data = data_kebab;
+        end
+        else if (x>=pos[19:10] && x<=(pos[19:10]+140) && y>=pos[9:0] && y<=(pos[9:0]+140))
+        begin
+            addr_kebab = 140*(y-pos[9:0]) + (x-pos[19:10]);
+            data = data_kebab;
+        end
+    end
+    else if (bulletType==4) //TODO
+    begin
+        if(x>=LolipopPugT && x<=LolipopPugD && y>=LolipopPugL && y<=LolipopPugR)
+        begin
+            addr_lolipopP = 89*(y-LolipopPugL) + (x-LolipopPugT);
+            data = data_lolipopP;
+        end
+        else if (x>=pos[59:50] && x<=(pos[59:50]+16) && y>=pos[49:40] && y<=(pos[49:40]+16))
+        begin
+            addr_lolipop = 16*(y-pos[49:40]) + (x-pos[59:50]);
+            data = data_lolipop;
+        end
+        else if (x>=pos[39:30] && x<=(pos[39:30]+16) && y>=pos[29:20] && y<=(pos[29:20]+16))
+        begin
+            addr_lolipop = 16*(y-pos[29:20]) + (x-pos[39:30]);
+            data = data_lolipop;
+        end
+        else if (x>=pos[19:10] && x<=(pos[19:10]+16) && y>=pos[9:0] && y<=(pos[9:0]+16))
+        begin
+            addr_lolipop = 16*(y-pos[19:10]) + (x-pos[9:0]);
+            data = data_lolipop;
+        end
+    end
+    
     else
     begin
         //insert constant value instead of localparam to recude render lag

@@ -28,7 +28,9 @@ module atkScreen(
     ,input [9:0] xPlayer
     ,input [9:0] yPlayer
     ,input [6:0] hpMonster //min 0 max 100
+    ,input [5:0] bulletType
     ,output reg [11:0] rgb
+    ,output reg [7:0] data
     );
     
     localparam STANDARD_SIZE = 16;
@@ -81,14 +83,74 @@ module atkScreen(
     localparam LolipopPugL = 102;
     localparam LolipopPugD = 375;
     localparam LolipopPugR = 229;
-    localparam BoxT = 96;
-    localparam BoxL = 266;
-    localparam BoxD = 543;
-    localparam BoxR = 385;
-    localparam Triangle = 20;
-    localparam TriangleY = 393;
+//    localparam BoxT = 96;
+//    localparam BoxL = 266;
+//    localparam BoxD = 543;
+//    localparam BoxR = 385;
+//    localparam Triangle = 20;
+//    localparam TriangleY = 393;
 
     parameter ENABLE = 0;
+    
+    reg [14:0] addr_heart;
+    wire [7:0] data_heart;
+    spriteROM #(
+        .DEPTH(12600),
+        .DEPTH_BIT(14),
+        .MEMFILE("heart.mem")
+        ) heart (
+        .clk(clk),
+        .addr(addr_heart),
+        .data(data_heart)
+        );
+        
+    reg [11:0] addr_burgerP;
+    wire [7:0] data_burgerP;
+    spriteROM #(
+        .DEPTH(11392),
+        .DEPTH_BIT(14),
+        .MEMFILE("burger-pug.mem")
+        ) burgerP (
+        .clk(clk),
+        .addr(addr_burgerP),
+        .data(data_burgerP)
+        );
+        
+    reg [11:0] addr_pizzaP;
+    wire [7:0] data_pizzaP;
+    spriteROM #(
+        .DEPTH(16384),
+        .DEPTH_BIT(14),
+        .MEMFILE("pizza-pug.mem")
+        ) pizzaP (
+        .clk(clk),
+        .addr(addr_pizzaP),
+        .data(data_pizzaP)
+        );
+        
+    reg [11:0] addr_kebabP;
+    wire [7:0] data_kebabP;
+    spriteROM #(
+        .DEPTH(11984),
+        .DEPTH_BIT(14),
+        .MEMFILE("kebab-pug.mem")
+        ) kebabP (
+        .clk(clk),
+        .addr(addr_kebabP),
+        .data(data_kebabP)
+        );
+        
+    reg [11:0] addr_lolipopP;
+    wire [7:0] data_lolipopP;
+    spriteROM #(
+        .DEPTH(11984),
+        .DEPTH_BIT(14),
+        .MEMFILE("lolipop-pug2.mem")
+        ) lolipopP (
+        .clk(clk),
+        .addr(addr_lolipopP),
+        .data(data_lolipopP)
+        );
     
     always @(p_tick)
     begin
@@ -99,6 +161,45 @@ module atkScreen(
         end
         else rgb <= 12'b000000000000;
     end
+    
+    else if (x>=HeartT && x<=HeartD && y>=HeartL && y<=HeartR)
+    begin
+        addr_heart = 16*(y-HeartL) + (x-HeartT);
+        data = data_heart;
+    end
+    else if (bulletType==1) //TODO
+    begin
+        if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
+        begin
+            addr_burgerP = 89*(y-BurgerPugL) + (x-BurgerPugT);
+            data = data_burgerP;
+        end
+    end
+    else if (bulletType==2) //TODO
+    begin
+        if(x>=PizzaPugT && x<=PizzaPugD && y>=PizzaPugL && y<=PizzaPugR)
+        begin
+            addr_pizzaP = 128*(y-PizzaPugL) + (x-PizzaPugT);
+            data = data_pizzaP;
+        end
+    end
+    else if (bulletType==3) //TODO
+    begin
+        if(x>=KebabPugT && x<=KebabPugD && y>=KebabPugL && y<=KebabPugR)
+        begin
+            addr_kebabP = 107*(y-KebabPugL) + (x-KebabPugT);
+            data = data_kebabP;
+        end
+    end
+    else if (bulletType==4) //TODO
+    begin
+        if(x>=LolipopPugT && x<=LolipopPugD && y>=LolipopPugL && y<=LolipopPugR)
+        begin
+            addr_lolipopP = 89*(y-LolipopPugL) + (x-LolipopPugT);
+            data = data_lolipopP;
+        end
+    end
+    
     else
     begin
         //insert constant value instead of localparam to recude render lag
