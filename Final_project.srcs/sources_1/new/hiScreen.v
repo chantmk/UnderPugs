@@ -162,6 +162,7 @@ module hiScreen(
 //            end
             if( (x-LolipopPugT)**2+(y-LolipopPugL)**2 <=100)
             begin
+            
                 data = 8'b1111111;
             end
         end
