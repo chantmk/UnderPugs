@@ -65,6 +65,15 @@ module vga(
     );
 
     wire [7:0] data_end;
+    endScreen es(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .bulletType(bulletType),
+        .data(data_end)
+        );
+        
     wire [7:0] data_title;
     titleScreen ts(
         .clk(clk),
@@ -75,6 +84,15 @@ module vga(
         );
         
     wire [7:0] data_greet;
+    hiScreen hs(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .bulletType(bulletType),
+        .data(data_greet)
+        );
+        
     wire [7:0] data_map;
     mapScreen ms(
         .clk(clk),
@@ -85,8 +103,23 @@ module vga(
         );
         
     wire [7:0] data_atk;
+    atkScreen as(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .data(data_atk)
+        );
+        
     wire [7:0] data_def;
-
+    defScreen ds(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .data(data_def)
+        );
+        
     reg [7:0] data;
     wire [11:0] rgb;
     paletteROM #(
