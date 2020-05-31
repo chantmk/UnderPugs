@@ -10,8 +10,8 @@
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// 
-// Dependencies: 
+// https://www.fpga4student.com/2017/08/verilog-code-for-clock-divider-on-fpga.html
+// Dependencies: s
 // 
 // Revision:
 // Revision 0.01 - File Created

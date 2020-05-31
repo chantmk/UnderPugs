@@ -84,17 +84,17 @@ module game_logic(
      wire [9:0] d_xPlayer,d_yPlayer;
      wire [29:0] bulletX,bulletY;
      assign pos = {bulletX,bulletY};
-     defState superdef( .clk(clk),
-                    .game_clk(game_clk),
-                    .direction(direction),
-                    .reset(d_reset),
-                    .xPlayer(d_xPlayer),
-                    .yPlayer(d_yPlayer),
-                    .hpPlayer(d_hpPlayer),
-                    .hpMonster(d_hpMonster),
-                    .bulletType(bulletType),
-                    .bulletPosX(bulletX),
-                    .bulletPosY(bulletY));
+//     defState superdef( .clk(clk),
+//                    .game_clk(game_clk),
+//                    .direction(direction),
+//                    .reset(d_reset),
+//                    .xPlayer(d_xPlayer),
+//                    .yPlayer(d_yPlayer),
+//                    .hpPlayer(d_hpPlayer),
+//                    .hpMonster(d_hpMonster),
+//                    .bulletType(bulletType),
+//                    .bulletPosX(bulletX),
+//                    .bulletPosY(bulletY));
                     
      always @ (state)
         begin
