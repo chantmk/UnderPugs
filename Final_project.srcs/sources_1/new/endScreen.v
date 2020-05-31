@@ -25,7 +25,7 @@ module endScreen(
     ,input p_tick
     ,input [9:0] x
     ,input [9:0] y
-    ,input [5:0] bulletType
+    ,input endFlag
     ,output reg [7:0] data
     );
     
@@ -96,7 +96,7 @@ module endScreen(
     
     always @(p_tick)
     begin
-        if (bulletType==1) //TODO
+        if (endFlag==1)
         begin
             if(x>=CongratsT && x<=CongratsD && y>=CongratsL && y<=CongratsR)
             begin
@@ -109,7 +109,7 @@ module endScreen(
                 data = data_bone2;
             end
         end
-        else if (bulletType==2) //TODO
+        else if (endFlag==0)
         begin
             if(x>=GameoverT && x<=GameoverD && y>=GameoverL && y<=GameoverR)
             begin

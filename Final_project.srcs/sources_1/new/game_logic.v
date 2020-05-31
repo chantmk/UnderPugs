@@ -31,6 +31,7 @@ module game_logic(
 	,output reg [6:0] hpMonster
 	,output wire [59:0] pos
 	,output wire [5:0] bulletType
+	,output wire [1:0] pugType
     );
     
     reg [4:0] direction;

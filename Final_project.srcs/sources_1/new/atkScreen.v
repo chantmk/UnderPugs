@@ -28,7 +28,7 @@ module atkScreen(
     ,input [9:0] xPlayer
     ,input [9:0] yPlayer
     ,input [6:0] hpMonster //min 0 max 100
-    ,input [5:0] bulletType
+    ,input [1:0] pugType
     ,output reg [11:0] rgb
     ,output reg [7:0] data
     );
@@ -167,7 +167,7 @@ module atkScreen(
         addr_heart = 16*(y-HeartL) + (x-HeartT);
         data = data_heart;
     end
-    else if (bulletType==1) //TODO
+    else if (pugType==0) 
     begin
         if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
         begin
@@ -175,7 +175,7 @@ module atkScreen(
             data = data_burgerP;
         end
     end
-    else if (bulletType==2) //TODO
+    else if (pugType==1) 
     begin
         if(x>=PizzaPugT && x<=PizzaPugD && y>=PizzaPugL && y<=PizzaPugR)
         begin
@@ -183,7 +183,7 @@ module atkScreen(
             data = data_pizzaP;
         end
     end
-    else if (bulletType==3) //TODO
+    else if (pugType==2) 
     begin
         if(x>=KebabPugT && x<=KebabPugD && y>=KebabPugL && y<=KebabPugR)
         begin
@@ -191,7 +191,7 @@ module atkScreen(
             data = data_kebabP;
         end
     end
-    else if (bulletType==4) //TODO
+    else if (pugType==3)
     begin
         if(x>=LolipopPugT && x<=LolipopPugD && y>=LolipopPugL && y<=LolipopPugR)
         begin

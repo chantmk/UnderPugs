@@ -25,7 +25,7 @@ module hiScreen(
     ,input p_tick
     ,input [9:0] x
     ,input [9:0] y
-    ,input [5:0] bulletType
+    ,input [1:0] pugType
     ,output reg [7:0] data
     );
     
@@ -117,7 +117,7 @@ module hiScreen(
             addr_hi = 316*(y-HiL) + (x-HiT);
             data = data_hi;
         end
-        else if (bulletType==1) //TODO
+        else if (pugType==0)
         begin
             if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
             begin
@@ -125,7 +125,7 @@ module hiScreen(
                 data = data_burgerP;
             end
         end
-        else if (bulletType==2) //TODO
+        else if (pugType==1)
         begin
             if(x>=PizzaPugT && x<=PizzaPugD && y>=PizzaPugL && y<=PizzaPugR)
             begin
@@ -133,7 +133,7 @@ module hiScreen(
                 data = data_pizzaP;
             end
         end
-        else if (bulletType==3) //TODO
+        else if (pugType==2)
         begin
             if(x>=KebabPugT && x<=KebabPugD && y>=KebabPugL && y<=KebabPugR)
             begin
@@ -141,7 +141,7 @@ module hiScreen(
                 data = data_kebabP;
             end
         end
-        else if (bulletType==4) //TODO
+        else if (pugType==3) //TODO
         begin
             if(x>=LolipopPugT && x<=LolipopPugD && y>=LolipopPugL && y<=LolipopPugR)
             begin

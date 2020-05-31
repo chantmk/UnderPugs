@@ -25,10 +25,9 @@ module mapScreen(
    ,input p_tick
    ,input [9:0] x
    ,input [9:0] y
-   ,input hpPlayer
-   ,input xPlayer
-   ,input yPlayer
-   ,input pos
+   ,input [9:0] xPlayer
+   ,input [9:0] yPlayer
+   ,input [59:0] pos
    ,output reg [7:0] data
    );
    

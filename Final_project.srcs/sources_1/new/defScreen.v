@@ -28,8 +28,7 @@ module defScreen(
     ,input [6:0] hpPlayer
     ,input [9:0] xPlayer
     ,input [9:0] yPlayer
-    ,input [6:0] hpMonster
-    ,input [5:0] bulletType //type of a,b,c bulelt *if state has only 1 monster,bulletType of a,b,c are same with monsterType
+    ,input [1:0] pugType //type of a,b,c bulelt *if state has only 1 monster,bulletType of a,b,c are same with monsterType
     ,input [59:0]pos //pos of {bulletX,bulletY} 
     ,output reg [11:0] rgb
     ,output reg [7:0] data
@@ -215,7 +214,7 @@ module defScreen(
         addr_bone = 16*(y-yPlayer) + (x-xPlayer);
         data = data_bone;
     end
-    else if (bulletType==1) //TODO
+    else if (pugType==0) 
     begin
         if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
         begin
@@ -234,11 +233,11 @@ module defScreen(
         end
         else if (x>=pos[19:10] && x<=(pos[19:10]+16) && y>=pos[9:0] && y<=(pos[9:0]+16))
         begin
-            addr_burger = 16*(y-pos[19:10]) + (x-pos[9:0]);
+            addr_burger = 16*(y-pos[9:0]) + (x-pos[19:10]);
             data = data_burger;
         end
     end
-    else if (bulletType==2) //TODO
+    else if (pugType==1) 
     begin
         if(x>=PizzaPugT && x<=PizzaPugD && y>=PizzaPugL && y<=PizzaPugR)
         begin
@@ -252,7 +251,7 @@ module defScreen(
         end
         else if (x>=pos[39:30] && x<=(pos[39:30]+32) && y>=pos[29:20] && y<=(pos[29:20]+32))
         begin
-            addr_pizza = 32*(y-pos[29:40]) + (x-pos[39:50]);
+            addr_pizza = 32*(y-pos[29:20]) + (x-pos[39:30]);
             data = data_pizza;
         end
         else if (x>=pos[19:10] && x<=(pos[19:10]+32) && y>=pos[9:0] && y<=(pos[9:0]+32))
@@ -261,7 +260,7 @@ module defScreen(
             data = data_pizza;
         end
     end
-    else if (bulletType==3) //TODO
+    else if (pugType==2) 
     begin
         if(x>=KebabPugT && x<=KebabPugD && y>=KebabPugL && y<=KebabPugR)
         begin
@@ -284,7 +283,7 @@ module defScreen(
             data = data_kebab;
         end
     end
-    else if (bulletType==4) //TODO
+    else if (pugType==3) 
     begin
         if(x>=LolipopPugT && x<=LolipopPugD && y>=LolipopPugL && y<=LolipopPugR)
         begin
@@ -303,7 +302,7 @@ module defScreen(
         end
         else if (x>=pos[19:10] && x<=(pos[19:10]+16) && y>=pos[9:0] && y<=(pos[9:0]+16))
         begin
-            addr_lolipop = 16*(y-pos[19:10]) + (x-pos[9:0]);
+            addr_lolipop = 16*(y-pos[9:0]) + (x-pos[19:10]);
             data = data_lolipop;
         end
     end

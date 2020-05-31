@@ -29,7 +29,8 @@ module vga(
 	,input [6:0] hpPlayer
 	,input [6:0] hpMonster //min 0 max 100
 	,input [59:0] pos
-	,input [5:0] bulletType
+	,input [1:0] pugType
+	,input wire endflag
     ,output Hsync
     ,output Vsync
     ,output [3:0] vgaRed
@@ -70,7 +71,7 @@ module vga(
         .p_tick(p_tick),
         .x(x),
         .y(y),
-        .bulletType(bulletType),
+        .endFlag(endFlag),
         .data(data_end)
         );
         
@@ -89,7 +90,7 @@ module vga(
         .p_tick(p_tick),
         .x(x),
         .y(y),
-        .bulletType(bulletType),
+        .pugType(pugType),
         .data(data_greet)
         );
         
@@ -99,6 +100,9 @@ module vga(
         .p_tick(p_tick),
         .x(x),
         .y(y),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .pos(pos),
         .data(data_map)
         );
         
@@ -108,6 +112,10 @@ module vga(
         .p_tick(p_tick),
         .x(x),
         .y(y),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .hpMonster(hpMonster),
+        .pugType(pugType),
         .data(data_atk)
         );
         
@@ -117,6 +125,11 @@ module vga(
         .p_tick(p_tick),
         .x(x),
         .y(y),
+        .pugType(pugType),
+        .hpPlayer(hpPlayer),
+        .pos(pos),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
         .data(data_def)
         );
         
