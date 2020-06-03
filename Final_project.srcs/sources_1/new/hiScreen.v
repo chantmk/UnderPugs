@@ -131,7 +131,7 @@ module hiScreen(
 //        .data(data_lolipopP)
 //        );
 
-    reg [14:0] addr_hi;
+    reg [13:0] addr_hi;
     wire [7:0] data_hi;
     spriteROM #(
         .DEPTH(12640),
@@ -143,7 +143,7 @@ module hiScreen(
         .data(data_hi)
         );
     
-    reg [11:0] addr_burgerP;
+    reg [13:0] addr_burgerP;
     wire [7:0] data_burgerP;
     spriteROM #(
         .DEPTH(11392),
@@ -155,7 +155,7 @@ module hiScreen(
         .data(data_burgerP)
         );
         
-    reg [11:0] addr_pizzaP;
+    reg [13:0] addr_pizzaP;
     wire [7:0] data_pizzaP;
     spriteROM #(
         .DEPTH(16384),
@@ -167,7 +167,7 @@ module hiScreen(
         .data(data_pizzaP)
         );
         
-    reg [11:0] addr_kebabP;
+    reg [13:0] addr_kebabP;
     wire [7:0] data_kebabP;
     spriteROM #(
         .DEPTH(11984),
@@ -179,7 +179,7 @@ module hiScreen(
         .data(data_kebabP)
         );
         
-    reg [11:0] addr_lolipopP;
+    reg [13:0] addr_lolipopP;
     wire [7:0] data_lolipopP;
     spriteROM #(
         .DEPTH(14208),

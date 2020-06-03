@@ -22,7 +22,7 @@
 
 module endScreen(
     input clk
-    ,input p_tick
+    ,input wire pixel_tick
     ,input [9:0] x
     ,input [9:0] y
     ,input endFlag
@@ -58,7 +58,7 @@ module endScreen(
         .data(data_con)
         );
         
-    reg [14:0] addr_bone2;
+    reg [12:0] addr_bone2;
     wire [7:0] data_bone2;
     spriteROM #(
         .DEPTH(6400),
@@ -82,7 +82,7 @@ module endScreen(
         .data(data_over)
         );
    
-    reg [14:0] addr_bone3;
+    reg [11:0] addr_bone3;
     wire [7:0] data_bone3;
     spriteROM #(
         .DEPTH(4096),
@@ -94,7 +94,7 @@ module endScreen(
         .data(data_bone3)
         );
     
-    always @(p_tick)
+    always @(posedge pixel_tick)
     begin
         if (endFlag==1)
         begin

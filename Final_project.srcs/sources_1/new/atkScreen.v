@@ -92,11 +92,11 @@ module atkScreen(
 
     parameter ENABLE = 0;
     
-    reg [14:0] addr_heart;
+    reg [7:0] addr_heart;
     wire [7:0] data_heart;
     spriteROM #(
-        .DEPTH(12600),
-        .DEPTH_BIT(14),
+        .DEPTH(256),
+        .DEPTH_BIT(8),
         .MEMFILE("heart.mem")
         ) heart (
         .clk(clk),
@@ -104,7 +104,7 @@ module atkScreen(
         .data(data_heart)
         );
         
-    reg [11:0] addr_burgerP;
+    reg [13:0] addr_burgerP;
     wire [7:0] data_burgerP;
     spriteROM #(
         .DEPTH(11392),
@@ -116,7 +116,7 @@ module atkScreen(
         .data(data_burgerP)
         );
         
-    reg [11:0] addr_pizzaP;
+    reg [13:0] addr_pizzaP;
     wire [7:0] data_pizzaP;
     spriteROM #(
         .DEPTH(16384),
@@ -128,7 +128,7 @@ module atkScreen(
         .data(data_pizzaP)
         );
         
-    reg [11:0] addr_kebabP;
+    reg [13:0] addr_kebabP;
     wire [7:0] data_kebabP;
     spriteROM #(
         .DEPTH(11984),
@@ -140,7 +140,7 @@ module atkScreen(
         .data(data_kebabP)
         );
         
-    reg [11:0] addr_lolipopP;
+    reg [13:0] addr_lolipopP;
     wire [7:0] data_lolipopP;
     spriteROM #(
         .DEPTH(11984),

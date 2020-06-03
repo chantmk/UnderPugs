@@ -64,6 +64,8 @@ module game_logic(
             8'h1E: state = 2;//spacebar
             8'h26: state = 3;//spacebar
             8'h25: state = 4;//spacebar 
+            8'h2E: state = 5;
+            8'h36: state = 6;
         endcase
      end
 

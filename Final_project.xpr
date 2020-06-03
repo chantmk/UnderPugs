@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="39" Path="C:/Users/ajinn/Desktop/HWProject/Final_project.xpr">
+<Project Version="7" Minor="39" Path="D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="d4455d6433344b0bb636bc2a675d3317"/>
@@ -270,12 +270,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/all_mem_fixed/hi.mem">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/all_mem_fixed/bone.mem">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -404,6 +398,14 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/HW_Lab/map.mem">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/all_mem_fixed/hi.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../../Downloads/all_mem_fixed/hi.mem"/>
+          <Attr Name="ImportTime" Val="1591065214"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

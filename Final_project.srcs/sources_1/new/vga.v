@@ -68,7 +68,7 @@ module vga(
     wire [7:0] data_end;
     endScreen es(
         .clk(clk),
-        .p_tick(p_tick),
+        .pixel_tick(p_tick),
         .x(x),
         .y(y),
         .endFlag(endFlag),
