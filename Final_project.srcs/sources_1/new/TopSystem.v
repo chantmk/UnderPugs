@@ -24,8 +24,6 @@ module TopSystem(
     input clk
     ,input PS2Clk
     ,input PS2Data
-//    ,input RsRx
-//    ,output RsTx
     ,output Hsync
     ,output Vsync
     ,output [3:0] vgaRed
@@ -59,19 +57,22 @@ module TopSystem(
     wire [6:0] hpMonster,hpPlayer;
     wire [9:0] xPlayer,yPlayer;
     wire [59:0] pos; //bullet pos
-    wire [5:0] bulletType;
+    wire [1:0] pugType;
+    wire endFlag;
+    
         /*--logic--*/
     game_logic logic(
         .clk(clk),
         .key(key),
         .state(state),
+        .endFlag(endFlag),
+        .pugType(pugType),
         .reset(reset),
         .xPlayer(xPlayer),
         .yPlayer(yPlayer),
         .hpPlayer(hpPlayer),
         .hpMonster(hpMonster),
-        .pos(pos),
-        .bulletType(bulletType)
+        .pos(pos)
     );
     /*--vga--*/
     vga image_handler(
@@ -83,8 +84,8 @@ module TopSystem(
 	    .hpPlayer(hpPlayer),
 	    .hpMonster(hpMonster),
 	    .pos(pos),
-//	    .endFlag(endFlag),
-//	    .pugType(pugType),
+	    .endFlag(endFlag),
+	    .pugType(pugType),
         .Hsync(Hsync),
         .Vsync(Vsync),
         .vgaRed(vgaRed),

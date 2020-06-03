@@ -22,7 +22,7 @@
 
 module endScreen(
     input clk
-    ,input wire pixel_tick
+    ,input p_tick
     ,input [9:0] x
     ,input [9:0] y
     ,input endFlag
@@ -94,7 +94,7 @@ module endScreen(
         .data(data_bone3)
         );
     
-    always @(posedge pixel_tick)
+    always @(p_tick)
     begin
         if (endFlag==1)
         begin
@@ -122,6 +122,7 @@ module endScreen(
                 data = data_bone3;
             end
         end
+        else
         begin
             data = 0;
         end

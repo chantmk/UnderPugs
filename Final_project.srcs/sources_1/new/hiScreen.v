@@ -193,7 +193,7 @@ module hiScreen(
         .data(data_lolipopP)
         );
 
-    always @(p_tick)
+    always @(posedge p_tick)
     begin
         if(x>=HiT && x<=HiD && y>=HiL && y<=HiR)
         begin
@@ -202,16 +202,6 @@ module hiScreen(
         end
         else if (pugType==0)
         begin
-//BigPug      if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
-//            begin
-//                addr_burgerP = 167*(y-BurgerPugL) + (x-BurgerPugT);
-//                data = data_burgerP;
-//            end
-//Test
-//            if( (x-BurgerPugT)**2+(y-BurgerPugL)**2 <=100)
-//            begin
-//                data = 8'b1111111;
-//            end
             if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
             begin
                 addr_burgerP = 89*(y-BurgerPugL) + (x-BurgerPugT);
@@ -220,16 +210,6 @@ module hiScreen(
         end
         else if (pugType==1)
         begin
-//            if(x>=PizzaPugT && x<=PizzaPugD && y>=PizzaPugL && y<=PizzaPugR)
-//            begin
-//                addr_pizzaP = 256*(y-PizzaPugL) + (x-PizzaPugT);
-//                data = data_pizzaP;
-//            end
-//Test
-//            if( (x-PizzaPugT)**2+(y-PizzaPugL)**2 <=100)
-//            begin
-//                data = 8'b11110000;
-//            end
             if(x>=PizzaPugT && x<=PizzaPugD && y>=PizzaPugL && y<=PizzaPugR)
             begin
                 addr_pizzaP = 128*(y-PizzaPugL) + (x-PizzaPugT);
@@ -238,16 +218,6 @@ module hiScreen(
         end
         else if (pugType==2)
         begin
-//            if(x>=KebabPugT && x<=KebabPugD && y>=KebabPugL && y<=KebabPugR)
-//            begin
-//                addr_kebabP = 230*(y-KebabPugL) + (x-KebabPugT);
-//                data = data_kebabP;
-//            end
-//Test
-//            if( (x-KebabPugT)**2+(y-KebabPugL)**2 <=100)
-//            begin
-//                data = 8'b00001111;
-//            end
             if(x>=KebabPugT && x<=KebabPugD && y>=KebabPugL && y<=KebabPugR)
             begin
                 addr_kebabP = 107*(y-KebabPugL) + (x-KebabPugT);
@@ -256,16 +226,6 @@ module hiScreen(
         end
         else if (pugType==3) //TODO
         begin
-//            if(x>=LolipopPugT && x<=LolipopPugD && y>=LolipopPugL && y<=LolipopPugR)
-//            begin
-//                addr_lolipopP = 208*(y-LolipopPugL) + (x-LolipopPugT);
-//                data = data_lolipopP;
-//            end
-//Test
-//            if( (x-LolipopPugT)**2+(y-LolipopPugL)**2 <=100)
-//            begin
-//                data = 8'b00110011;
-//            end
             if(x>=LolipopPugT && x<=LolipopPugD && y>=LolipopPugL && y<=LolipopPugR)
             begin
                 addr_lolipopP = 111*(y-LolipopPugL) + (x-LolipopPugT);
@@ -277,5 +237,45 @@ module hiScreen(
             data = 0;
         end
     end
+//BigPug      if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
+//            begin
+//                addr_burgerP = 167*(y-BurgerPugL) + (x-BurgerPugT);
+//                data = data_burgerP;
+//            end
+//Test
+//            if( (x-BurgerPugT)**2+(y-BurgerPugL)**2 <=100)
+//            begin
+//                data = 8'b1111111;
+//            end
+//            if(x>=PizzaPugT && x<=PizzaPugD && y>=PizzaPugL && y<=PizzaPugR)
+//            begin
+//                addr_pizzaP = 256*(y-PizzaPugL) + (x-PizzaPugT);
+//                data = data_pizzaP;
+//            end
+//Test
+//            if( (x-PizzaPugT)**2+(y-PizzaPugL)**2 <=100)
+//            begin
+//                data = 8'b11110000;
+//            end
+//            if(x>=KebabPugT && x<=KebabPugD && y>=KebabPugL && y<=KebabPugR)
+//            begin
+//                addr_kebabP = 230*(y-KebabPugL) + (x-KebabPugT);
+//                data = data_kebabP;
+//            end
+//Test
+//            if( (x-KebabPugT)**2+(y-KebabPugL)**2 <=100)
+//            begin
+//                data = 8'b00001111;
+//            end
+//            if(x>=LolipopPugT && x<=LolipopPugD && y>=LolipopPugL && y<=LolipopPugR)
+//            begin
+//                addr_lolipopP = 208*(y-LolipopPugL) + (x-LolipopPugT);
+//                data = data_lolipopP;
+//            end
+//Test
+//            if( (x-LolipopPugT)**2+(y-LolipopPugL)**2 <=100)
+//            begin
+//                data = 8'b00110011;
+//            end
     
 endmodule

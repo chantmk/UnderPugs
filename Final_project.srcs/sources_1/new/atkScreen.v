@@ -144,7 +144,7 @@ module atkScreen(
     spriteROM #(
         .DEPTH(11984),
         .DEPTH_BIT(14),
-        .MEMFILE("lolipop-pug2.mem")
+        .MEMFILE("lolipop-pug.mem")
         ) lolipopP (
         .clk(clk),
         .addr(addr_lolipopP),

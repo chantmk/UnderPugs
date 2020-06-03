@@ -24,14 +24,14 @@ module game_logic(
     input clk
     ,input [15:0] key
     ,output reg [2:0] state
+    ,output reg [1:0] pugType
+    ,output reg endFlag
     ,output reg reset
     ,output reg [9:0] xPlayer
     ,output reg [9:0] yPlayer
     ,output reg [6:0] hpPlayer
 	,output reg [6:0] hpMonster
 	,output wire [59:0] pos
-	,output wire [5:0] bulletType
-	,output wire [1:0] pugType
     );
     
     reg [4:0] direction;
@@ -59,13 +59,19 @@ module game_logic(
             8'h1B: direction = 5'b00100;//down S
             8'h23: direction = 5'b01000;//right D
             8'h29: direction = 5'b10000;//spacebar  
-            8'h45: state = 0;//spacebar
-            8'h16: state = 1;//spacebar
-            8'h1E: state = 2;//spacebar
-            8'h26: state = 3;//spacebar
-            8'h25: state = 4;//spacebar 
-            8'h2E: state = 5;
-            8'h36: state = 6;
+            8'h45: state = 0; //start 0
+            8'h16: state = 1; //end 1
+            8'h1E: state = 2; //title 2
+            8'h26: state = 3; //map 3
+            8'h25: state = 4; //hi 4
+            8'h2E: state = 5; //atk 5
+            8'h36: state = 6; //def 6
+            8'h2C: pugType = 0; //burger t
+            8'h35: pugType = 1; //pizza y
+            8'h3C: pugType = 2; //kebab u
+            8'h43: pugType = 3; //lollipop i
+            8'h31: endFlag = 0; //lose n
+            8'h3A: endFlag = 1; //win m
         endcase
      end
 

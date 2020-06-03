@@ -127,7 +127,7 @@ module defScreen(
     spriteROM #(
         .DEPTH(11984),
         .DEPTH_BIT(14),
-        .MEMFILE("lolipop-pug2.mem")
+        .MEMFILE("lolipop-pug.mem")
         ) lolipopP (
         .clk(clk),
         .addr(addr_lolipopP),
@@ -215,9 +215,7 @@ module defScreen(
     else if( (x==233 | x==435) && (y>=449 && y<=471)) begin data <= 8'h3F; end//white
     else if( (x>=233 && x<=435) && (y==449 | y==471)) begin data <= 8'h3F; end//white
         //anything else
-    else begin data <= 8'b0 ; end
-
-    if (pugType==0) 
+    else if (pugType==0) 
     begin
         if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
         begin
@@ -309,6 +307,7 @@ module defScreen(
             data = data_lolipop;
         end
     end
+    else begin data <= 8'b0 ; end
 //    else
 //    begin
 //        //insert constant value instead of localparam to recude render lag
