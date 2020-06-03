@@ -63,9 +63,9 @@ module atkScreen(
     localparam HeartL = 66;
     localparam HeartD = 221;
     localparam HeartR = 81;
-    localparam BloodT = 206;
+    localparam BloodT = 234;
     localparam BloodL = 66;
-    localparam BloodD = 221;
+    localparam BloodD = 433;
     localparam BloodR = 81;
     localparam BurgerPugT = 275;
     localparam BurgerPugL = 102;
@@ -167,6 +167,18 @@ module atkScreen(
         addr_heart = 16*(y-HeartL) + (x-HeartT);
         data = data_heart;
     end
+    
+        //border atkBox  x_area = [96,266] ,y_area = [543,386] in decimal size 448x120
+    else if( (x==96 | x==543) && (y>=266 && y<=386)) begin data <= 8'h3F; end //white
+    else if( (x>=96 && x<=543) && (y==266 | y==386)) begin data <= 8'h3F; end //white
+        //hpMonster bar size 200x16 x_area = [234,66] ,y_area = [433,81]
+    else if( x>=234 && x<=(234+hpMonster*2) && y>=66 && y<=81) begin data <= data_heart; end//heart color
+        //border 1px hpMonster bar
+    else if( (x==233 | x==433) && (y>=66 && y<=81)) begin data <= data_heart; end//heart color
+    else if( (x>=233 && x<=433) && (y==66 | y==81)) begin data <= data_heart; end//heart color
+        //anything else
+//    else begin data <= 8'b0 ; end
+    
     else if (pugType==0) 
     begin
         if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
@@ -200,26 +212,28 @@ module atkScreen(
         end
     end
     
-    else
-    begin
-        //insert constant value instead of localparam to recude render lag
-//        if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end//green
-        if( y>= yPlayer+15 && (y-yPlayer) <= 2*(x - xPlayer) && (y-yPlayer) <= -2*(x-xPlayer)) begin rgb <= 12'b000011110000; end
-        //border 1px hp bar
-        else if( (x==233 | x==435) && (y>=65 && y<=87)) begin rgb <= 12'b111100000000; end//red
-        else if( (x>=233 && x<=435) && (y==65 | y==87)) begin rgb <= 12'b111100000000; end//red
-        //hp bar
-        else if( x>=234 && x<=(234+hpMonster*2) && y>=66 && y<=88) begin rgb <= 12'b111100000000; end//red
-        else begin rgb <= 12'b000000000000 ; end
+    else begin data <= 8'b0 ; end
+    
+//    else
+//    begin
+//        //insert constant value instead of localparam to recude render lag
+////        if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end//green
+//        if( y>= yPlayer+15 && (y-yPlayer) <= 2*(x - xPlayer) && (y-yPlayer) <= -2*(x-xPlayer)) begin rgb <= 12'b000011110000; end
+//        //border 1px hp bar
+//        else if( (x==233 | x==435) && (y>=65 && y<=87)) begin rgb <= 12'b111100000000; end//red
+//        else if( (x>=233 && x<=435) && (y==65 | y==87)) begin rgb <= 12'b111100000000; end//red
+//        //hp bar
+//        else if( x>=234 && x<=(234+hpMonster*2) && y>=66 && y<=88) begin rgb <= 12'b111100000000; end//red
+//        else begin rgb <= 12'b000000000000 ; end
         
-        //barcode 1px atkBox
-        if ((x>=300 && x<=340) && (y>=230 && y<=350)) begin rgb <= 12'b111111111111; end
-        if (((x>=263 && x<=283) | (x>=364 && x<=389)) && (y>=230 && y<=350)) begin rgb <= 12'b011101110111; end
-        if (((x>=210 && x<=220) | (x>=432 && x<=442)) && (y>=230 && y<=350)) begin rgb <= 12'b001100110011; end
-        if (((x>=162 && x<=167) | (x>=446 && x<=451)) && (y>=230 && y<=350)) begin rgb <= 12'b000100010001; end
-        //border atkBox
-        if( (x==95 | x==545) && (y>=229 && y<=351)) begin rgb <= 12'b111111111111; end
-        if( (x>=95 && x<=545) && (y==229 | y==351)) begin rgb <= 12'b111111111111; end
-    end
+//        //barcode 1px atkBox
+//        if ((x>=300 && x<=340) && (y>=230 && y<=350)) begin rgb <= 12'b111111111111; end
+//        if (((x>=263 && x<=283) | (x>=364 && x<=389)) && (y>=230 && y<=350)) begin rgb <= 12'b011101110111; end
+//        if (((x>=210 && x<=220) | (x>=432 && x<=442)) && (y>=230 && y<=350)) begin rgb <= 12'b001100110011; end
+//        if (((x>=162 && x<=167) | (x>=446 && x<=451)) && (y>=230 && y<=350)) begin rgb <= 12'b000100010001; end
+//        //border atkBox
+//        if( (x==95 | x==545) && (y>=229 && y<=351)) begin rgb <= 12'b111111111111; end
+//        if( (x>=95 && x<=545) && (y==229 | y==351)) begin rgb <= 12'b111111111111; end
+//    end
     end
 endmodule

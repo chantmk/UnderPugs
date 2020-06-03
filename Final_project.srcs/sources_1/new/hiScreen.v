@@ -50,14 +50,16 @@ module hiScreen(
 //    localparam LolipopPugD = 423;
 //    localparam LolipopPugR = 324;
 
+// add +1 for DR
     localparam HiT = 162;
     localparam HiL = 298;
-    localparam HiD = 477;
-    localparam HiR = 337;
+    localparam HiD = 478;
+    localparam HiR = 338;
+// add +1 for DR
     localparam BurgerPugT = 275;
     localparam BurgerPugL = 143;
-    localparam BurgerPugD = 363;
-    localparam BurgerPugR = 270;
+    localparam BurgerPugD = 364;
+    localparam BurgerPugR = 271;
     localparam PizzaPugT = 256;
     localparam PizzaPugL = 143;
     localparam PizzaPugD = 383;
@@ -200,7 +202,7 @@ module hiScreen(
         end
         else if (pugType==0)
         begin
-//            if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
+//BigPug      if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
 //            begin
 //                addr_burgerP = 167*(y-BurgerPugL) + (x-BurgerPugT);
 //                data = data_burgerP;

@@ -209,7 +209,7 @@ module defScreen(
         //border defBox  x_area = [192,432] ,y_area = [210,402] in decimal
     else if( (x==192 | x==432) && (y>=210 && y<=402)) begin data <= 8'h3F; end //white
     else if( (x>=192 && x<=432) && (y==210 | y==402)) begin data <= 8'h3F; end //white
-        //hpPlayer bar
+        //hpPlayer bar size 200x16 x_area = [234,422] ,y_area = [433,437]
     else if( x>=234 && x<=(234+hpPlayer*2) && y>=450 && y<=470) begin data <= 8'h3F; end//white
         //border 1px hpPlayer bar
     else if( (x==233 | x==435) && (y>=449 && y<=471)) begin data <= 8'h3F; end//white
