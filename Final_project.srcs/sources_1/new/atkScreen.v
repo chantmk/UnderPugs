@@ -191,35 +191,25 @@ module atkScreen(
             data = data_burgerP;
         end
         // x_area = [137,138] ,y_area = [266,385] size 2
-        else if ( (x==137 && x==138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=137 && x<=138) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [156,158] ,y_area = [266,385] size 2
-        else if ( (x==156 && x==158) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=156 && x<=158) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=156 && x<=158) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [162,166] ,y_area = [266,385] size 5
-        else if ( (x==162 && x==166) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=162 && x<=166) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=162 && x<=166) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [210,219] ,y_area = [266,385] size 10
-        else if ( (x==210 && x==219) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=210 && x<=219) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=210 && x<=219) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [263,282] ,y_area = [266,385] size 20
-        else if ( (x==263 && x==282) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=263 && x<=282) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=263 && x<=282) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [300,339] ,y_area = [266,385] size 40
-        else if ( (x==300 && x==339) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=300 && x<=339) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=300 && x<=339) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [364,388] ,y_area = [266,385] size 25
-        else if ( (x==364 && x==388) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=364 && x<=388) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=364 && x<=388) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [432,441] ,y_area = [266,385] size 10
-        else if ( (x==432 && x==441) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=432 && x<=441) && (y==266 | y==385)) begin data <= 8'h3F; end //white    
-        // x_area = [446,266] ,y_area = [266,385] size 5
-        else if ( (x==446 && x==450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=446 && x<=450) && (y==266 | y==385)) begin data <= 8'h3F; end //white
-        // x_area = [494,266] ,y_area = [266,385] size 3
-        else if ( (x==494 && x==496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=494 && x<=496) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=432 && x<=441) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white    
+        // x_area = [446,450] ,y_area = [266,385] size 5
+        else if ( (x>=446 && x<=450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+        // x_area = [494,496] ,y_area = [266,385] size 3
+        else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
     end
     else if (pugType==1) 
     begin
@@ -229,35 +219,25 @@ module atkScreen(
             data = data_pizzaP;
         end
         // x_area = [137,138] ,y_area = [266,385] size 2
-        else if ( (x==137 && x==138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=137 && x<=138) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [162,167] ,y_area = [266,385] size 2
-        else if ( (x==162 && x==167) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=162 && x<=167) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=162 && x<=167) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [210,219] ,y_area = [266,385] size 10
-        else if ( (x==210 && x==219) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=210 && x<=219) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=210 && x<=219) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [272,281] ,y_area = [266,385] size 10
-        else if ( (x==272 && x==281) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=272 && x<=281) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=272 && x<=281) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [298,317] ,y_area = [266,385] size 20
-        else if ( (x==298 && x==371) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=298 && x<=371) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=298 && x<=371) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [361,371] ,y_area = [266,385] size 12
-        else if ( (x==300 && x==339) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=300 && x<=339) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=300 && x<=339) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [388,422] ,y_area = [266,385] size 35
-        else if ( (x==364 && x==388) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=364 && x<=388) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=364 && x<=388) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [448,472] ,y_area = [266,385] size 25
-        else if ( (x==432 && x==441) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=432 && x<=441) && (y==266 | y==385)) begin data <= 8'h3F; end //white    
+        else if ( (x>=432 && x<=441) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white 
         // x_area = [502,506] ,y_area = [266,385] size 5
-        else if ( (x==446 && x==450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=446 && x<=450) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=446 && x<=450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [532,534] ,y_area = [266,385] size 3
-        else if ( (x==494 && x==496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=494 && x<=496) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
     end
     else if (pugType==2) 
     begin
@@ -267,29 +247,21 @@ module atkScreen(
             data = data_kebabP;
         end
         // x_area = [137,138] ,y_area = [266,385] size 2
-        else if ( (x==137 && x==138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=137 && x<=138) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [183,185] ,y_area = [266,385] size 3
-        else if ( (x==183 && x==185) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=183 && x<=185) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=183 && x<=185) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [210,217] ,y_area = [266,385] size 8
-        else if ( (x==210 && x==217) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=210 && x<=217) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=210 && x<=217) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [263,274] ,y_area = [266,385] size 12
-        else if ( (x==298 && x==371) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=298 && x<=371) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=298 && x<=371) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [289,308] ,y_area = [266,385] size 20
-        else if ( (x==289 && x==308) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=289 && x<=308) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=289 && x<=308) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [364,373] ,y_area = [266,385] size 10
-        else if ( (x==364 && x==373) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=364 && x<=373) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=364 && x<=373) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [432,436] ,y_area = [266,385] size 5
-        else if ( (x==432 && x==436) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=432 && x<=436) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=432 && x<=436) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [494,496] ,y_area = [266,385] size 3
-        else if ( (x==494 && x==496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=494 && x<=496) && (y==266 | y==385)) begin data <= 8'h3F; end //white 
+        else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white 
     end
     else if (pugType==3)
     begin
@@ -299,35 +271,25 @@ module atkScreen(
             data = data_lolipopP;
         end
         // x_area = [137,138] ,y_area = [266,385] size 2
-        else if ( (x==137 && x==138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=137 && x<=138) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [156,157] ,y_area = [266,385] size 2
-        else if ( (x==156 && x==157) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=156 && x<=157) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=156 && x<=157) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [162,166] ,y_area = [266,385] size 5
-        else if ( (x==162 && x==166) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=162 && x<=166) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=162 && x<=166) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [179,183] ,y_area = [266,385] size 5
-        else if ( (x==179 && x==183) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=179 && x<=183) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=179 && x<=183) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [218,227] ,y_area = [266,385] size 10
-        else if ( (x==218 && x==227) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=218 && x<=227) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=218 && x<=227) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [278,282] ,y_area = [266,385] size 5
-        else if ( (x==278 && x==282) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=278 && x<=282) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=278 && x<=282) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [364,368] ,y_area = [266,385] size 5
-        else if ( (x==364 && x==368) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=364 && x<=368) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=364 && x<=368) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [384,388] ,y_area = [266,385] size 5
-        else if ( (x==384 && x==388) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=384 && x<=388) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=384 && x<=388) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [446,450] ,y_area = [266,385] size 5
-        else if ( (x==446 && x==450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=446 && x<=450) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=446 && x<=450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         // x_area = [494,496] ,y_area = [266,385] size 3
-        else if ( (x==494 && x==496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-        else if( (x>=494 && x<=496) && (y==266 | y==385)) begin data <= 8'h3F; end //white
+        else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
     end
     
     else begin data <= 8'b0 ; end
