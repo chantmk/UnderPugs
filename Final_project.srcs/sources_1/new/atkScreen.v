@@ -67,30 +67,29 @@ module atkScreen(
     localparam BloodL = 66;
     localparam BloodD = 433;
     localparam BloodR = 81;
+    // -1 DR
     localparam BurgerPugT = 275;
     localparam BurgerPugL = 102;
-    localparam BurgerPugD = 363;
-    localparam BurgerPugR = 229;
+    localparam BurgerPugD = 362;
+    localparam BurgerPugR = 228;
     localparam PizzaPugT = 256;
     localparam PizzaPugL = 106;
-    localparam PizzaPugD = 372;
-    localparam PizzaPugR = 217;
+    localparam PizzaPugD = 371;
+    localparam PizzaPugR = 216;
     localparam KebabPugT = 266;
     localparam KebabPugL = 102;
-    localparam KebabPugD = 375;
-    localparam KebabPugR = 229;
+    localparam KebabPugD = 374;
+    localparam KebabPugR = 228;
     localparam LolipopPugT = 265;
     localparam LolipopPugL = 102;
-    localparam LolipopPugD = 375;
-    localparam LolipopPugR = 229;
+    localparam LolipopPugD = 374;
+    localparam LolipopPugR = 228;
 //    localparam BoxT = 96;
 //    localparam BoxL = 266;
 //    localparam BoxD = 543;
 //    localparam BoxR = 385;
 //    localparam Triangle = 20;
 //    localparam TriangleY = 393;
-
-    parameter ENABLE = 0;
     
     reg [7:0] addr_heart;
     wire [7:0] data_heart;
@@ -154,15 +153,8 @@ module atkScreen(
     
     always @(p_tick)
     begin
-    if(ENABLE)
-    begin
-        if(ENABLE)
-        begin
-        end
-        else rgb <= 12'b000000000000;
-    end
     
-    else if (x>=HeartT && x<=HeartD && y>=HeartL && y<=HeartR)
+    if (x>=HeartT && x<=HeartD && y>=HeartL && y<=HeartR)
     begin
         addr_heart = 16*(y-HeartL) + (x-HeartT);
         data = data_heart;
@@ -172,10 +164,22 @@ module atkScreen(
     else if( (x==96 | x==543) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
     else if( (x>=96 && x<=543) && (y==266 | y==385)) begin data <= 8'h3F; end //white
         //hpMonster bar size 200x16 x_area = [234,433] ,y_area = [66,81]
-    else if( x>=234 && x<=(234+hpMonster*2) && y>=66 && y<=81) begin data <= data_heart; end//heart color
+    else if( x>=234 && x<=(234+hpMonster*2) && y>=66 && y<=81) 
+    begin 
+        addr_heart = 8'b10000000; //heart color
+        data <= data_heart;
+    end
         //border 1px hpMonster bar
-    else if( (x==233 | x==433) && (y>=66 && y<=81)) begin data <= data_heart; end//heart color
-    else if( (x>=233 && x<=433) && (y==66 | y==81)) begin data <= data_heart; end//heart color
+    else if( (x==234 | x==433) && (y>=66 && y<=81))
+    begin 
+        addr_heart = 8'b10000000; //heart color
+        data <= data_heart;
+    end
+    else if( (x>=234 && x<=433) && (y==66 | y==81)) 
+    begin 
+        addr_heart = 8'b10000000; //heart color
+        data <= data_heart;
+    end
         //anything else
 //    else begin data <= 8'b0 ; end
     
