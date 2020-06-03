@@ -334,20 +334,18 @@ module playScreen(
         //hpMonster bar size 200x16 x_area = [234,433] ,y_area = [66,81]
         else if( x>=234 && x<=(234+hpMonster*2) && y>=66 && y<=81) 
         begin 
-            addr_heart = 8'b10000000; //heart color
-            data <= data_heart;
+            data <= 8'h10;
         end
             //border 1px hpMonster bar
         else if( (x==234 | x==433) && (y>=66 && y<=81))
         begin 
-            addr_heart = 8'b10000000; //heart color
-            data <= data_heart;
+        data <= 8'h10;
         end
         else if( (x>=234 && x<=433) && (y==66 | y==81)) 
         begin 
-            addr_heart = 8'b10000000; //heart color
-            data <= data_heart;
+            data <= 8'h10;
         end
+        //else if( y<= yPlayer+15 && (y-yPlayer) >= 2*(x - xPlayer) && (y-yPlayer) >= -2*(x-xPlayer)) begin data <= 8'h3F; end
 
         else if (pugType==0) 
         begin
@@ -356,7 +354,7 @@ module playScreen(
                 addr_burgerP = 89*(y-ATK_BurgerPugL) + (x-ATK_BurgerPugT);
                 data = data_burgerP;
             end
-            // x_area = [137,138] ,y_area = [266,385] size 2
+            //x_area = [137,138] ,y_area = [266,385] size 2
             else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [156,158] ,y_area = [266,385] size 2
             else if ( (x>=156 && x<=158) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
@@ -376,6 +374,7 @@ module playScreen(
             else if ( (x>=446 && x<=450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [494,496] ,y_area = [266,385] size 3
             else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else data <=8'b0;
         end
         else if (pugType==1) 
         begin
@@ -404,6 +403,7 @@ module playScreen(
             else if ( (x>=446 && x<=450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [532,534] ,y_area = [266,385] size 3
             else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else data <=8'b0;
         end
         else if (pugType==2) 
         begin
@@ -428,6 +428,7 @@ module playScreen(
             else if ( (x>=432 && x<=436) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [494,496] ,y_area = [266,385] size 3
             else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white 
+            else data <=8'b0;
         end
         else if (pugType==3)
         begin
@@ -479,7 +480,6 @@ module playScreen(
             //border 1px hpPlayer bar
         else if( (x==233 | x==435) && (y>=449 && y<=471)) begin data <= 8'h3F; end//white
         else if( (x>=233 && x<=435) && (y==449 | y==471)) begin data <= 8'h3F; end//white
-            //anything else
         else if (pugType==0) 
         begin
             if(x>=DEF_BurgerPugT && x<=DEF_BurgerPugD && y>=DEF_BurgerPugL && y<=DEF_BurgerPugR)
@@ -502,6 +502,7 @@ module playScreen(
                 addr_burger = 16*(y-cby) + (x-cbx);
                 data = data_burger;
             end
+            else data <= 8'b0;
         end
     end
     else if (pugType==1) 
@@ -526,6 +527,7 @@ module playScreen(
             addr_pizza = 32*(y-cby) + (x-cbx);
             data = data_pizza;
         end
+        else data <=8'b0;
     end
     else if (pugType==2) 
     begin
@@ -549,6 +551,7 @@ module playScreen(
             addr_kebab = 140*(y-cby) + (x-cbx);
             data = data_kebab;
         end
+        else data <=8'b0;
     end
     else if (pugType==3) 
     begin
@@ -572,7 +575,7 @@ module playScreen(
             addr_lolipop = 16*(y-cby) + (x-cbx);
             data = data_lolipop;
         end
+        else data <=8'b0;
     end
-    else begin data <= 8'b0 ; end
     end
 endmodule
