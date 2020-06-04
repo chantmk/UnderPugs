@@ -10,7 +10,7 @@
 // Target Devices: Nexys4DDR
 // Tool Versions: 
 // Description: PS2 Receiver module used to shift in keycodes from a keyboard plugged into the PS2 port
-// 
+// https://reference.digilentinc.com/learn/programmable-logic/tutorials/basys-3-keyboard-demo/start
 // Dependencies: 
 // 
 // Revision:

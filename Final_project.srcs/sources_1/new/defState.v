@@ -54,9 +54,9 @@ module defState(
         xCurrent = 600;
         yCurrent = 380;
         VhpPlayer = 60;
-        left_right = 3'b111; //right abc
-        up_down = 3'b111; //down abc
-        {abx,bbx,cbx} = {10'd0000000400,10'd0000000420,10'd0000000430}; //[192,432]
+        left_right = 3'b000; //1right abc
+        up_down = 3'b111; //1down abc
+        {abx,bbx,cbx} = {10'd0000000200,10'd0000000210,10'd0000000220}; //[192,432]
         {aby,bby,cby} = {10'd0000000278,10'd0000000278,10'd0000000278};// [210,402]
         {abt,bbt,cbt} = {6{1'b0}};
         {abr,bbr,cbr} = {3{1'b0}};
@@ -615,7 +615,16 @@ module defState(
                             end  
                     endcase
                 end
-            3'b010:
+            3'b010://32x140
+                begin
+                    aby = aby-1;
+                    bby = bby-1;
+                    cby = cby-1;
+                    if(aby==210)aby= 278;
+                    if(bby==210)bby= 278;
+                    if(cby==210)cby= 278;
+                end
+            3'b011://16x140
                 begin
                     aby = aby-1;
                     bby = bby-1;
@@ -706,7 +715,7 @@ module defState(
         
     always@(posedge game_clk)
         begin
-            if(monsterType == 3'b010)
+            if(monsterType == 3'b011)
                 begin
                     if(yCurrent<=401)yCurrent =yCurrent+1;
                 end

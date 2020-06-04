@@ -28,8 +28,7 @@ module defScreen(
     ,input [6:0] hpPlayer
     ,input [9:0] xPlayer
     ,input [9:0] yPlayer
-    ,input [6:0] hpMonster
-    ,input [5:0] bulletType //type of a,b,c bulelt *if state has only 1 monster,bulletType of a,b,c are same with monsterType
+    ,input [1:0] pugType //type of a,b,c bulelt *if state has only 1 monster,bulletType of a,b,c are same with monsterType
     ,input [59:0]pos //pos of {bulletX,bulletY} 
     ,output reg [11:0] rgb
     ,output reg [7:0] data
@@ -41,8 +40,8 @@ module defScreen(
     localparam BurgerPugR = 166;
     localparam MilkT = 207;
     localparam MilkL = 420;
-    localparam MilkD = 226;
-    localparam MilkR = 439;
+    localparam MilkD = 222;
+    localparam MilkR = 435;
     localparam Bone = 16;
     localparam Burger = 16;
     
@@ -75,11 +74,11 @@ module defScreen(
     wire [9:0] cbx = pos[39:30];//bullet c is @ (x,y) = (cbx,cby)
     wire [9:0] cby = pos[9:0];
     
-    reg [14:0] addr_milk;
+    reg [7:0] addr_milk;
     wire [7:0] data_milk;
     spriteROM #(
-        .DEPTH(400),
-        .DEPTH_BIT(9),
+        .DEPTH(256),
+        .DEPTH_BIT(8),
         .MEMFILE("milk.mem")
         ) milk (
         .clk(clk),
@@ -87,7 +86,7 @@ module defScreen(
         .data(data_milk)
         );
         
-    reg [11:0] addr_burgerP;
+    reg [13:0] addr_burgerP;
     wire [7:0] data_burgerP;
     spriteROM #(
         .DEPTH(11392),
@@ -99,7 +98,7 @@ module defScreen(
         .data(data_burgerP)
         );
         
-    reg [11:0] addr_pizzaP;
+    reg [13:0] addr_pizzaP;
     wire [7:0] data_pizzaP;
     spriteROM #(
         .DEPTH(16384),
@@ -111,7 +110,7 @@ module defScreen(
         .data(data_pizzaP)
         );
         
-    reg [11:0] addr_kebabP;
+    reg [13:0] addr_kebabP;
     wire [7:0] data_kebabP;
     spriteROM #(
         .DEPTH(11984),
@@ -123,19 +122,19 @@ module defScreen(
         .data(data_kebabP)
         );
         
-    reg [11:0] addr_lolipopP;
+    reg [13:0] addr_lolipopP;
     wire [7:0] data_lolipopP;
     spriteROM #(
         .DEPTH(11984),
         .DEPTH_BIT(14),
-        .MEMFILE("lolipop-pug2.mem")
+        .MEMFILE("lolipop-pug.mem")
         ) lolipopP (
         .clk(clk),
         .addr(addr_lolipopP),
         .data(data_lolipopP)
         );
         
-    reg [14:0] addr_bone;
+    reg [7:0] addr_bone;
     wire [7:0] data_bone;
     spriteROM #(
         .DEPTH(256),
@@ -147,7 +146,7 @@ module defScreen(
         .data(data_bone)
         );
         
-    reg [14:0] addr_burger;
+    reg [7:0] addr_burger;
     wire [7:0] data_burger;
     spriteROM #(
         .DEPTH(256),
@@ -159,7 +158,7 @@ module defScreen(
         .data(data_burger)
         );
         
-    reg [14:0] addr_pizza;
+    reg [9:0] addr_pizza;
     wire [7:0] data_pizza;
     spriteROM #(
         .DEPTH(1024),
@@ -171,7 +170,7 @@ module defScreen(
         .data(data_pizza)
         );
         
-    reg [14:0] addr_kebab;
+    reg [12:0] addr_kebab;
     wire [7:0] data_kebab;
     spriteROM #(
         .DEPTH(4480),
@@ -183,7 +182,7 @@ module defScreen(
         .data(data_kebab)
         );
         
-    reg [14:0] addr_lolipop;
+    reg [13:0] addr_lolipop;
     wire [7:0] data_lolipop;
     spriteROM #(
         .DEPTH(2240),
@@ -197,17 +196,9 @@ module defScreen(
     
     always @(p_tick)
     begin
-    if(ENABLE)
+    if (x>=MilkT && x<=MilkD && y>=MilkL && y<=MilkR)
     begin
-        if(ENABLE)
-        begin
-        end
-        else rgb <= 12'b000000000000;
-    end
-    
-    else if (x>=MilkT && x<=MilkD && y>=MilkL && y<=MilkR)
-    begin
-        addr_milk = 20*(y-MilkL) + (x-MilkT);
+        addr_milk = 16*(y-MilkL) + (x-MilkT);
         data = data_milk;
     end
     else if (x>=xPlayer && x<=(xPlayer+16) && y>=yPlayer && y<=(yPlayer+16))
@@ -215,119 +206,128 @@ module defScreen(
         addr_bone = 16*(y-yPlayer) + (x-xPlayer);
         data = data_bone;
     end
-    else if (bulletType==1) //TODO
+        //border defBox  x_area = [192,432] ,y_area = [210,402] in decimal
+    else if( (x==192 | x==432) && (y>=210 && y<=402)) begin data <= 8'h3F; end //white
+    else if( (x>=192 && x<=432) && (y==210 | y==402)) begin data <= 8'h3F; end //white
+        //hpPlayer bar size 200x16 x_area = [234,422] ,y_area = [433,437]
+    else if( x>=234 && x<=(234+hpPlayer*2) && y>=450 && y<=470) begin data <= 8'h3F; end//white
+        //border 1px hpPlayer bar
+    else if( (x==233 | x==435) && (y>=449 && y<=471)) begin data <= 8'h3F; end//white
+    else if( (x>=233 && x<=435) && (y==449 | y==471)) begin data <= 8'h3F; end//white
+        //anything else
+    else if (pugType==0) 
     begin
         if(x>=BurgerPugT && x<=BurgerPugD && y>=BurgerPugL && y<=BurgerPugR)
         begin
             addr_burgerP = 89*(y-BurgerPugL) + (x-BurgerPugT);
             data = data_burgerP;
         end
-        else if (x>=pos[59:50] && x<=(pos[59:50]+16) && y>=pos[49:40] && y<=(pos[49:40]+16))
+        else if (x>=abx && x<=(abx+16) && y>=aby && y<=(aby+16))
         begin
-            addr_burger = 16*(y-pos[49:40]) + (x-pos[59:50]);
+            addr_burger = 16*(y-aby) + (x-abx);
             data = data_burger;
         end
-        else if (x>=pos[39:30] && x<=(pos[39:30]+16) && y>=pos[29:20] && y<=(pos[29:20]+16))
+        else if (x>=bbx && x<=(bbx+16) && y>=bby && y<=(bby+16))
         begin
-            addr_burger = 16*(y-pos[29:20]) + (x-pos[39:30]);
+            addr_burger = 16*(y-bby) + (x-bbx);
             data = data_burger;
         end
-        else if (x>=pos[19:10] && x<=(pos[19:10]+16) && y>=pos[9:0] && y<=(pos[9:0]+16))
+        else if (x>=cbx && x<=(cbx+16) && y>=cby && y<=(cby+16))
         begin
-            addr_burger = 16*(y-pos[19:10]) + (x-pos[9:0]);
+            addr_burger = 16*(y-cby) + (x-cbx);
             data = data_burger;
         end
     end
-    else if (bulletType==2) //TODO
+    else if (pugType==1) 
     begin
         if(x>=PizzaPugT && x<=PizzaPugD && y>=PizzaPugL && y<=PizzaPugR)
         begin
             addr_pizzaP = 128*(y-PizzaPugL) + (x-PizzaPugT);
             data = data_pizzaP;
         end
-        else if (x>=pos[59:50] && x<=(pos[59:50]+32) && y>=pos[49:40] && y<=(pos[49:40]+32))
+        else if (x>=abx && x<=(abx+32) && y>=aby && y<=(aby+32))
         begin
-            addr_pizza = 32*(y-pos[49:40]) + (x-pos[59:50]);
+            addr_pizza = 32*(y-aby) + (x-abx);
             data = data_pizza;
         end
-        else if (x>=pos[39:30] && x<=(pos[39:30]+32) && y>=pos[29:20] && y<=(pos[29:20]+32))
+        else if (x>=bbx && x<=(bbx+32) && y>=bby && y<=(bby+32))
         begin
-            addr_pizza = 32*(y-pos[29:40]) + (x-pos[39:50]);
+            addr_pizza = 32*(y-bby) + (x-bbx);
             data = data_pizza;
         end
-        else if (x>=pos[19:10] && x<=(pos[19:10]+32) && y>=pos[9:0] && y<=(pos[9:0]+32))
+        else if (x>=cbx && x<=(cbx+32) && y>=cby && y<=(cby+32))
         begin
-            addr_pizza = 32*(y-pos[9:0]) + (x-pos[19:10]);
+            addr_pizza = 32*(y-cby) + (x-cbx);
             data = data_pizza;
         end
     end
-    else if (bulletType==3) //TODO
+    else if (pugType==2) 
     begin
         if(x>=KebabPugT && x<=KebabPugD && y>=KebabPugL && y<=KebabPugR)
         begin
             addr_kebabP = 107*(y-KebabPugL) + (x-KebabPugT);
             data = data_kebabP;
         end
-        else if (x>=pos[59:50] && x<=(pos[59:50]+140) && y>=pos[49:40] && y<=(pos[49:40]+140))
+        else if (x>=abx && x<=(abx+140) && y>=aby && y<=(aby+140))
         begin
-            addr_kebab = 140*(y-pos[49:40]) + (x-pos[59:50]);
+            addr_kebab = 140*(y-aby) + (x-abx);
             data = data_kebab;
         end
-        else if (x>=pos[39:30] && x<=(pos[39:30]+140) && y>=pos[29:20] && y<=(pos[29:20]+140))
+        else if (x>=bbx && x<=(bbx+140) && y>=bby && y<=(bby+140))
         begin
-            addr_kebab = 140*(y-pos[29:20]) + (x-pos[39:30]);
+            addr_kebab = 140*(y-bby) + (x-bbx);
             data = data_kebab;
         end
-        else if (x>=pos[19:10] && x<=(pos[19:10]+140) && y>=pos[9:0] && y<=(pos[9:0]+140))
+        else if (x>=cbx && x<=(cbx+140) && y>=cby && y<=(cby+140))
         begin
-            addr_kebab = 140*(y-pos[9:0]) + (x-pos[19:10]);
+            addr_kebab = 140*(y-cby) + (x-cbx);
             data = data_kebab;
         end
     end
-    else if (bulletType==4) //TODO
+    else if (pugType==3) 
     begin
         if(x>=LolipopPugT && x<=LolipopPugD && y>=LolipopPugL && y<=LolipopPugR)
         begin
             addr_lolipopP = 89*(y-LolipopPugL) + (x-LolipopPugT);
             data = data_lolipopP;
         end
-        else if (x>=pos[59:50] && x<=(pos[59:50]+16) && y>=pos[49:40] && y<=(pos[49:40]+16))
+        else if (x>=abx && x<=(abx+16) && y>=aby && y<=(aby+16))
         begin
-            addr_lolipop = 16*(y-pos[49:40]) + (x-pos[59:50]);
+            addr_lolipop = 16*(y-aby) + (x-abx);
             data = data_lolipop;
         end
-        else if (x>=pos[39:30] && x<=(pos[39:30]+16) && y>=pos[29:20] && y<=(pos[29:20]+16))
+        else if (x>=bbx && x<=(bbx+16) && y>=bby && y<=(bby+16))
         begin
-            addr_lolipop = 16*(y-pos[29:20]) + (x-pos[39:30]);
+            addr_lolipop = 16*(y-bby) + (x-bbx);
             data = data_lolipop;
         end
-        else if (x>=pos[19:10] && x<=(pos[19:10]+16) && y>=pos[9:0] && y<=(pos[9:0]+16))
+        else if (x>=cbx && x<=(cbx+16) && y>=cby && y<=(cby+16))
         begin
-            addr_lolipop = 16*(y-pos[19:10]) + (x-pos[9:0]);
+            addr_lolipop = 16*(y-cby) + (x-cbx);
             data = data_lolipop;
         end
     end
-    
-    else
-    begin
-        //insert constant value instead of localparam to recude render lag
-        //beware non-blocking assign overlab, it will make game fucking lag 
-        //all 3 bullet render, position are controlled from defState in game_logic
-        if( (x-abx)**2+(y-aby)**2 <=100) begin rgb <= 12'b111110100100; end//orange
-        else if( (x-bbx)**2+(y-bby)**2 <=100) begin rgb <= 12'b101111110001; end //yellow
-        else if( (x-cbx)**2+(y-cby)**2 <=100) begin rgb <= 12'b001100011111; end //blue
-        //player render
-        else if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end //green
-        //border defBox  x_area = [192,432] ,y_area = [210,402] in decimal
-        else if( (x==192 | x==432) && (y>=210 && y<=402)) begin rgb <= 12'b111111111111; end
-        else if( (x>=192 && x<=432) && (y==210 | y==402)) begin rgb <= 12'b111111111111; end
-        //hpPlayer bar
-        else if( x>=234 && x<=(234+hpPlayer*2) && y>=450 && y<=470) begin rgb <= 12'b000011110000; end//green
-        //border 1px hpPlayer bar
-        else if( (x==233 | x==435) && (y>=449 && y<=471)) begin rgb <= 12'b111111111111; end//white
-        else if( (x>=233 && x<=435) && (y==449 | y==471)) begin rgb <= 12'b111111111111; end//white
-        //anything else
-        else begin rgb <= 12'b000000000000 ; end
-    end
+    else begin data <= 8'b0 ; end
+//    else
+//    begin
+//        //insert constant value instead of localparam to recude render lag
+//        //beware non-blocking assign overlab, it will make game fucking lag 
+//        //all 3 bullet render, position are controlled from defState in game_logic
+//        if( (x-abx)**2+(y-aby)**2 <=100) begin rgb <= 12'b111110100100; end//orange
+//        else if( (x-bbx)**2+(y-bby)**2 <=100) begin rgb <= 12'b101111110001; end //yellow
+//        else if( (x-cbx)**2+(y-cby)**2 <=100) begin rgb <= 12'b001100011111; end //blue
+//        //player render
+//        else if( (x-xPlayer)**2+(y-yPlayer)**2 <=100) begin rgb <= 12'b000011110000; end //green
+//        //border defBox  x_area = [192,432] ,y_area = [210,402] in decimal
+//        else if( (x==192 | x==432) && (y>=210 && y<=402)) begin rgb <= 12'b111111111111; end
+//        else if( (x>=192 && x<=432) && (y==210 | y==402)) begin rgb <= 12'b111111111111; end
+//        //hpPlayer bar
+//        else if( x>=234 && x<=(234+hpPlayer*2) && y>=450 && y<=470) begin rgb <= 12'b000011110000; end//green
+//        //border 1px hpPlayer bar
+//        else if( (x==233 | x==435) && (y>=449 && y<=471)) begin rgb <= 12'b111111111111; end//white
+//        else if( (x>=233 && x<=435) && (y==449 | y==471)) begin rgb <= 12'b111111111111; end//white
+//        //anything else
+//        else begin rgb <= 12'b000000000000 ; end
+//    end
     end
 endmodule
