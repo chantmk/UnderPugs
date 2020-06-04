@@ -291,6 +291,7 @@ module playScreen(
                 addr_burgerP = 89*(y-HI_BurgerPugL) + (x-HI_BurgerPugT);
                 data = data_burgerP;
             end
+            else data <=8'b0;
         end
         else if (pugType==1)
         begin
@@ -299,6 +300,7 @@ module playScreen(
                 addr_pizzaP = 128*(y-HI_PizzaPugL) + (x-HI_PizzaPugT);
                 data = data_pizzaP;
             end
+            else data <=8'b0;
         end
         else if (pugType==2)
         begin
@@ -307,6 +309,7 @@ module playScreen(
                 addr_kebabP = 107*(y-HI_KebabPugL) + (x-HI_KebabPugT);
                 data = data_kebabP;
             end
+            else data <=8'b0;
         end
         else if (pugType==3) //TODO
         begin
@@ -315,6 +318,7 @@ module playScreen(
                 addr_lolipopP = 111*(y-HI_LolipopPugL) + (x-HI_LolipopPugT);
                 data = data_lolipopP;
             end
+            else data <=8'b0;
         end
         else
         begin
@@ -380,8 +384,8 @@ module playScreen(
         begin
             if(x>=ATK_PizzaPugT && x<=ATK_PizzaPugD && y>=ATK_PizzaPugL && y<=ATK_PizzaPugR)
             begin
-                addr_pizzaP = 128*(y-ATK_PizzaPugL) + (x-ATK_PizzaPugT);
-                data = data_pizzaP;
+                addr_pizzaP <= 128*(y-ATK_PizzaPugL) + (x-ATK_PizzaPugT);
+                data <= data_pizzaP;
             end
             // x_area = [137,138] ,y_area = [266,385] size 2
             else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
