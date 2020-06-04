@@ -76,87 +76,87 @@ module defState(
                     if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+16))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+16)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+16)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+16))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+16)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     //bullet b    
                     if(((xCurrent>=bbx) && (xCurrent<=bbx+16))&& ((yCurrent>=bby) && (yCurrent<=bby+16))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+16))&& ((yCurrent>=bby) && (yCurrent<=bby+16)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent>=bbx) && (xCurrent<=bbx+16))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+16)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+16))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+16)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end 
                     //bullet c    
                     if(((xCurrent>=cbx) && (xCurrent<=cbx+16))&& ((yCurrent>=cby) && (yCurrent<=cby+16))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+16))&& ((yCurrent>=cby) && (yCurrent<=cby+16)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent>=cbx) && (xCurrent<=cbx+16))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+16)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+16))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+16)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end     
                 end
@@ -165,87 +165,87 @@ module defState(
                     if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+32))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+32)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+32)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+32)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     //bullet b    
                     if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+32))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+32)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+32)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+32)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end 
                     //bullet c    
                     if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+32))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+32)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+32)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+32)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end  
                 end
@@ -254,87 +254,87 @@ module defState(
                     if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+140))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+140)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     //bullet b    
                     if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+140))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+140)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end 
                     //bullet c    
                     if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+140))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+140)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end  
                 end
@@ -344,87 +344,87 @@ module defState(
                     if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+140))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+140)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+16))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
+                            abx = 640;
+                            aby = 480;
                             abr = 0;
                         end
                     //bullet b    
                     if(((xCurrent>=bbx) && (xCurrent<=bbx+16))&& ((yCurrent>=bby) && (yCurrent<=bby+140))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+16))&& ((yCurrent>=bby) && (yCurrent<=bby+140)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent>=bbx) && (xCurrent<=bbx+16))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end
                     else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+16))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
+                            bbx = 640;
+                            bby = 480;
                             bbr = 0;
                         end 
                     //bullet c    
                     if(((xCurrent>=cbx) && (xCurrent<=cbx+16))&& ((yCurrent>=cby) && (yCurrent<=cby+140))) //top-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+16))&& ((yCurrent>=cby) && (yCurrent<=cby+140)))//top-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent>=cbx) && (xCurrent<=cbx+16))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-left
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end
                     else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+16))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-right
                         begin
                             VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
+                            cbx = 640;
+                            cby = 480;
                             cbr = 0;
                         end  
                 end
@@ -617,6 +617,15 @@ module defState(
                 end
             3'b010:
                 begin
+                    aby = aby-1;
+                    bby = bby-1;
+                    cby = cby-1;
+                    if(aby==210)aby= 278;
+                    if(bby==210)bby= 278;
+                    if(cby==210)cby= 278;
+                end
+            3'b011:
+                begin
                     case(left_right)
                         3'b000:
                             begin
@@ -691,9 +700,6 @@ module defState(
                                 if(cbx==432)left_right[0]=0;
                             end  
                     endcase
-                end
-            3'b011:
-                begin
                 end
         endcase
         end 
