@@ -25,13 +25,12 @@ module defState(
         ,input game_clk
         ,input [4:0]direction
         ,input [2:0]state
-        ,input [2:0]monsterType
+        ,input [1:0]monsterType
         ,output reset
         ,output [9:0] xPlayer
         ,output [9:0] yPlayer
         ,output [6:0] hpPlayer
 	    ,output [6:0] hpMonster //min 0 max 100
-	    ,output [5:0] bulletType
 	    ,output [29:0] bulletPosX
 	    ,output [29:0] bulletPosY
     );
@@ -48,7 +47,6 @@ module defState(
     
     assign bulletPosX = {abx,bbx,cbx};
     assign bulletPosY = {aby,bby,cby};
-    assign bulletType = {abt,bbt,cbt};
     
     initial begin 
         xCurrent = 600;
@@ -70,7 +68,7 @@ module defState(
     always @(posedge game_clk)
         begin
         case(monsterType)
-            3'b000:
+            2'b00:
                 begin
                     //bullet a
                     if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+16))) //top-left
@@ -160,7 +158,7 @@ module defState(
                             cbr = 0;
                         end     
                 end
-            3'b001:
+            2'b01:
                 begin
                     if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+32))) //top-left
                         begin
@@ -249,7 +247,7 @@ module defState(
                             cbr = 0;
                         end  
                 end
-            3'b010://32x140
+            2'b10://32x140
                 begin
                     if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+140))) //top-left
                         begin
@@ -338,7 +336,7 @@ module defState(
                             cbr = 0;
                         end  
                 end
-            3'b011: // 16x140
+            2'b11: // 16x140
                 begin
                     begin
                     if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+140))) //top-left
@@ -461,7 +459,7 @@ module defState(
     always@(posedge game_clk)
         begin
             case(monsterType)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
-            3'b000://16x16 
+            2'b00://16x16 
                 begin
                     case(left_right)
                         3'b000:
@@ -538,7 +536,7 @@ module defState(
                             end  
                     endcase
                 end
-            3'b001:// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
+            2'b01:// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
                 begin//32x32
                     case(up_down)
                         3'b000:
@@ -615,7 +613,7 @@ module defState(
                             end  
                     endcase
                 end
-            3'b010://32x140
+            2'b10://32x140
                 begin
                     aby = aby-1;
                     bby = bby-1;
@@ -624,7 +622,7 @@ module defState(
                     if(bby==210)bby= 278;
                     if(cby==210)cby= 278;
                 end
-            3'b011://16x140
+            2'b11://16x140
                 begin
                     aby = aby-1;
                     bby = bby-1;
@@ -633,7 +631,7 @@ module defState(
                     if(bby==210)bby= 278;
                     if(cby==210)cby= 278;
                 end
-            3'b011:
+            2'b11:
                 begin
                     case(left_right)
                         3'b000:
@@ -715,7 +713,7 @@ module defState(
         
     always@(posedge game_clk)
         begin
-            if(monsterType == 3'b011)
+            if(monsterType == 2'b11)
                 begin
                     if(yCurrent<=401)yCurrent =yCurrent+1;
                 end
