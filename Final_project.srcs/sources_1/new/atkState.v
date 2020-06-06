@@ -31,6 +31,7 @@ module atkState(
     ,output [9:0] yPlayer
     ,output [6:0] hpPlayer
 	,output [6:0] hpMonster
+	,output changeState
     );
     reg [9:0] xCurrent;
     reg [9:0] yCurrent;
@@ -42,7 +43,9 @@ module atkState(
     wire [6:0] damage; 
     reg [7:0]counterHp;
     reg [7:0]counterStop;
+    reg VChangeState;
     
+    assign changeState=VChangeState;
     initial begin 
         xCurrent = 320;
         yCurrent = 393;

@@ -91,7 +91,8 @@ module game_logic(
                     .yPlayer(a_yPlayer),
                     .hpPlayer(a_hpPlayer),
                     .hpMonster(a_hpMonster));
-     wire d_reset;
+     wire d_reset,d_changeState;
+     wire [2:0] d_collision;
      wire [6:0] d_hpPlayer,d_hpMonster;
      wire [9:0] d_xPlayer,d_yPlayer;
      wire [29:0] bulletX,bulletY;
@@ -107,8 +108,8 @@ module game_logic(
                     .monsterType(pugType),
                     .bulletPosX(bulletX),
                     .bulletPosY(bulletY),
-                    .collision(collision),
-                    .changeState(changeState)
+                    .collision(d_collision),
+                    .changeState(d_changeState)
                     );
     wire [6:0] m_hpPlayer;
     wire found;
@@ -158,6 +159,9 @@ module game_logic(
                       else if (meetMonster[2] == 1) begin state = 3; end
                       else if (meetMonster[1] == 1) begin state = 3; end
                       else if (meetMonster[0] == 1) begin state = 3; end
+                   end
+            3'd6 : begin
+                    if (d_changeState) begin state=5; end
                    end
         endcase
     end

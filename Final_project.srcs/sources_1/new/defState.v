@@ -52,7 +52,7 @@ module defState(
     reg [1:0]previousMonsType;
     assign bulletPosX = {abx,bbx,cbx};
     assign bulletPosY = {aby,bby,cby};
-    
+    assign changeState = VChangeState;
     assign collision = isCollision;
     
     initial begin 
@@ -68,6 +68,7 @@ module defState(
         checkbullet = 3'b000;
         VChangeState = 0;
         counter = 0;
+        previousMonsType = 3;
     end
     
     assign xPlayer = xCurrent;
@@ -427,6 +428,8 @@ module defState(
                     endcase
                 end
         endcase
+        if(checkbullet == 3'b111 || counter>2000 || VhpPlayer ==0)VChangeState = 1;
+        counter = (counter +1);
         end
         else
         begin
@@ -483,6 +486,7 @@ module defState(
             counter = 0;
             VChangeState = 0;
             previousMonsType = monsterType;
+
             
         end
         end
@@ -525,9 +529,4 @@ module defState(
             
     end
     
-    always@(posedge game_clk)
-    begin
-        if(checkbullet == 3'b111 || counter>200 || VhpPlayer ==0)VChangeState = 1;
-        counter = (counter +1);
-    end
 endmodule
