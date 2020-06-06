@@ -455,6 +455,10 @@ module defState(
 //                    xCurrent <= xCurrent;//Spacebar 
 //                end 
         endcase
+            if(monsterType == 3'b011)
+                begin
+                    if(yCurrent<=401)yCurrent =yCurrent+1;
+                end
     end
      // todo bullet movement
      
@@ -624,15 +628,6 @@ module defState(
                     if(bby==210)bby= 278;
                     if(cby==210)cby= 278;
                 end
-            3'b011://16x140
-                begin
-                    aby = aby-1;
-                    bby = bby-1;
-                    cby = cby-1;
-                    if(aby==210)aby= 278;
-                    if(bby==210)bby= 278;
-                    if(cby==210)cby= 278;
-                end
             3'b011:
                 begin
                     case(left_right)
@@ -713,13 +708,7 @@ module defState(
         endcase
         end 
         
-    always@(posedge game_clk)
-        begin
-            if(monsterType == 3'b011)
-                begin
-                    if(yCurrent<=401)yCurrent =yCurrent+1;
-                end
-        end    
+          
      
      // check collision
 endmodule
