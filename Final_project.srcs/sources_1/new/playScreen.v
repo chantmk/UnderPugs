@@ -88,8 +88,8 @@ module playScreen(
     
     localparam ATK_LolipopPugT = 265;
     localparam ATK_LolipopPugL = 102;
-    localparam ATK_LolipopPugD = 374;
-    localparam ATK_LolipopPugR = 228;
+    localparam ATK_LolipopPugD = 375;
+    localparam ATK_LolipopPugR = 229;
 //  def
     localparam DEF_MilkT = 207;
     localparam DEF_MilkL = 420;
@@ -117,9 +117,9 @@ module playScreen(
     localparam DEF_KebabW = 140;
     
     localparam DEF_LolipopPugT = 268;
-    localparam DEF_LolipopPugL = 64;
+    localparam DEF_LolipopPugL = 37;
     localparam DEF_LolipopPugD = 378;
-    localparam DEF_LolipopPugR = 191;
+    localparam DEF_LolipopPugR = 164;
     localparam DEF_LolipopH = 16;
     localparam DEF_LolipopW = 140;
     
@@ -262,7 +262,7 @@ module playScreen(
         .data(data_kebab)
         );
         
-    reg [13:0] addr_lolipop;
+    reg [11:0] addr_lolipop;
     wire [7:0] data_lolipop;
     spriteROM #(
         .DEPTH(2240),
@@ -336,20 +336,20 @@ module playScreen(
         else if( (x==96 | x==543) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
         else if( (x>=96 && x<=543) && (y==266 | y==385)) begin data <= 8'h3F; end //white
         //hpMonster bar size 200x16 x_area = [234,433] ,y_area = [66,81]
-        else if( x>=234 && x<=(234+hpMonster*2) && y>=66 && y<=81) 
+        else if( x>=234 && x<(234+hpMonster*2) && y>=66 && y<=81) 
         begin 
             data <= 8'h10;
         end
             //border 1px hpMonster bar
-        else if( (x==234 | x==433) && (y>=66 && y<=81))
+        else if( (x==233 | x==434) && (y>=65 && y<=82))
         begin 
         data <= 8'h10;
         end
-        else if( (x>=234 && x<=433) && (y==66 | y==81)) 
+        else if( (x>=233 && x<=434) && (y==65 | y==82)) 
         begin 
             data <= 8'h10;
         end
-        //else if( y<= yPlayer+15 && (y-yPlayer) >= 2*(x - xPlayer) && (y-yPlayer) >= -2*(x-xPlayer)) begin data <= 8'h3F; end
+        else if( y<= yPlayer+15 && (y-yPlayer) >= 2*(x - xPlayer) && (y-yPlayer) >= -2*(x-xPlayer)) begin data <= 8'h3F; end
 
         else if (pugType==0) 
         begin
@@ -386,15 +386,15 @@ module playScreen(
             // x_area = [298,317] ,y_area = [266,385] size 20
             else if ( (x>=298 && x<=318) && (y>=266 && y<=385)) begin data <= 8'h19; end //gray2
             // x_area = [361,371] ,y_area = [266,385] size 12
-            else if ( (x>=300 && x<=340) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1
+            else if ( (x>=361 && x<=373) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1
             // x_area = [388,422] ,y_area = [266,385] size 35
-            else if ( (x>=364 && x<=389) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=388 && x<=423) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [448,472] ,y_area = [266,385] size 25
-            else if ( (x>=432 && x<=442) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1 
+            else if ( (x>=448 && x<=473) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1 
             // x_area = [502,506] ,y_area = [266,385] size 5
-            else if ( (x>=446 && x<=451) && (y>=266 && y<=385)) begin data <= 8'h19; end //gray2
+            else if ( (x>=502 && x<=507) && (y>=266 && y<=385)) begin data <= 8'h19; end //gray2
             // x_area = [532,534] ,y_area = [266,385] size 3
-            else if ( (x>=494 && x<=497) && (y>=266 && y<=385)) begin data <= 8'h5; end //gray3
+            else if ( (x>=532 && x<=535) && (y>=266 && y<=385)) begin data <= 8'h5; end //gray3
             else data <=8'b0;
         end
         else if (pugType==2) 
@@ -424,7 +424,7 @@ module playScreen(
         begin
             if(x>=ATK_LolipopPugT && x<=ATK_LolipopPugD && y>=ATK_LolipopPugL && y<=ATK_LolipopPugR)
             begin
-                addr_lolipopP = 89*(y-ATK_LolipopPugL) + (x-ATK_LolipopPugT);
+                addr_lolipopP = 111*(y-ATK_LolipopPugL) + (x-ATK_LolipopPugT);
                 data = data_lolipopP;
             end
             // x_area = [156,157] ,y_area = [266,385] size 2
@@ -457,13 +457,13 @@ module playScreen(
             data = data_bone;
         end
         //border defBox  x_area = [192,432] ,y_area = [210,402] in decimal
-        else if( (x==192 | x==432) && (y>=210 && y<=402)) begin data <= 8'h3F; end //white
-        else if( (x>=192 && x<=432) && (y==210 | y==402)) begin data <= 8'h3F; end //white
+        else if( (x==192 | x== 447) && (y>=196 && y<=403)) begin data <= 8'h3F; end //white
+        else if( (x>=192 && x<=447) && (y==196 | y==403)) begin data <= 8'h3F; end //white
             //hpPlayer bar size 200x16 x_area = [234,422] ,y_area = [433,437]
-        else if( x>=234 && x<=(234+hpPlayer*2) && y>=450 && y<=470) begin data <= 8'h3F; end//white
+        else if( x>=234 && x<(234+hpPlayer*2) && y>=422 && y<=438) begin data <= 8'h3F; end//white
             //border 1px hpPlayer bar
-        else if( (x==233 | x==435) && (y>=449 && y<=471)) begin data <= 8'h3F; end//white
-        else if( (x>=233 && x<=435) && (y==449 | y==471)) begin data <= 8'h3F; end//white
+        else if( (x==233 | x==434) && (y>=421 && y<=439)) begin data <= 8'h3F; end//white
+        else if( (x>=233 && x<=434) && (y==421 | y==439)) begin data <= 8'h3F; end//white
         else if (pugType==0) 
         begin
             if(x>=DEF_BurgerPugT && x<=DEF_BurgerPugD && y>=DEF_BurgerPugL && y<=DEF_BurgerPugR)
@@ -488,78 +488,78 @@ module playScreen(
             end
             else data <= 8'b0;
         end
-    end
-    else if (pugType==1) 
-    begin
-        if(x>=DEF_PizzaPugT && x<=DEF_PizzaPugD && y>=DEF_PizzaPugL && y<=DEF_PizzaPugR)
+        else if (pugType==1) 
         begin
-            addr_pizzaP = 128*(y-DEF_PizzaPugL) + (x-DEF_PizzaPugT);
-            data = data_pizzaP;
+            if(x>=DEF_PizzaPugT && x<=DEF_PizzaPugD && y>=DEF_PizzaPugL && y<=DEF_PizzaPugR)
+            begin
+                addr_pizzaP = 128*(y-DEF_PizzaPugL) + (x-DEF_PizzaPugT);
+                data = data_pizzaP;
+            end
+            else if (x>=abx && x<=(abx+32) && y>=aby && y<=(aby+32))
+            begin
+                addr_pizza = 32*(y-aby) + (x-abx);
+                data = data_pizza;
+            end
+            else if (x>=bbx && x<=(bbx+32) && y>=bby && y<=(bby+32))
+            begin
+                addr_pizza = 32*(y-bby) + (x-bbx);
+                data = data_pizza;
+            end
+            else if (x>=cbx && x<=(cbx+32) && y>=cby && y<=(cby+32))
+            begin
+                addr_pizza = 32*(y-cby) + (x-cbx);
+                data = data_pizza;
+            end
+            else data =8'b0;
         end
-        else if (x>=abx && x<=(abx+32) && y>=aby && y<=(aby+32))
+        else if (pugType==2) 
         begin
-            addr_pizza = 32*(y-aby) + (x-abx);
-            data = data_pizza;
+            if(x>=DEF_KebabPugT && x<=DEF_KebabPugD && y>=DEF_KebabPugL && y<=DEF_KebabPugR)
+            begin
+                addr_kebabP = 107*(y-DEF_KebabPugL) + (x-DEF_KebabPugT);
+                data = data_kebabP;
+            end
+            else if (x>=abx && x<=(abx+140) && y>=aby && y<=(aby+32))
+            begin
+                addr_kebab = 140*(y-aby) + (x-abx);
+                data = data_kebab;
+            end
+            else if (x>=bbx && x<=(bbx+140) && y>=bby && y<=(bby+32))
+            begin
+                addr_kebab = 140*(y-bby) + (x-bbx);
+                data = data_kebab;
+            end
+            else if (x>=cbx && x<=(cbx+140) && y>=cby && y<=(cby+32))
+            begin
+                addr_kebab = 140*(y-cby) + (x-cbx);
+                data = data_kebab;
+            end
+            else data=8'b0;
         end
-        else if (x>=bbx && x<=(bbx+32) && y>=bby && y<=(bby+32))
+        else if (pugType==3) 
         begin
-            addr_pizza = 32*(y-bby) + (x-bbx);
-            data = data_pizza;
+            if(x>=DEF_LolipopPugT && x<=DEF_LolipopPugD && y>=DEF_LolipopPugL && y<=DEF_LolipopPugR)
+            begin
+                addr_lolipopP = 111*(y-DEF_LolipopPugL) + (x-DEF_LolipopPugT);
+                data = data_lolipopP;
+            end
+            else if (x>=abx && x<=(abx+16) && y>=aby && y<=(aby+140))
+            begin
+                addr_lolipop = 16*(y-aby) + (x-abx);
+                data = data_lolipop;
+            end
+            else if (x>=bbx && x<=(bbx+16) && y>=bby && y<=(bby+140))
+            begin
+                addr_lolipop = 16*(y-bby) + (x-bbx);
+                data = data_lolipop;
+            end
+            else if (x>=cbx && x<=(cbx+16) && y>=cby && y<=(cby+140))
+            begin
+                addr_lolipop = 16*(y-cby) + (x-cbx);
+                data = data_lolipop;
+            end
+            else data =8'b0;
         end
-        else if (x>=cbx && x<=(cbx+32) && y>=cby && y<=(cby+32))
-        begin
-            addr_pizza = 32*(y-cby) + (x-cbx);
-            data = data_pizza;
-        end
-        else data <=8'b0;
-    end
-    else if (pugType==2) 
-    begin
-        if(x>=DEF_KebabPugT && x<=DEF_KebabPugD && y>=DEF_KebabPugL && y<=DEF_KebabPugR)
-        begin
-            addr_kebabP = 107*(y-DEF_KebabPugL) + (x-DEF_KebabPugT);
-            data = data_kebabP;
-        end
-        else if (x>=abx && x<=(abx+140) && y>=aby && y<=(aby+140))
-        begin
-            addr_kebab = 140*(y-aby) + (x-abx);
-            data = data_kebab;
-        end
-        else if (x>=bbx && x<=(bbx+140) && y>=bby && y<=(bby+140))
-        begin
-            addr_kebab = 140*(y-bby) + (x-bbx);
-            data = data_kebab;
-        end
-        else if (x>=cbx && x<=(cbx+140) && y>=cby && y<=(cby+140))
-        begin
-            addr_kebab = 140*(y-cby) + (x-cbx);
-            data = data_kebab;
-        end
-        else data <=8'b0;
-    end
-    else if (pugType==3) 
-    begin
-        if(x>=DEF_LolipopPugT && x<=DEF_LolipopPugD && y>=DEF_LolipopPugL && y<=DEF_LolipopPugR)
-        begin
-            addr_lolipopP = 89*(y-DEF_LolipopPugL) + (x-DEF_LolipopPugT);
-            data = data_lolipopP;
-        end
-        else if (x>=abx && x<=(abx+16) && y>=aby && y<=(aby+16))
-        begin
-            addr_lolipop = 16*(y-aby) + (x-abx);
-            data = data_lolipop;
-        end
-        else if (x>=bbx && x<=(bbx+16) && y>=bby && y<=(bby+16))
-        begin
-            addr_lolipop = 16*(y-bby) + (x-bbx);
-            data = data_lolipop;
-        end
-        else if (x>=cbx && x<=(cbx+16) && y>=cby && y<=(cby+16))
-        begin
-            addr_lolipop = 16*(y-cby) + (x-cbx);
-            data = data_lolipop;
-        end
-        else data <=8'b0;
     end
     end
 endmodule

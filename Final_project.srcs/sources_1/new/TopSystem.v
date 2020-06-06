@@ -43,15 +43,6 @@ module TopSystem(
         .keycodev(key)
     );
     
-    /*-Seven segment display-*/
-    sevenSeg segDisp(
-        .clk(clk),
-        .num(key),
-        .seg(seg),
-        .an(an),
-        .dp(dp)
-    );
-    
     wire [2:0] state;
     wire reset;
     wire [6:0] hpMonster,hpPlayer;
@@ -59,6 +50,15 @@ module TopSystem(
     wire [59:0] pos; //bullet pos
     wire [1:0] pugType;
     wire endFlag;
+    
+        /*-Seven segment display-*/
+    sevenSeg segDisp(
+        .clk(clk),
+        .num({2'b00,pugType,key[11:0]}),
+        .seg(seg),
+        .an(an),
+        .dp(dp)
+    );
     
         /*--logic--*/
     game_logic logic(
