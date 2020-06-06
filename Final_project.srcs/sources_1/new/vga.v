@@ -30,7 +30,6 @@ module vga(
 	,input [6:0] hpMonster //min 0 max 100
 	,input [59:0] pos
 	,input [1:0] pugType
-	,input endFlag
     ,output Hsync
     ,output Vsync
     ,output [3:0] vgaRed
@@ -57,13 +56,13 @@ module vga(
     );
 
     wire [7:0] data_start;
-    startScreen ss(
-        .clk(clk),
-        .p_tick(p_tick),
-        .x(x),
-        .y(y),
-        .data(data_start)
-    );
+//    startScreen ss(
+//        .clk(clk),
+//        .p_tick(p_tick),
+//        .x(x),
+//        .y(y),
+//        .data(data_start)
+//    );
 
     wire [7:0] data_end;
 //    endScreen es(
@@ -102,7 +101,6 @@ module vga(
         .y(y),
         .xPlayer(xPlayer),
         .yPlayer(yPlayer),
-        .pos(pos),
         .data(data_map)
         );
         

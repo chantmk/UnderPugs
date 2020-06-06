@@ -34,7 +34,7 @@ module TopSystem(
     ,output dp
     );
     
-    wire [31:0] key;
+    wire [15:0] key;
     /*--Keyboard--*/
     kb_top keyboard_handler(
         .clk(clk),
@@ -65,7 +65,6 @@ module TopSystem(
         .clk(clk),
         .key(key),
         .state(state),
-        .endFlag(endFlag),
         .pugType(pugType),
         .reset(reset),
         .xPlayer(xPlayer),
@@ -84,7 +83,6 @@ module TopSystem(
 	    .hpPlayer(hpPlayer),
 	    .hpMonster(hpMonster),
 	    .pos(pos),
-	    .endFlag(endFlag),
 	    .pugType(pugType),
         .Hsync(Hsync),
         .Vsync(Vsync),
