@@ -180,51 +180,51 @@ module playScreen(
         
     reg [13:0] addr_burgerP;
     wire [7:0] data_burgerP;
-    spriteROM #(
-        .DEPTH(11392),
-        .DEPTH_BIT(14),
-        .MEMFILE("burger-pug.mem")
-        ) burgerP (
-        .clk(clk),
-        .addr(addr_burgerP),
-        .data(data_burgerP)
-        );
+//    spriteROM #(
+//        .DEPTH(11392),
+//        .DEPTH_BIT(14),
+//        .MEMFILE("burger-pug.mem")
+//        ) burgerP (
+//        .clk(clk),
+//        .addr(addr_burgerP),
+//        .data(data_burgerP)
+//        );
         
     reg [13:0] addr_pizzaP;
     wire [7:0] data_pizzaP;
-    spriteROM #(
-        .DEPTH(16384),
-        .DEPTH_BIT(14),
-        .MEMFILE("pizza-pug.mem")
-        ) pizzaP (
-        .clk(clk),
-        .addr(addr_pizzaP),
-        .data(data_pizzaP)
-        );
+//    spriteROM #(
+//        .DEPTH(16384),
+//        .DEPTH_BIT(14),
+//        .MEMFILE("pizza-pug.mem")
+//        ) pizzaP (
+//        .clk(clk),
+//        .addr(addr_pizzaP),
+//        .data(data_pizzaP)
+//        );
         
     reg [13:0] addr_kebabP;
     wire [7:0] data_kebabP;
-    spriteROM #(
-        .DEPTH(11984),
-        .DEPTH_BIT(14),
-        .MEMFILE("kebab-pug.mem")
-        ) kebabP (
-        .clk(clk),
-        .addr(addr_kebabP),
-        .data(data_kebabP)
-        );
+//    spriteROM #(
+//        .DEPTH(11984),
+//        .DEPTH_BIT(14),
+//        .MEMFILE("kebab-pug.mem")
+//        ) kebabP (
+//        .clk(clk),
+//        .addr(addr_kebabP),
+//        .data(data_kebabP)
+//        );
         
     reg [13:0] addr_lolipopP;
     wire [7:0] data_lolipopP;
-    spriteROM #(
-        .DEPTH(14208),
-        .DEPTH_BIT(14),
-        .MEMFILE("lolipop-pug.mem")
-        ) lolipopP (
-        .clk(clk),
-        .addr(addr_lolipopP),
-        .data(data_lolipopP)
-        );
+//    spriteROM #(
+//        .DEPTH(14208),
+//        .DEPTH_BIT(14),
+//        .MEMFILE("lolipop-pug.mem")
+//        ) lolipopP (
+//        .clk(clk),
+//        .addr(addr_lolipopP),
+//        .data(data_lolipopP)
+//        );
         
     reg [7:0] addr_burger;
     wire [7:0] data_burger;
@@ -262,7 +262,7 @@ module playScreen(
         .data(data_kebab)
         );
         
-    reg [13:0] addr_lolipop;
+    reg [11:0] addr_lolipop;
     wire [7:0] data_lolipop;
     spriteROM #(
         .DEPTH(2240),

@@ -27,7 +27,6 @@ module mapScreen(
    ,input [9:0] y
    ,input [9:0] xPlayer
    ,input [9:0] yPlayer
-   ,input [59:0] pos
    ,output reg [7:0] data
    );
    
@@ -46,7 +45,7 @@ module mapScreen(
     localparam EXITX2 = 344;
     localparam EXITY2 = 24;
     
-    reg [255:0] addr_wall;
+    reg [9:0] addr_wall;
     wire [7:0] data_wall;
     spriteROM #(
         .DEPTH(1024),

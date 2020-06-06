@@ -25,7 +25,6 @@ module game_logic(
     ,input [15:0] key
     ,output reg [2:0] state
     ,output [1:0] pugType
-    ,output reg endFlag
     ,output reg reset
     ,output reg [9:0] xPlayer
     ,output reg [9:0] yPlayer
@@ -81,6 +80,7 @@ module game_logic(
      atkState superatk( .clk(clk),
                     .game_clk(game_clk),
                     .direction(direction),
+                    .monster(pugType),
                     .state(an3),
                     .reset(a_reset),
                     .xPlayer(a_xPlayer),
@@ -106,12 +106,11 @@ module game_logic(
     wire [6:0] m_hpPlayer;
     wire found;
     wire [1:0] milkStatus;
-    wire m_xPlayer,m_yPlayer;
+    wire [9:0] m_xPlayer,m_yPlayer;
      mapState supermap(
         .clk(clk),
         .game_clk(clk),
         .direction(direction),
-        .state(state),
         .hpPlayer(hpPlayer),
         .xPlayer(m_xPlayer),
         .yPlayer(m_yPlayer),

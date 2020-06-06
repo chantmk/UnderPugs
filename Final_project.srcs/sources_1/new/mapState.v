@@ -24,7 +24,6 @@ module mapState(
     input clk
     ,input game_clk
     ,input [4:0] direction
-    ,input [2:0] state
     ,input [6:0] hpPlayer
     ,output reg [9:0] xPlayer
     ,output reg [9:0] yPlayer
