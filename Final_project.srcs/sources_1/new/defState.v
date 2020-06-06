@@ -67,6 +67,7 @@ module defState(
         {abr,bbr,cbr} = {3{1'b0}};
         checkbullet = 3'b000;
         VChangeState = 0;
+        counter = 0;
     end
     
     assign xPlayer = xCurrent;
@@ -496,6 +497,6 @@ module defState(
     always@(posedge game_clk)
     begin
         if(checkbullet == 3'b111 || counter>200)VChangeState = 1;
-        counter = counter +1;
+        counter = (counter +1)% 202;
     end
 endmodule
