@@ -96,21 +96,33 @@ module defState(
         casez({isCollision,monsterType})// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
             5'b001??:
                 begin
-                    VhpPlayer = VhpPlayer-10;
+                    if(VhpPlayer<10)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-10;
                     cbx = 640;
                     cby = 480;
                     checkbullet[0] = 1;
                 end
             5'b010??:
                 begin
-                    VhpPlayer = VhpPlayer-10;
+                    if(VhpPlayer<10)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-10;
                     bbx = 640;
                     bby = 480;
                     checkbullet[1] = 1;
                 end
             5'b011??:
                 begin
-                    VhpPlayer = VhpPlayer-20;
+                    if(VhpPlayer<20)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-20;
                     bbx = 640;
                     cbx = 640;
                     bby = 480;
@@ -120,14 +132,22 @@ module defState(
                 end
             5'b100??:
                 begin
-                    VhpPlayer = VhpPlayer-10;
+                    if(VhpPlayer<10)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-10;
                     abx = 640;
                     aby = 480;
                     checkbullet[2] = 1;
                 end
             5'b101??:
                 begin
-                    VhpPlayer = VhpPlayer-20;
+                    if(VhpPlayer<20)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-20;
                     abx = 640;
                     aby = 480;
                     cbx = 640;
@@ -137,7 +157,11 @@ module defState(
                 end
             5'b110??:
                 begin
-                    VhpPlayer = VhpPlayer-20;
+                    if(VhpPlayer<20)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-20;
                     abx = 640;
                     aby = 480;
                     bbx = 640;
@@ -147,7 +171,11 @@ module defState(
                 end
             5'b111??:
                 begin
-                    VhpPlayer = VhpPlayer-30;
+                    if(VhpPlayer<30)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-30;
                     abx = 640;
                     aby = 480;
                     bbx = 640;
@@ -499,7 +527,7 @@ module defState(
     
     always@(posedge game_clk)
     begin
-        if(checkbullet == 3'b111 || counter>200)VChangeState = 1;
+        if(checkbullet == 3'b111 || counter>200 || VhpPlayer ==0)VChangeState = 1;
         counter = (counter +1);
     end
 endmodule
