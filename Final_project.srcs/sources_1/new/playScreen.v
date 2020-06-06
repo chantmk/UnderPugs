@@ -358,26 +358,20 @@ module playScreen(
                 addr_burgerP = 89*(y-ATK_BurgerPugL) + (x-ATK_BurgerPugT);
                 data = data_burgerP;
             end
-            //x_area = [137,138] ,y_area = [266,385] size 2
-            else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-            // x_area = [156,158] ,y_area = [266,385] size 2
-            else if ( (x>=156 && x<=158) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [162,166] ,y_area = [266,385] size 5
-            else if ( (x>=162 && x<=166) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=162 && x<=167) && (y>=266 && y<=385)) begin data <= 8'h5; end //gray3
             // x_area = [210,219] ,y_area = [266,385] size 10
-            else if ( (x>=210 && x<=219) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=210 && x<=220) && (y>=266 && y<=385)) begin data <= 8'h19; end //gray2
             // x_area = [263,282] ,y_area = [266,385] size 20
-            else if ( (x>=263 && x<=282) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=263 && x<=283) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1
             // x_area = [300,339] ,y_area = [266,385] size 40
-            else if ( (x>=300 && x<=339) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=300 && x<=340) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [364,388] ,y_area = [266,385] size 25
-            else if ( (x>=364 && x<=388) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=364 && x<=389) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1
             // x_area = [432,441] ,y_area = [266,385] size 10
-            else if ( (x>=432 && x<=441) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white    
+            else if ( (x>=432 && x<=442) && (y>=266 && y<=385)) begin data <= 8'h19; end //gray2    
             // x_area = [446,450] ,y_area = [266,385] size 5
-            else if ( (x>=446 && x<=450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-            // x_area = [494,496] ,y_area = [266,385] size 3
-            else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=446 && x<=451) && (y>=266 && y<=385)) begin data <= 8'h5; end //gray3
             else data <=8'b0;
         end
         else if (pugType==1) 
@@ -387,26 +381,20 @@ module playScreen(
                 addr_pizzaP <= 128*(y-ATK_PizzaPugL) + (x-ATK_PizzaPugT);
                 data <= data_pizzaP;
             end
-            // x_area = [137,138] ,y_area = [266,385] size 2
-            else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-            // x_area = [162,167] ,y_area = [266,385] size 2
-            else if ( (x>=162 && x<=167) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-            // x_area = [210,219] ,y_area = [266,385] size 10
-            else if ( (x>=210 && x<=219) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [272,281] ,y_area = [266,385] size 10
-            else if ( (x>=272 && x<=281) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=272 && x<=282) && (y>=266 && y<=385)) begin data <= 8'h5; end //gray3
             // x_area = [298,317] ,y_area = [266,385] size 20
-            else if ( (x>=298 && x<=371) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=298 && x<=318) && (y>=266 && y<=385)) begin data <= 8'h19; end //gray2
             // x_area = [361,371] ,y_area = [266,385] size 12
-            else if ( (x>=300 && x<=339) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=300 && x<=340) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1
             // x_area = [388,422] ,y_area = [266,385] size 35
-            else if ( (x>=364 && x<=388) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=364 && x<=389) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [448,472] ,y_area = [266,385] size 25
-            else if ( (x>=432 && x<=441) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white 
+            else if ( (x>=432 && x<=442) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1 
             // x_area = [502,506] ,y_area = [266,385] size 5
-            else if ( (x>=446 && x<=450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=446 && x<=451) && (y>=266 && y<=385)) begin data <= 8'h19; end //gray2
             // x_area = [532,534] ,y_area = [266,385] size 3
-            else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=494 && x<=497) && (y>=266 && y<=385)) begin data <= 8'h5; end //gray3
             else data <=8'b0;
         end
         else if (pugType==2) 
@@ -416,22 +404,20 @@ module playScreen(
                 addr_kebabP = 107*(y-ATK_KebabPugL) + (x-ATK_KebabPugT);
                 data = data_kebabP;
             end
-            // x_area = [137,138] ,y_area = [266,385] size 2
-            else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [183,185] ,y_area = [266,385] size 3
-            else if ( (x>=183 && x<=185) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=183 && x<=186) && (y>=266 && y<=385)) begin data <= 8'h5; end //white
             // x_area = [210,217] ,y_area = [266,385] size 8
-            else if ( (x>=210 && x<=217) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=210 && x<=218) && (y>=266 && y<=385)) begin data <= 8'h19; end //white
             // x_area = [263,274] ,y_area = [266,385] size 12
-            else if ( (x>=298 && x<=371) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=263 && x<=275) && (y>=266 && y<=385)) begin data <= 8'h2E; end //white
             // x_area = [289,308] ,y_area = [266,385] size 20
-            else if ( (x>=289 && x<=308) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=289 && x<=309) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [364,373] ,y_area = [266,385] size 10
-            else if ( (x>=364 && x<=373) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=364 && x<=374) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1
             // x_area = [432,436] ,y_area = [266,385] size 5
-            else if ( (x>=432 && x<=436) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=432 && x<=437) && (y>=266 && y<=385)) begin data <= 8'h19; end //gray2
             // x_area = [494,496] ,y_area = [266,385] size 3
-            else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white 
+            else if ( (x>=494 && x<=497) && (y>=266 && y<=385)) begin data <= 8'h5; end //gray3 
             else data <=8'b0;
         end
         else if (pugType==3)
@@ -441,26 +427,20 @@ module playScreen(
                 addr_lolipopP = 89*(y-ATK_LolipopPugL) + (x-ATK_LolipopPugT);
                 data = data_lolipopP;
             end
-            // x_area = [137,138] ,y_area = [266,385] size 2
-            else if ( (x>=137 && x<=138) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [156,157] ,y_area = [266,385] size 2
-            else if ( (x>=156 && x<=157) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=156 && x<=158) && (y>=266 && y<=385)) begin data <= 8'h5; end //white
             // x_area = [162,166] ,y_area = [266,385] size 5
-            else if ( (x>=162 && x<=166) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=162 && x<=167) && (y>=266 && y<=385)) begin data <= 8'h19; end //white
             // x_area = [179,183] ,y_area = [266,385] size 5
-            else if ( (x>=179 && x<=183) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=179 && x<=184) && (y>=266 && y<=385)) begin data <= 8'h2E; end //white
             // x_area = [218,227] ,y_area = [266,385] size 10
-            else if ( (x>=218 && x<=227) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=218 && x<=228) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
             // x_area = [278,282] ,y_area = [266,385] size 5
-            else if ( (x>=278 && x<=282) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=278 && x<=283) && (y>=266 && y<=385)) begin data <= 8'h2E; end //gray1
             // x_area = [364,368] ,y_area = [266,385] size 5
-            else if ( (x>=364 && x<=368) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=364 && x<=369) && (y>=266 && y<=385)) begin data <= 8'h19; end //gray2
             // x_area = [384,388] ,y_area = [266,385] size 5
-            else if ( (x>=384 && x<=388) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-            // x_area = [446,450] ,y_area = [266,385] size 5
-            else if ( (x>=446 && x<=450) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
-            // x_area = [494,496] ,y_area = [266,385] size 3
-            else if ( (x>=494 && x<=496) && (y>=266 && y<=385)) begin data <= 8'h3F; end //white
+            else if ( (x>=384 && x<=389) && (y>=266 && y<=385)) begin data <= 8'h5; end //gray3
             else begin data <= 8'b0 ; end
         end
     end
