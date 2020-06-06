@@ -33,6 +33,7 @@ module defState(
 	    ,output [6:0] hpMonster //min 0 max 100
 	    ,output [29:0] bulletPosX
 	    ,output [29:0] bulletPosY
+	    ,output [2:0] collision
     );
     
     reg [9:0] xCurrent;
@@ -48,6 +49,7 @@ module defState(
     assign bulletPosX = {abx,bbx,cbx};
     assign bulletPosY = {aby,bby,cby};
     
+    assign collision = isCollision;
     
     initial begin 
         xCurrent = 250;

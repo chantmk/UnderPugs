@@ -37,6 +37,12 @@ module colission(
     
     assign isCollision = {vseta,vsetb,vsetc}; //abc
     
+//    initial
+//    begin
+//        vseta = 0;
+//        vsetb = 0;
+//        vsetc = 0;
+//    end
     
     always @(posedge game_clk)
         begin

@@ -37,7 +37,7 @@ module test_defState();
     wire [9:0] bby = bulletY[19:10];
     wire [9:0] cbx = bulletX[9:0];
     wire [9:0] cby = bulletY[9:0];
-    
+    wire [2:0] collision;
     defState ds(
         .clk(clk),
         .game_clk(game_clk),
