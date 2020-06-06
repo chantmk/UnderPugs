@@ -76,15 +76,15 @@ module vga(
 //        );
         
     wire [7:0] data_title;
-    titleScreen ts(
-        .clk(clk),
-        .p_tick(p_tick),
-        .x(x),
-        .y(y),
-        .data(data_title)
-        );
+//    titleScreen ts(
+//        .clk(clk),
+//        .p_tick(p_tick),
+//        .x(x),
+//        .y(y),
+//        .data(data_title)
+//        );
         
-//    wire [7:0] data_greet;
+    wire [7:0] data_greet;
 //    hiScreen hs(
 //        .clk(clk),
 //        .p_tick(p_tick),
@@ -106,32 +106,32 @@ module vga(
         .data(data_map)
         );
         
-//    wire [7:0] data_atk;
-//    atkScreen as(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .hpMonster(hpMonster),
-//        .pugType(pugType),
-//        .data(data_atk)
-//        );
+    wire [7:0] data_atk;
+    atkScreen as(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .hpMonster(hpMonster),
+        .pugType(pugType),
+        .data(data_atk)
+        );
         
-//    wire [7:0] data_def;
-//    defScreen ds(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .pugType(pugType),
-//        .hpPlayer(hpPlayer),
-//        .pos(pos),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .data(data_def)
-//        );
+    wire [7:0] data_def;
+    defScreen ds(
+        .clk(clk),
+        .p_tick(p_tick),
+        .x(x),
+        .y(y),
+        .pugType(pugType),
+        .hpPlayer(hpPlayer),
+        .pos(pos),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .data(data_def)
+        );
     wire [7:0] data_play;
     playScreen ps(
         .clk(clk),

@@ -64,7 +64,7 @@ module atkState(
                     .damage(damage)
                     );
 
-    always @(direction)
+    always @(posedge game_clk)
         begin
         if (state)begin
             case(direction)
@@ -87,6 +87,12 @@ module atkState(
                     
                     // TODO: change state to defState
                     end
+                 if (VhpMonster == 0 && counterHp <= 60) counterHp = (counterHp+1) % 62; //count 0-61
+                    else if (VhpMonster == 0 && counterHp > 60) VhpMonster = 100;
+                    
+                    //change stop
+                 if (stop == 1 && counterStop <= 90) counterStop = (counterStop+1) % 92; //count 0-91 
+                    else if (stop == 1 && counterStop > 90) stop = 0;
                 stop = 1;
                 end   
             endcase
@@ -118,16 +124,4 @@ module atkState(
         end
         end
        
-    always@(posedge game_clk)
-    begin
-        //reset hpMonster
-        if (VhpMonster == 0 && counterHp <= 60) counterHp = (counterHp+1) % 62; //count 0-61
-        else if (VhpMonster == 0 && counterHp > 60) VhpMonster = 100;
-        
-        //change stop
-        if (stop == 1 && counterStop <= 90) counterStop = (counterStop+1) % 92; //count 0-91 
-        else if (stop == 1 && counterStop > 90) stop = 0;
-       
-    end
-
 endmodule
