@@ -531,7 +531,7 @@ module playScreen(
             end
             else if (x>=cbx && x<=(cbx+140) && y>=cby && y<=(cby+32))
             begin
-                addr_kebab = 140*(y-cby) + (x-cbx);
+                addr_kebab = 140*(y-cby) + (140-(x-cbx));
                 data = data_kebab;
             end
             else data=8'b0;
