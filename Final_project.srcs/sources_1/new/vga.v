@@ -64,16 +64,6 @@ module vga(
 //        .y(y),
 //        .data(data_start)
 //    );
-
-    wire [7:0] data_end;
-//    endScreen es(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .endFlag(endFlag),
-//        .data(data_end)
-//        );
         
     wire [7:0] data_title;
 //    titleScreen ts(
@@ -84,15 +74,6 @@ module vga(
 //        .data(data_title)
 //        );
         
-    wire [7:0] data_greet;
-//    hiScreen hs(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .pugType(pugType),
-//        .data(data_greet)
-//        );
         
     wire [7:0] data_map;
     mapScreen ms(
@@ -163,7 +144,7 @@ module vga(
     begin
         case(screen_state)
         3'b000: data <= data_start;
-        3'b001: data <= data_end;
+        3'b001: data <= 0;
         3'b010: data <= data_title;
         3'b011: data <= data_play;
         3'b100: data <= data_map;

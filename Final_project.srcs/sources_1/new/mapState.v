@@ -34,19 +34,14 @@ module mapState(
     ,output reg endFlag
     );
     
-    wire isWall1;
+    reg [9:0] checkx;
+    reg [9:0] checky;
+    wire isWall;
     mapDecision(
         .clk(clk),
-        .x(xPlayer),
-        .y(yPlayer),
-        .isWall(isWall1)
-        );    
-    wire isWall2;
-    mapDecision(
-        .clk(clk),
-        .x(xPlayer+16),
-        .y(yPlayer+16),
-        .isWall(isWall2)
+        .x(checkx),
+        .y(checky),
+        .isWall(isWall)
         );
     initial
     begin
@@ -61,13 +56,32 @@ module mapState(
     always @(posedge game_clk)
     begin
         found = 0 ;
-        if(isWall1 && isWall2)
         begin
-            if(direction == 5'b00001) xPlayer = xPlayer-1;
-            if(direction == 5'b00010) xPlayer = yPlayer-1;
-            if(direction == 5'b00100) xPlayer = yPlayer+1;
-            if(direction == 5'b01000) xPlayer = xPlayer+1;
-            if(xPlayer == 120 && yPlayer >= 389)
+            if(direction == 5'b00001) 
+            begin
+                checkx = xPlayer-4;
+                checky = yPlayer;
+                if(isWall)xPlayer = xPlayer-1;
+            end
+            else if(direction == 5'b00010)
+            begin
+                checkx = xPlayer;
+                checky = yPlayer-4;
+                if(isWall)yPlayer = yPlayer-1;
+            end
+            else if(direction == 5'b00100)
+            begin
+                checkx = xPlayer;
+                checky = yPlayer+21;
+                if(isWall)yPlayer = yPlayer+1;
+            end
+            else if(direction == 5'b01000) 
+            begin
+                checkx = xPlayer+21;
+                checky = yPlayer;
+                if(isWall)xPlayer = xPlayer+1;
+            end
+            else if(xPlayer == 120 && yPlayer >= 389)
             begin
             found = 1;
             pugType = 0;
