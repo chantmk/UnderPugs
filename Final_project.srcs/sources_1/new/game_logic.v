@@ -93,17 +93,20 @@ module game_logic(
 //     wire [9:0] d_xPlayer,d_yPlayer;
 //     wire [29:0] bulletX,bulletY;
 //     assign pos = {bulletX,bulletY};
-////     defState superdef( .clk(clk),
-////                    .game_clk(game_clk),
-////                    .direction(direction),
-////                    .reset(d_reset),
-////                    .xPlayer(d_xPlayer),
-////                    .yPlayer(d_yPlayer),
-////                    .hpPlayer(d_hpPlayer),
-////                    .hpMonster(d_hpMonster),
-////                    .monsterType(pugType),
-////                    .bulletPosX(bulletX),
-////                    .bulletPosY(bulletY));
+//     defState superdef( .clk(clk),
+//                    .game_clk(game_clk),
+//                    .direction(direction),
+//                    .reset(d_reset),
+//                    .xPlayer(d_xPlayer),
+//                    .yPlayer(d_yPlayer),
+//                    .hpPlayer(d_hpPlayer),
+//                    .hpMonster(d_hpMonster),
+//                    .monsterType(pugType),
+//                    .bulletPosX(bulletX),
+//                    .bulletPosY(bulletY),
+//                    .collision(collision),
+//                    .changeState(changeState)
+//                    );
 //    wire [6:0] m_hpPlayer;
 //    wire found;
 //    wire [9:0] m_xPlayer,m_yPlayer;

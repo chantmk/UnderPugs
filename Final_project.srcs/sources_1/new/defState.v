@@ -24,7 +24,6 @@ module defState(
         input clk
         ,input game_clk
         ,input [4:0]direction
-        ,input [2:0]state
         ,input [1:0]monsterType
         ,output reset
         ,output [9:0] xPlayer
@@ -34,6 +33,7 @@ module defState(
 	    ,output [29:0] bulletPosX
 	    ,output [29:0] bulletPosY
 	    ,output [2:0] collision
+	    ,output changeState 
     );
     
     reg [9:0] xCurrent;
@@ -46,6 +46,9 @@ module defState(
     reg [3:0]left_right;
     reg [3:0]up_down;
     wire [2:0] isCollision;
+    reg [2:0] checkbullet;
+    reg VChangeState;
+    reg [7:0]counter;
     assign bulletPosX = {abx,bbx,cbx};
     assign bulletPosY = {aby,bby,cby};
     
@@ -61,6 +64,8 @@ module defState(
         {aby,bby,cby} = {10'd0000000278,10'd0000000278,10'd0000000278};// [210,402]
         {abt,bbt,cbt} = {6{1'b0}};
         {abr,bbr,cbr} = {3{1'b0}};
+        checkbullet = 3'b000;
+        VChangeState = 0;
     end
     
     assign xPlayer = xCurrent;
@@ -90,12 +95,14 @@ module defState(
                     VhpPlayer = VhpPlayer-10;
                     cbx = 640;
                     cby = 480;
+                    checkbullet[0] = 1;
                 end
             5'b010??:
                 begin
                     VhpPlayer = VhpPlayer-10;
                     bbx = 640;
                     bby = 480;
+                    checkbullet[1] = 1;
                 end
             5'b011??:
                 begin
@@ -104,12 +111,15 @@ module defState(
                     cbx = 640;
                     bby = 480;
                     cby = 480;
+                    checkbullet[0] = 1;
+                    checkbullet[1] = 1;
                 end
             5'b100??:
                 begin
                     VhpPlayer = VhpPlayer-10;
                     abx = 640;
                     aby = 480;
+                    checkbullet[2] = 1;
                 end
             5'b101??:
                 begin
@@ -118,6 +128,8 @@ module defState(
                     aby = 480;
                     cbx = 640;
                     cby = 480;
+                    checkbullet[2] = 1;
+                    checkbullet[0] = 1;
                 end
             5'b110??:
                 begin
@@ -126,6 +138,8 @@ module defState(
                     aby = 480;
                     bbx = 640;
                     bby = 480;
+                    checkbullet[2] = 1;
+                    checkbullet[1] = 1;
                 end
             5'b111??:
                 begin
@@ -136,6 +150,9 @@ module defState(
                     bby = 480;
                     cbx = 640;
                     cby = 480;
+                    checkbullet[2] = 1;
+                    checkbullet[1] = 1;
+                    checkbullet[0] = 1;
                 end
             5'b00000://16x16 
                 begin
@@ -394,6 +411,10 @@ module defState(
             5'b00001: 
                 begin
                     if(xCurrent > 192)xCurrent <= xCurrent-1;//A
+                    if(monsterType == 2'b11)
+                        begin
+                            if(yCurrent<=401)yCurrent =yCurrent+1;
+                        end
                 end
             5'b00010: 
                 begin
@@ -401,20 +422,31 @@ module defState(
                 end
             5'b00100: 
                 begin
-                    if(yCurrent < 402)yCurrent <= yCurrent+1;//D
+                    if(monsterType == 2'b11)
+                        begin
+                            if(yCurrent<=401)yCurrent =yCurrent+2;
+                        end
+                    else if(yCurrent < 402)yCurrent <= yCurrent+1;//D
                 end
             5'b01000: 
                 begin
                     if(xCurrent < 432)xCurrent <= xCurrent+1;//D
+                    if(monsterType == 2'b11)
+                        begin
+                            if(yCurrent<=401)yCurrent =yCurrent+1;
+                        end
                 end
 //            5'b10000: 
 //                begin
 //                    xCurrent <= xCurrent;//Spacebar 
 //                end
         endcase
-            if(monsterType == 2'b11)
-                begin
-                    if(yCurrent<=401)yCurrent =yCurrent+1;
-                end
+            
+    end
+    
+    always@(posedge game_clk)
+    begin
+        if(checkbullet == 3'b111 || counter>200)VChangeState = 1;
+        counter = counter +1;
     end
 endmodule
