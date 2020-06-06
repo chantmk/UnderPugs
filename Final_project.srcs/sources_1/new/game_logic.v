@@ -85,7 +85,7 @@ module game_logic(
                     .game_clk(game_clk),
                     .direction(direction),
                     .monster(pugType),
-                    .state(an3),
+                    .state(an5),
                     .reset(a_reset),
                     .xPlayer(a_xPlayer),
                     .yPlayer(a_yPlayer),
@@ -134,14 +134,14 @@ module game_logic(
                 0: ;
                 1: ;
                 2: ;
-                3: begin
-                    {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {a_reset,a_xPlayer,a_yPlayer,a_hpPlayer,a_hpMonster};
-                    {an0,an1,an2,an3,an4,an5,an6} = 7'b0001000;
-                   end
                 4: begin
                     {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {m_reset,m_xPlayer,m_yPlayer,m_hpPlayer,7'd0};
                     {an0,an1,an2,an3,an4,an5,an6} = 7'b0000100;
                     end
+                5: begin
+                    {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {a_reset,a_xPlayer,a_yPlayer,a_hpPlayer,a_hpMonster};
+                    {an0,an1,an2,an3,an4,an5,an6} = 7'b0000010;
+                   end
                 6 : begin
                     {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {d_reset,d_xPlayer,d_yPlayer,d_hpPlayer,d_hpMonster};
                     {an0,an1,an2,an3,an4,an5,an6} = 7'b0000001;
@@ -152,8 +152,9 @@ module game_logic(
      always @(posedge game_clk) begin
         case(state)
             3'd0 : if (key[7:0] == 8'h29) begin state = 4; end
+            3'd3 : if (key[7:0] == 8'h5A) begin state = 5; end
             3'd4 : begin
-                      if (meetMonster[3] == 1) begin state = 3; end
+                   if (meetMonster[3] == 1) begin state = 3; end
                       else if (meetMonster[2] == 1) begin state = 3; end
                       else if (meetMonster[1] == 1) begin state = 3; end
                       else if (meetMonster[0] == 1) begin state = 3; end
