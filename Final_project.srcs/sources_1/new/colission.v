@@ -29,8 +29,8 @@ module colission(
     input [9:0] bby,
     input [9:0] cbx,
     input [9:0] cby,
-    input xCurrent,
-    input yCurrent,
+    input [9:0] xCurrent,
+    input [9:0] yCurrent,
     output [2:0]isCollision
     );
     reg vseta,vsetb,vsetc;
