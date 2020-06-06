@@ -3,7 +3,11 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
+<<<<<<< HEAD
 <Project Version="7" Minor="39" Path="D:/Project/HWLAB/HWProject/Final_project.xpr">
+=======
+<Project Version="7" Minor="39" Path="D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.xpr">
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="d4455d6433344b0bb636bc2a675d3317"/>
@@ -85,6 +89,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
       <File Path="$PSRCDIR/sources_1/new/atkState.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -93,6 +98,8 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+=======
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
       <File Path="$PSRCDIR/sources_1/new/clockDiv.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -111,6 +118,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
       <File Path="$PSRCDIR/sources_1/new/damageCompute.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -119,6 +127,8 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+=======
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
       <File Path="$PSRCDIR/sources_1/imports/hdl/debouncer.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -161,6 +171,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
       <File Path="$PSRCDIR/sources_1/new/mapState.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -169,6 +180,8 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+=======
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
       <File Path="$PSRCDIR/sources_1/new/paletteROM.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -247,6 +260,40 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/TopSystem.v">
         <FileInfo>
+<<<<<<< HEAD
+=======
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/atkState.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/damageCompute.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/mapState.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/startScreen.v">
+        <FileInfo>
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
