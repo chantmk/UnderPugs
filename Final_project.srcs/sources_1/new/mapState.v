@@ -31,6 +31,7 @@ module mapState(
     ,output reg [1:0] pugType
     ,output reg found
     ,output reg [6:0] newHpPlayer
+    ,output reg endFlag
     );
     
     wire isWall1;
@@ -55,6 +56,7 @@ module mapState(
         newHpPlayer = hpPlayer;
         xPlayer = 296;
         yPlayer = 455;
+        endFlag = 0;
     end
     always @(posedge game_clk)
     begin
@@ -99,7 +101,7 @@ module mapState(
                 newHpPlayer = hpPlayer + 20; 
                 if(newHpPlayer > 100) newHpPlayer = 100;
             end
-            
+            else if(xPlayer <= 328 && yPlayer == 24) endFlag = 1;
         end
     end
 endmodule

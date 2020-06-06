@@ -454,6 +454,17 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
+      <File Path="$PSRCDIR/sources_1/new/timeOut.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+||||||| b7841be
+=======
       <File Path="$PSRCDIR/sources_1/new/monsterMovement.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -462,6 +473,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+>>>>>>> c6109a2f14f32499857b62086cf239bbe4a08cb6
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="defState"/>

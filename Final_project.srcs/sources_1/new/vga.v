@@ -30,6 +30,7 @@ module vga(
 	,input [6:0] hpMonster //min 0 max 100
 	,input [59:0] pos
 	,input [1:0] pugType
+	,input [1:0] milkStatus
     ,output Hsync
     ,output Vsync
     ,output [3:0] vgaRed
@@ -101,6 +102,7 @@ module vga(
         .y(y),
         .xPlayer(xPlayer),
         .yPlayer(yPlayer),
+        .milkStatus(milkStatus),
         .data(data_map)
         );
         

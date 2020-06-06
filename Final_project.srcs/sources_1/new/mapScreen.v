@@ -27,6 +27,7 @@ module mapScreen(
    ,input [9:0] y
    ,input [9:0] xPlayer
    ,input [9:0] yPlayer
+   ,input [1:0] milkStatus
    ,output reg [7:0] data
    );
    
@@ -108,12 +109,12 @@ module mapScreen(
             addr_bone = BASE*(y-yPlayer)+(x-xPlayer);
             data = data_bone;
         end
-        else if(x>=MILK1X1 && x<=MILK1X2 && y>=MILK1Y1 && y<=MILK1Y2 )
+        else if(x>=MILK1X1 && x<=MILK1X2 && y>=MILK1Y1 && y<=MILK1Y2 && (milkStatus==2'b01 || milkStatus == 2'b11))
         begin
             addr_milk = BASE*(y-MILK1Y1)+(x-MILK1X1);
             data = data_milk;
         end
-        else if(x>=MILK2X1 && x<=MILK2X2 && y>=MILK2Y1 && y<=MILK2Y2 )
+        else if(x>=MILK2X1 && x<=MILK2X2 && y>=MILK2Y1 && y<=MILK2Y2 && (milkStatus==2'b10 || milkStatus == 2'b11))
         begin
             addr_milk = BASE*(y-MILK2Y1)+(x-MILK2X1);
             data = data_milk;

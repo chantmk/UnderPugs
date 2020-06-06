@@ -49,6 +49,7 @@ module TopSystem(
     wire [9:0] xPlayer,yPlayer;
     wire [59:0] pos; //bullet pos
     wire [1:0] pugType;
+    wire [1:0] milkStatus;
     wire endFlag;
     
         /*-Seven segment display-*/
@@ -71,7 +72,8 @@ module TopSystem(
         .yPlayer(yPlayer),
         .hpPlayer(hpPlayer),
         .hpMonster(hpMonster),
-        .pos(pos)
+        .pos(pos),
+        .milkStatus(milkStatus)
     );
     /*--vga--*/
     vga image_handler(
@@ -84,6 +86,7 @@ module TopSystem(
 	    .hpMonster(hpMonster),
 	    .pos(pos),
 	    .pugType(pugType),
+	    .milkStatus(milkStatus),
         .Hsync(Hsync),
         .Vsync(Vsync),
         .vgaRed(vgaRed),
