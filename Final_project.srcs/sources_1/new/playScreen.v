@@ -349,7 +349,7 @@ module playScreen(
         begin 
             data <= 8'h10;
         end
-        else if( y<= yPlayer+15 && (y-yPlayer) >= 2*(x - xPlayer) && (y-yPlayer) >= -2*(x-xPlayer)) begin data <= 8'h3F; end
+        else if( y<= yPlayer+15 && (y-yPlayer) >= 2*(x - xPlayer) && (y-yPlayer) >= 2*(xPlayer-x)) begin data <= 8'h3F; end
 
         else if (pugType==0) 
         begin
