@@ -31,6 +31,7 @@ module game_logic(
     ,output reg [6:0] hpPlayer
 	,output reg [6:0] hpMonster
 	,output wire [59:0] pos
+	,output wire [1:0] milkStatus
     );
     
     reg [4:0] direction;
@@ -105,8 +106,8 @@ module game_logic(
 ////                    .bulletPosY(bulletY));
 //    wire [6:0] m_hpPlayer;
 //    wire found;
-//    wire [1:0] milkStatus;
 //    wire [9:0] m_xPlayer,m_yPlayer;
+//    wire endFlag;
 //     mapState supermap(
 //        .clk(clk),
 //        .game_clk(clk),
@@ -115,9 +116,10 @@ module game_logic(
 //        .xPlayer(m_xPlayer),
 //        .yPlayer(m_yPlayer),
 //        .milkStatus(milkStatus),
-// //       .pugType(pugType),
+//        .pugType(pugType),
 //        .found(found),
-//        .newHpPlayer(m_hpPlayer)
+//        .newHpPlayer(m_hpPlayer),
+//        .endFlag(endFlag)
 //        );
 //     always @ (state)
 //        begin

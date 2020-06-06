@@ -428,37 +428,8 @@ module defState(
                 end
                 end
         endcase
-        end
-    always @(posedge game_clk)
-        begin
-        case(direction)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
-            5'b00001: 
-                begin
-                    if(xCurrent > 192)xCurrent <= xCurrent-1;//A
-                end
-            5'b00010: 
-                begin
-                    if(yCurrent > 210)yCurrent <= yCurrent-1;//W
-                end
-            5'b00100: 
-                begin
-                    if(yCurrent < 402)yCurrent <= yCurrent+1;//D
-                end
-            5'b01000: 
-                begin
-                    if(xCurrent < 432)xCurrent <= xCurrent+1;//D
-                end
-//            5'b10000: 
-//                begin
-//                    xCurrent <= xCurrent;//Spacebar 
-//                end 
-        endcase
-    end
-     // todo bullet movement
-     
-    always@(posedge game_clk)
-        begin
-            case(monsterType)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
+        
+        case(monsterType)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
             2'b00://16x16 
                 begin
                     case(left_right)
@@ -709,15 +680,34 @@ module defState(
                     endcase
                 end
         endcase
-        end 
-        
-    always@(posedge game_clk)
+        end
+    always @(posedge game_clk)
         begin
+        case(direction)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
+            5'b00001: 
+                begin
+                    if(xCurrent > 192)xCurrent <= xCurrent-1;//A
+                end
+            5'b00010: 
+                begin
+                    if(yCurrent > 210)yCurrent <= yCurrent-1;//W
+                end
+            5'b00100: 
+                begin
+                    if(yCurrent < 402)yCurrent <= yCurrent+1;//D
+                end
+            5'b01000: 
+                begin
+                    if(xCurrent < 432)xCurrent <= xCurrent+1;//D
+                end
+//            5'b10000: 
+//                begin
+//                    xCurrent <= xCurrent;//Spacebar 
+//                end
+        endcase
             if(monsterType == 2'b11)
                 begin
                     if(yCurrent<=401)yCurrent =yCurrent+1;
                 end
-        end    
-     
-     // check collision
+    end
 endmodule

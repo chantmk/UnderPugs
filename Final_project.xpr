@@ -3,7 +3,11 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
+<<<<<<< HEAD
+<Project Version="7" Minor="39" Path="D:/Project/HWLAB/HWProject/Final_project.xpr">
+=======
 <Project Version="7" Minor="39" Path="D:/ThammakornK/Documents/Chula/3_Junior/2/HW_Lab/HWProject/Final_project.xpr">
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="d4455d6433344b0bb636bc2a675d3317"/>
@@ -60,8 +64,24 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/new/colission.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/defState.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/hdl/PS2Receiver.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Basys-3-Keyboard-2018.2-3/vivado_proj/Basys-3-Keyboard.srcs/sources_1/imports/hdl/PS2Receiver.v"/>
           <Attr Name="ImportTime" Val="1589531743"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -69,8 +89,20 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
+      <File Path="$PSRCDIR/sources_1/new/atkState.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+=======
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
       <File Path="$PSRCDIR/sources_1/new/clockDiv.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -78,6 +110,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/new/clockDivider.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Lab_2/Lab_2.srcs/sources_1/new/clockDivider.v"/>
           <Attr Name="ImportTime" Val="1580607693"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -85,8 +118,20 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
+      <File Path="$PSRCDIR/sources_1/new/damageCompute.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+=======
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
       <File Path="$PSRCDIR/sources_1/imports/hdl/debouncer.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Basys-3-Keyboard-2018.2-3/vivado_proj/Basys-3-Keyboard.srcs/sources_1/imports/hdl/debouncer.v"/>
           <Attr Name="ImportTime" Val="1589531743"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -96,6 +141,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/game_logic.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -103,6 +149,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/kb_top.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -110,6 +157,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/mapDecision.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -117,13 +165,26 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/mapScreen.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
+      <File Path="$PSRCDIR/sources_1/new/mapState.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+=======
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
       <File Path="$PSRCDIR/sources_1/new/paletteROM.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -131,6 +192,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/playScreen.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -138,6 +200,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/new/quad2SevenSeg.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Lab_2/Lab_2.srcs/sources_1/new/quad2SevenSeg.v"/>
           <Attr Name="ImportTime" Val="1583759736"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -147,6 +210,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/new/segmentDec.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Lab_2/Lab_2.srcs/sources_1/new/segmentDec.v"/>
           <Attr Name="ImportTime" Val="1583759501"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -156,6 +220,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/sevenSeg.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -163,6 +228,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/spriteROM.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -170,6 +236,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/titleScreen.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -177,6 +244,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/vga.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -184,6 +252,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/vga_sync.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -191,6 +260,8 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/TopSystem.v">
         <FileInfo>
+<<<<<<< HEAD
+=======
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -222,13 +293,14 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/startScreen.v">
         <FileInfo>
+>>>>>>> 7640950cd8b340f5cb54c7d456c805cfe17ebffc
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/defState.v">
+      <File Path="$PSRCDIR/sources_1/new/startScreen.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -430,6 +502,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
       <File Path="$PSRCDIR/sources_1/new/timeOut.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -438,10 +511,20 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+||||||| b7841be
+=======
+      <File Path="$PSRCDIR/sources_1/new/monsterMovement.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+>>>>>>> c6109a2f14f32499857b62086cf239bbe4a08cb6
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="TopSystem"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="TopModule" Val="colission"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
