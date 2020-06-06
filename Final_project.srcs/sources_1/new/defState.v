@@ -453,6 +453,7 @@ module defState(
             end
             endcase
             counter = 0;
+            VChangeState = 0;
             previousMonsType = monsterType;
             
         end
