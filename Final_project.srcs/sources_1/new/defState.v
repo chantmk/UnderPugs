@@ -452,7 +452,9 @@ module defState(
                 left_right = 3'b110;
             end
             endcase
+            counter = 0;
             previousMonsType = monsterType;
+            
         end
         end
     always @(posedge game_clk)
@@ -497,6 +499,6 @@ module defState(
     always@(posedge game_clk)
     begin
         if(checkbullet == 3'b111 || counter>200)VChangeState = 1;
-        counter = (counter +1)% 202;
+        counter = (counter +1);
     end
 endmodule
