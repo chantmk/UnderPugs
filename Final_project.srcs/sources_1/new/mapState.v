@@ -101,14 +101,14 @@ module mapState(
             found = 1;
             pugType = 3;
             end
-            else if(xPlayer == 280 && yPlayer >= 37)
+            else if(xPlayer == 280 && yPlayer >= 37 && (milkStatus==2'b11 || milkStatus==2'b01))
             begin
                 if(milkStatus == 2'b11) milkStatus = 2'b10;
                 else if(milkStatus == 2'b01) milkStatus = 2'b00; 
                 newHpPlayer = hpPlayer + 20;
                 if(newHpPlayer > 100) newHpPlayer = 100;
             end
-            else if(xPlayer == 280 && yPlayer >= 37)
+            else if(xPlayer == 280 && yPlayer >= 37 && (milkStatus==2'b11 || milkStatus==2'b10))
             begin
                 if(milkStatus == 2'b11) milkStatus = 2'b01;
                 else if(milkStatus == 2'b10) milkStatus = 2'b00;
