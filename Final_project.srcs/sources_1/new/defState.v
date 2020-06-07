@@ -431,8 +431,10 @@ module defState(
         endcase
         if(
             checkbullet == 3'b111 || 
-            //counter>2000 || 
-            VhpPlayer ==0) VChangeState = 1;
+            counter>2000  
+            //VhpPlayer ==0
+            ) 
+            VChangeState = 1;
         counter = (counter +1);
         end
         else

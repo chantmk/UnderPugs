@@ -161,6 +161,9 @@ module game_logic(
                       else if (meetMonster[1] == 1) begin state = 3; end
                       else if (meetMonster[0] == 1) begin state = 3; end
                    end
+            3'd5 : begin
+                    if (a_hpMonster <= 0 ) begin state = 4; end
+                   end
             3'd6 : begin
                     if (d_changeState) begin state=5; end
                    end
