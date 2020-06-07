@@ -37,13 +37,15 @@ module game_logic(
     reg [4:0] direction;
     wire [2:0] Vstate = state;
     reg [1:0] Vreset;
+    reg [3:0] meeted;
     reg an0,an1,an2,an3,an4,an5,an6;
 
     //assign state = Vstate;
     initial begin
         //Vstate <= 3;
-        state <= 5;
-        direction <= 5'b00000;
+        state <= 0;
+        direction <= 5'b00000; 
+        meeted <= 4'b0000;
     end
     
     //wire Ostate = Vstate;
@@ -148,10 +150,12 @@ module game_logic(
             3'd0 : if (key[7:0] == 8'h29) begin state = 4; end
             3'd3 : if (key[7:0] == 8'h5A) begin state = 5; end
             3'd4 : begin
-                   if (meetMonster[3] == 1) begin state = 3; end
-                      else if (meetMonster[2] == 1) begin state = 3; end
-                      else if (meetMonster[1] == 1) begin state = 3; end
-                      else if (meetMonster[0] == 1) begin state = 3; end
+                   if (found) begin
+                      if (pugType == 0 && meeted[0] == 0) begin state = 5; meeted[0]=1; end
+                      else if (pugType == 1 && meeted[1] == 0) begin state = 5; meeted[1]=1; end
+                      else if (pugType == 2 && meeted[2] == 0) begin state = 5; meeted[2]=1; end
+                      else if (pugType == 3 && meeted[3] == 0) begin state = 5; meeted[3]=1; end
+                   end
                    end
             3'd5 : begin
                     if (a_hpMonster <= 0 ) begin state = 4; end
