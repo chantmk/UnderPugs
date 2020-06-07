@@ -497,7 +497,62 @@ module defState(
             previousMonsType = monsterType;
         end
         end
-        else VChangeState = 0;
+        else 
+        begin
+        case(monsterType)
+            2'b00:
+            begin
+                abx = 222;
+                aby = 222;
+                bbx = 348;
+                bby = 333;
+                cbx = 278;
+                cby = 388;
+                left_right = 3'b101;
+            end
+            2'b01:
+            begin
+                abx = 300;
+                aby = 250;
+                bbx = 400;
+                bby = 380;
+                cbx = 278;
+                cby = 388;
+                up_down = 3'b001;
+            end
+            2'b10:
+            begin
+                abx = 193;
+                aby = 250;
+                bbx = 193;
+                bby = 380;
+                cbx = 263;
+                cby = 388;
+            end
+            2'b01:
+            begin
+                abx = 300;
+                aby = 250;
+                bbx = 400;
+                bby = 380;
+                cbx = 278;
+                cby = 388;
+            end
+            2'b01:
+            begin
+                abx = 300;
+                aby = 250;
+                bbx = 400;
+                bby = 380;
+                cbx = 278;
+                cby = 388;
+                left_right = 3'b110;
+            end
+            endcase
+        counter = 0;
+        VChangeState = 0;
+        
+        end
         end
     always @(posedge game_clk)
         begin
