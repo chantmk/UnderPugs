@@ -28,7 +28,8 @@ module test_defState();
     wire [9:0] xPlayer,yPlayer;
     wire [29:0] bulletX,bulletY;
     reg clk,game_clk;
-    reg [2:0] state,monsterType;
+    reg [2:0] state;
+    reg [1:0] monsterType;
     reg [4:0] direction;
     wire [9:0] abx = bulletX[29:20];
     wire [9:0] aby = bulletY[29:20];
@@ -36,7 +37,7 @@ module test_defState();
     wire [9:0] bby = bulletY[19:10];
     wire [9:0] cbx = bulletX[9:0];
     wire [9:0] cby = bulletY[9:0];
-    
+    wire [2:0] collision;
     defState ds(
         .clk(clk),
         .game_clk(game_clk),
@@ -48,7 +49,6 @@ module test_defState();
         .yPlayer(yPlayer),
         .hpPlayer(hpPlayer),
         .hpMonster(hpMonster),
-        .bulletType(bulletType),
         .bulletPosX(bulletX),
         .bulletPosY(bulletY)
     );
@@ -61,7 +61,7 @@ module test_defState();
         game_clk=0;
         
         #200
-        monsterType = 3'b011;
+        monsterType = 2'b00;
 //        direction = 5'b01000;
         #5000
         

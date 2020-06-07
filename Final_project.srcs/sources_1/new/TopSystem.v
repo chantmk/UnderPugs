@@ -24,8 +24,6 @@ module TopSystem(
     input clk
     ,input PS2Clk
     ,input PS2Data
-//    ,input RsRx
-//    ,output RsTx
     ,output Hsync
     ,output Vsync
     ,output [3:0] vgaRed
@@ -36,7 +34,7 @@ module TopSystem(
     ,output dp
     );
     
-    wire [31:0] key;
+    wire [15:0] key;
     /*--Keyboard--*/
     kb_top keyboard_handler(
         .clk(clk),
@@ -45,33 +43,37 @@ module TopSystem(
         .keycodev(key)
     );
     
-    /*-Seven segment display-*/
-    sevenSeg segDisp(
-        .clk(clk),
-        .num(key),
-        .seg(seg),
-        .an(an),
-        .dp(dp)
-    );
-    
     wire [2:0] state;
     wire reset;
     wire [6:0] hpMonster,hpPlayer;
     wire [9:0] xPlayer,yPlayer;
     wire [59:0] pos; //bullet pos
-    wire [5:0] bulletType;
+    wire [1:0] pugType;
+    wire [1:0] milkStatus;
+    wire endFlag;
+    
+        /*-Seven segment display-*/
+    sevenSeg segDisp(
+        .clk(clk),
+        .num({2'b00,pugType,key[11:0]}),
+        .seg(seg),
+        .an(an),
+        .dp(dp)
+    );
+    
         /*--logic--*/
     game_logic logic(
         .clk(clk),
         .key(key),
         .state(state),
+        .pugType(pugType),
         .reset(reset),
         .xPlayer(xPlayer),
         .yPlayer(yPlayer),
         .hpPlayer(hpPlayer),
         .hpMonster(hpMonster),
         .pos(pos),
-        .bulletType(bulletType)
+        .milkStatus(milkStatus)
     );
     /*--vga--*/
     vga image_handler(
@@ -83,7 +85,8 @@ module TopSystem(
 	    .hpPlayer(hpPlayer),
 	    .hpMonster(hpMonster),
 	    .pos(pos),
-	    .bulletType(bulletType),
+	    .pugType(pugType),
+	    .milkStatus(milkStatus),
         .Hsync(Hsync),
         .Vsync(Vsync),
         .vgaRed(vgaRed),

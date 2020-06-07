@@ -12,7 +12,7 @@
 // Description: 
 // 
 // Dependencies: 
-// 
+// https://embeddedthoughts.com/2016/12/09/yoshis-nightmare-fpga-based-video-game/
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
@@ -29,7 +29,8 @@ module vga(
 	,input [6:0] hpPlayer
 	,input [6:0] hpMonster //min 0 max 100
 	,input [59:0] pos
-	,input [5:0] bulletType
+	,input [1:0] pugType
+	,input [1:0] milkStatus
     ,output Hsync
     ,output Vsync
     ,output [3:0] vgaRed
@@ -63,8 +64,7 @@ module vga(
         .y(y),
         .data(data_start)
     );
-
-    wire [7:0] data_end;
+        
     wire [7:0] data_title;
     titleScreen ts(
         .clk(clk),
@@ -74,19 +74,34 @@ module vga(
         .data(data_title)
         );
         
-    wire [7:0] data_greet;
+        
     wire [7:0] data_map;
     mapScreen ms(
         .clk(clk),
         .p_tick(p_tick),
         .x(x),
         .y(y),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .milkStatus(milkStatus),
         .data(data_map)
         );
+    wire [7:0] data_play;
+    playScreen ps(
+        .clk(clk),
+        .p_tick(p_tick),
+        .screen_state(screen_state),
+        .x(x),
+        .y(y),
+        .xPlayer(xPlayer),
+        .yPlayer(yPlayer),
+        .pugType(pugType),
+        .hpPlayer(hpPlayer),
+        .hpMonster(hpMonster),
+        .pos(pos),
+        .data(data_play)
+        );
         
-    wire [7:0] data_atk;
-    wire [7:0] data_def;
-
     reg [7:0] data;
     wire [11:0] rgb;
     paletteROM #(
@@ -102,55 +117,16 @@ module vga(
     begin
         case(screen_state)
         3'b000: data <= data_start;
-        3'b001: data <= data_end;
+        3'b001: data <= 0;
         3'b010: data <= data_title;
-        3'b011: data <= data_greet;
+        3'b011: data <= data_play;
         3'b100: data <= data_map;
-        3'b101: data <= data_atk;
-        3'b110: data <= data_def;
+        3'b101: data <= data_play;
+        3'b110: data <= data_play;
         default: data <= 0;
         endcase
     end
     
-   
-//    wire [11:0] rgb_atk;
-//    atkScreen as(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .hpMonster(hpMonster),
-//        .rgb(rgb_atk)
-//    );
-
-//    wire [11:0] rgb_def;
-//    defScreen ds(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .pos(pos),
-//        .bulletType(bulletType),
-//        .hpPlayer(hpPlayer),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .hpMonster(hpMonster),
-//        .rgb(rgb_def)
-//    );
-
-//    // rgb buffer
-//    always @(posedge clk)
-//        begin
-//            case(screen_state)
-//            3'b000: rgb_reg <= BG_COLOR;
-//            3'b001: rgb_reg <= BG_COLOR;
-//            3'b010: rgb_reg <= BG_COLOR;
-//            3'b011: rgb_reg <= rgb_atk;
-//            3'b100: rgb_reg <= rgb_def;
-//            endcase
-//        end
     // output
     assign {vgaRed,vgaGreen,vgaBlue} = (video_on) ? rgb : BG_COLOR; //black
 endmodule

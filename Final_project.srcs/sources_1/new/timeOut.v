@@ -3,15 +3,15 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 05/27/2020 01:54:47 AM
+// Create Date: 06/06/2020 04:36:38 PM
 // Design Name: 
-// Module Name: clockDiv
+// Module Name: timeOut
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
 // Description: 
-// https://www.fpga4student.com/2017/08/verilog-code-for-clock-divider-on-fpga.html
-// Dependencies: s
+// 
+// Dependencies: 
 // 
 // Revision:
 // Revision 0.01 - File Created
@@ -20,22 +20,22 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module clockDiv(clock_in,clock_out
+module timeOut(
+    input clk_in
+    ,output clk_out
     );
-input clock_in; // input clock on FPGA
-output clock_out; // output clock after dividing the input clock by divisor
 reg[27:0] counter=28'd0;
-parameter DIVISOR = 28'd1666666;
+parameter DIVISOR = 28'd250000000;
 // The frequency of the output clk_out
 //  = The frequency of the input clk_in divided by DIVISOR
 // For example: Fclk_in = 50Mhz, if you want to get 1Hz signal to blink LEDs
 // You will modify the DIVISOR parameter value to 28'd50.000.000
 // Then the frequency of the output clk_out = 50Mhz/50.000.000 = 1Hz
-always @(posedge clock_in)
+always @(posedge clk_in)
 begin
  counter <= counter + 28'd1;
  if(counter>=(DIVISOR-1))
   counter <= 28'd0;
 end
-assign clock_out = (counter<DIVISOR/2)?1'b0:1'b1;
+assign clk_out = (counter<DIVISOR/2)?1'b0:1'b1;
 endmodule

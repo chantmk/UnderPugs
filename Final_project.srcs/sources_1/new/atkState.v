@@ -31,6 +31,7 @@ module atkState(
     ,output [9:0] yPlayer
     ,output [6:0] hpPlayer
 	,output [6:0] hpMonster
+	,output changeState
     );
     reg [9:0] xCurrent;
     reg [9:0] yCurrent;
@@ -40,13 +41,19 @@ module atkState(
     reg prevState;
     //reg state = 1;
     wire [6:0] damage; 
+    reg [7:0]counterHp;
+    reg [7:0]counterStop;
+    reg VChangeState;
     
+    assign changeState=VChangeState;
     initial begin 
         xCurrent = 320;
         yCurrent = 393;
         stop = 0;
         left_right = 1; //right
         VhpMonster = 100; //min 0 max 100
+        counterHp = 0;
+        counterStop = 0;
     end
     
     assign xPlayer = xCurrent;
@@ -60,7 +67,7 @@ module atkState(
                     .damage(damage)
                     );
 
-    always @(direction)
+    always @(posedge game_clk)
         begin
         if (state)begin
             case(direction)
@@ -74,7 +81,7 @@ module atkState(
 //                    prevState = 0;
 //                end
                 if ((VhpMonster <= damage) && (!stop)) begin 
-                    VhpMonster = 10; //win
+                    VhpMonster = 0; //win
                     // TODO: reset VhpMonster after 1 sec -> VhpMonster = 100;
                     // TODO: change state to map
                 end
@@ -86,6 +93,15 @@ module atkState(
                 stop = 1;
                 end   
             endcase
+            if (VhpMonster == 0 && counterHp <= 60) counterHp = (counterHp+1) % 62; //count 0-61
+                else if (VhpMonster == 0 && counterHp > 60) VhpMonster = 100;
+                    
+                    //change stop
+            if (stop == 1 && counterStop <= 90) counterStop = (counterStop+1) % 92; //count 0-91 
+                else if (stop == 1 && counterStop > 90) begin 
+                    stop = 0;
+                    counterStop = 0;
+                end
         end
     end
     
@@ -113,5 +129,5 @@ module atkState(
             end
         end
         end
-
+       
 endmodule

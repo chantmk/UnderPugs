@@ -24,16 +24,17 @@ module defState(
         input clk
         ,input game_clk
         ,input [4:0]direction
-        ,input [2:0]state
-        ,input [2:0]monsterType
+        ,input [1:0]monsterType
+        ,input state
         ,output reset
         ,output [9:0] xPlayer
         ,output [9:0] yPlayer
         ,output [6:0] hpPlayer
 	    ,output [6:0] hpMonster //min 0 max 100
-	    ,output [5:0] bulletType
 	    ,output [29:0] bulletPosX
 	    ,output [29:0] bulletPosY
+	    ,output [2:0] collision
+	    ,output changeState 
     );
     
     reg [9:0] xCurrent;
@@ -45,14 +46,19 @@ module defState(
     reg abr,bbr,cbr; // [a,b,c] bullet render or not , 0 no render, 1 render
     reg [3:0]left_right;
     reg [3:0]up_down;
-    
+    wire [2:0] isCollision;
+    reg [2:0] checkbullet;
+    reg VChangeState;
+    reg [15:0]counter;
+    reg [1:0]previousMonsType;
     assign bulletPosX = {abx,bbx,cbx};
     assign bulletPosY = {aby,bby,cby};
-    assign bulletType = {abt,bbt,cbt};
+    assign changeState = VChangeState;
+    assign collision = isCollision;
     
     initial begin 
-        xCurrent = 600;
-        yCurrent = 380;
+        xCurrent = 250;
+        yCurrent = 278;
         VhpPlayer = 60;
         left_right = 3'b000; //1right abc
         up_down = 3'b111; //1down abc
@@ -60,408 +66,130 @@ module defState(
         {aby,bby,cby} = {10'd0000000278,10'd0000000278,10'd0000000278};// [210,402]
         {abt,bbt,cbt} = {6{1'b0}};
         {abr,bbr,cbr} = {3{1'b0}};
+        checkbullet = 3'b000;
+        VChangeState = 0;
+        counter = 0;
+        previousMonsType = 3;
     end
     
     assign xPlayer = xCurrent;
     assign yPlayer = yCurrent;
     assign hpPlayer = VhpPlayer;
     
+    colission cc(
+                    .game_clk(game_clk),
+                    .monsterType(monsterType),
+                    .abx(abx),
+                    .aby(aby),
+                    .bbx(bbx),
+                    .bby(bby),
+                    .cbx(cbx),
+                    .cby(cby),
+                    .xCurrent(xCurrent),
+                    .yCurrent(yCurrent),
+                    .isCollision(isCollision)
+                    );
+    
     // MC 16x16 bullet 16x16 and 32x32 and 32x140 and dynamic
     always @(posedge game_clk)
         begin
-        case(monsterType)
-            3'b000:
+        if (state) begin
+        if(previousMonsType == monsterType)
+        begin
+        casez({isCollision,monsterType})// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
+            5'b001??:
                 begin
-                    //bullet a
-                    if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+16))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+16)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+16)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+16))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+16)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    //bullet b    
-                    if(((xCurrent>=bbx) && (xCurrent<=bbx+16))&& ((yCurrent>=bby) && (yCurrent<=bby+16))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+16))&& ((yCurrent>=bby) && (yCurrent<=bby+16)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent>=bbx) && (xCurrent<=bbx+16))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+16)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+16))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+16)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end 
-                    //bullet c    
-                    if(((xCurrent>=cbx) && (xCurrent<=cbx+16))&& ((yCurrent>=cby) && (yCurrent<=cby+16))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+16))&& ((yCurrent>=cby) && (yCurrent<=cby+16)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent>=cbx) && (xCurrent<=cbx+16))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+16)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+16))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+16)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end     
-                end
-            3'b001:
-                begin
-                    if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+32))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+32)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+32)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+32)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    //bullet b    
-                    if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+32))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+32)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+32)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+32)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end 
-                    //bullet c    
-                    if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+32))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+32)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+32)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+32)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end  
-                end
-            3'b010://32x140
-                begin
-                    if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+140))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent>=aby) && (yCurrent<=aby+140)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent>=abx) && (xCurrent<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+32))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    //bullet b    
-                    if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+140))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent>=bby) && (yCurrent<=bby+140)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent>=bbx) && (xCurrent<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+32))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end 
-                    //bullet c    
-                    if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+140))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent>=cby) && (yCurrent<=cby+140)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent>=cbx) && (xCurrent<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+32))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end  
-                end
-            3'b011: // 16x140
-                begin
+                    if(VhpPlayer<10)
                     begin
-                    if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+140))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+16))&& ((yCurrent>=aby) && (yCurrent<=aby+140)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent>=abx) && (xCurrent<=abx+16))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    else if(((xCurrent+16>=abx) && (xCurrent+16<=abx+16))&& ((yCurrent+16>=aby) && (yCurrent+16<=aby+140)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            abx = 0;
-                            aby = 0;
-                            abr = 0;
-                        end
-                    //bullet b    
-                    if(((xCurrent>=bbx) && (xCurrent<=bbx+16))&& ((yCurrent>=bby) && (yCurrent<=bby+140))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+16))&& ((yCurrent>=bby) && (yCurrent<=bby+140)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent>=bbx) && (xCurrent<=bbx+16))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end
-                    else if(((xCurrent+16>=bbx) && (xCurrent+16<=bbx+16))&& ((yCurrent+16>=bby) && (yCurrent+16<=bby+140)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            bbx = 0;
-                            bby = 0;
-                            bbr = 0;
-                        end 
-                    //bullet c    
-                    if(((xCurrent>=cbx) && (xCurrent<=cbx+16))&& ((yCurrent>=cby) && (yCurrent<=cby+140))) //top-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+16))&& ((yCurrent>=cby) && (yCurrent<=cby+140)))//top-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent>=cbx) && (xCurrent<=cbx+16))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-left
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end
-                    else if(((xCurrent+16>=cbx) && (xCurrent+16<=cbx+16))&& ((yCurrent+16>=cby) && (yCurrent+16<=cby+140)))//bottom-right
-                        begin
-                            VhpPlayer = VhpPlayer-10;
-                            cbx = 0;
-                            cby = 0;
-                            cbr = 0;
-                        end  
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-10;
+                    cbx = 640;
+                    cby = 480;
+                    checkbullet[0] = 1;
                 end
-                end
-        endcase
-        end
-    always @(posedge game_clk)
-        begin
-        case(direction)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
-            5'b00001: 
+            5'b010??:
                 begin
-                    if(xCurrent > 192)xCurrent <= xCurrent-1;//A
+                    if(VhpPlayer<10)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-10;
+                    bbx = 640;
+                    bby = 480;
+                    checkbullet[1] = 1;
                 end
-            5'b00010: 
+            5'b011??:
                 begin
-                    if(yCurrent > 210)yCurrent <= yCurrent-1;//W
+                    if(VhpPlayer<20)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-20;
+                    bbx = 640;
+                    cbx = 640;
+                    bby = 480;
+                    cby = 480;
+                    checkbullet[0] = 1;
+                    checkbullet[1] = 1;
                 end
-            5'b00100: 
+            5'b100??:
                 begin
-                    if(yCurrent < 402)yCurrent <= yCurrent+1;//D
+                    if(VhpPlayer<10)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-10;
+                    abx = 640;
+                    aby = 480;
+                    checkbullet[2] = 1;
                 end
-            5'b01000: 
+            5'b101??:
                 begin
-                    if(xCurrent < 432)xCurrent <= xCurrent+1;//D
+                    if(VhpPlayer<20)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-20;
+                    abx = 640;
+                    aby = 480;
+                    cbx = 640;
+                    cby = 480;
+                    checkbullet[2] = 1;
+                    checkbullet[0] = 1;
                 end
-//            5'b10000: 
-//                begin
-//                    xCurrent <= xCurrent;//Spacebar 
-//                end 
-        endcase
-    end
-     // todo bullet movement
-     
-    always@(posedge game_clk)
-        begin
-            case(monsterType)// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
-            3'b000://16x16 
+            5'b110??:
+                begin
+                    if(VhpPlayer<20)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-20;
+                    abx = 640;
+                    aby = 480;
+                    bbx = 640;
+                    bby = 480;
+                    checkbullet[2] = 1;
+                    checkbullet[1] = 1;
+                end
+            5'b111??:
+                begin
+                    if(VhpPlayer<30)
+                    begin
+                         VhpPlayer = 0;
+                    end
+                    else VhpPlayer = VhpPlayer-30;
+                    abx = 640;
+                    aby = 480;
+                    bbx = 640;
+                    bby = 480;
+                    cbx = 640;
+                    cby = 480;
+                    checkbullet[2] = 1;
+                    checkbullet[1] = 1;
+                    checkbullet[0] = 1;
+                end
+            5'b00000://16x16 
                 begin
                     case(left_right)
                         3'b000:
@@ -538,7 +266,7 @@ module defState(
                             end  
                     endcase
                 end
-            3'b001:// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
+            5'b00001:// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
                 begin//32x32
                     case(up_down)
                         3'b000:
@@ -546,85 +274,85 @@ module defState(
                                 aby = aby-1;
                                 bby = bby-1;
                                 cby = cby-1;
-                                if(aby==210)up_down[2]=1;
-                                if(bby==210)up_down[1]=1;
-                                if(cby==210)up_down[0]=1;
+                                if(aby==196)up_down[2]=1;
+                                if(bby==196)up_down[1]=1;
+                                if(cby==196)up_down[0]=1;
                             end
                         3'b001:
                             begin
                                 aby = aby-1;
                                 bby = bby-1;
                                 cby = cby+1;
-                                if(aby==210)up_down[2]=1;
-                                if(bby==210)up_down[1]=1;
-                                if(cby==386)up_down[0]=0;
+                                if(aby==196)up_down[2]=1;
+                                if(bby==196)up_down[1]=1;
+                                if(cby==371)up_down[0]=0;
                             end
                         3'b010:
                             begin
                                 aby = aby-1;
                                 bby = bby+1;
                                 cby = cby-1;
-                                if(aby==210)up_down[2]=1;
-                                if(bby==386)up_down[1]=0;
-                                if(cby==210)up_down[0]=1;
+                                if(aby==196)up_down[2]=1;
+                                if(bby==371)up_down[1]=0;
+                                if(cby==196)up_down[0]=1;
                             end
                         3'b011:
                             begin
                                 aby = aby-1;
                                 bby = bby+1;
                                 cby = cby+1;
-                                if(aby==210)up_down[2]=1;
-                                if(bby==386)up_down[1]=0;
-                                if(cby==386)up_down[0]=0;
+                                if(aby==196)up_down[2]=1;
+                                if(bby==371)up_down[1]=0;
+                                if(cby==371)up_down[0]=0;
                             end
                         3'b100:
                             begin
                                 aby = aby+1;
                                 bby = bby-1;
                                 cby = cby-1;
-                                if(aby==386)up_down[2]=0;
-                                if(bby==210)up_down[1]=1;
-                                if(cby==210)up_down[0]=1;
+                                if(aby==371)up_down[2]=0;
+                                if(bby==196)up_down[1]=1;
+                                if(cby==196)up_down[0]=1;
                             end
                         3'b101:
                             begin
                                 aby = aby+1;
                                 bby = bby-1;
                                 cby = cby+1;
-                                if(aby==386)up_down[2]=0;
-                                if(bby==210)up_down[1]=1;
-                                if(cby==386)up_down[0]=0;
+                                if(aby==371)up_down[2]=0;
+                                if(bby==196)up_down[1]=1;
+                                if(cby==371)up_down[0]=0;
                             end
                         3'b110:
                             begin
                                 aby = aby+1;
                                 bby = bby+1;
                                 cby = cby-1;
-                                if(aby==386)up_down[2]=0;
-                                if(bby==386)up_down[1]=0;
-                                if(cby==210)up_down[0]=1;
+                                if(aby==371)up_down[2]=0;
+                                if(bby==371)up_down[1]=0;
+                                if(cby==196)up_down[0]=1;
                             end
                         3'b111:
                             begin
                                 aby = aby+1;
                                 bby = bby+1;
                                 cby = cby+1;
-                                if(aby==386)up_down[2]=0;
-                                if(bby==386)up_down[1]=0;
-                                if(cby==386)up_down[0]=0;
+                                if(aby==371)up_down[2]=0;
+                                if(bby==371)up_down[1]=0;
+                                if(cby==371)up_down[0]=0;
                             end  
                     endcase
                 end
-            3'b010://32x140
+            5'b00010://32x140
                 begin
                     aby = aby-1;
                     bby = bby-1;
                     cby = cby-1;
-                    if(aby==210)aby= 278;
-                    if(bby==210)bby= 278;
-                    if(cby==210)cby= 278;
+                    if(aby==196)aby= 278;
+                    if(bby==196)bby= 278;
+                    if(cby==196)cby= 278;
                 end
-            3'b011://16x140
+            5'b00011:
                 begin
                     case(left_right)
                         3'b000:
@@ -702,15 +430,111 @@ module defState(
                     endcase
                 end
         endcase
-        end 
-        
-    always@(posedge game_clk)
+        if(
+            //checkbullet == 3'b111 || 
+            counter>5000 
+            //VhpPlayer ==0
+            ) begin
+            VChangeState = 1;
+            counter = 0;
+            end
+            counter = (counter +1);
+        end
+        else
         begin
-            if(monsterType == 3'b011)
+            case(monsterType)
+            2'b00:
+            begin
+                abx = 222;
+                aby = 222;
+                bbx = 348;
+                bby = 333;
+                cbx = 278;
+                cby = 388;
+                left_right = 3'b101;
+            end
+            2'b01:
+            begin
+                abx = 300;
+                aby = 250;
+                bbx = 400;
+                bby = 380;
+                cbx = 278;
+                cby = 388;
+                up_down = 3'b001;
+            end
+            2'b10:
+            begin
+                abx = 193;
+                aby = 250;
+                bbx = 193;
+                bby = 380;
+                cbx = 263;
+                cby = 388;
+            end
+            2'b01:
+            begin
+                abx = 300;
+                aby = 250;
+                bbx = 400;
+                bby = 380;
+                cbx = 278;
+                cby = 388;
+            end
+            2'b01:
+            begin
+                abx = 300;
+                aby = 250;
+                bbx = 400;
+                bby = 380;
+                cbx = 278;
+                cby = 388;
+                left_right = 3'b110;
+            end
+            endcase
+            counter = 0;
+            VChangeState = 0;
+            previousMonsType = monsterType;
+        end
+        end
+        end
+    always @(posedge game_clk)
+        begin
+        case(direction)// assume play area 256x208 from (192,196)to(448,403) and MC 16x16
+            5'b00001: 
                 begin
-                    if(yCurrent<=401)yCurrent =yCurrent+1;
+                    if(xCurrent > 192)xCurrent <= xCurrent-1;//A
+                    if(monsterType == 2'b11)
+                        begin
+                            if(yCurrent<=387)yCurrent =yCurrent+1;
+                        end
                 end
-        end    
-     
-     // check collision
+            5'b00010: 
+                begin
+                    if(yCurrent > 196)yCurrent <= yCurrent-1;//W
+                end
+            5'b00100: 
+                begin
+                    if(monsterType == 2'b11)
+                        begin
+                            if(yCurrent<=386)yCurrent =yCurrent+2;
+                        end
+                    else if(yCurrent < 387)yCurrent <= yCurrent+1;//D
+                end
+            5'b01000: 
+                begin
+                    if(xCurrent < 432)xCurrent <= xCurrent+1;//D
+                    if(monsterType == 2'b11)
+                        begin
+                            if(yCurrent<=386)yCurrent =yCurrent+1;
+                        end
+                end
+//            5'b10000: 
+//                begin
+//                    xCurrent <= xCurrent;//Spacebar 
+//                end
+        endcase
+            
+    end
+    
 endmodule
