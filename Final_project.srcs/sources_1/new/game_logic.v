@@ -42,7 +42,7 @@ module game_logic(
     //assign state = Vstate;
     initial begin
         //Vstate <= 3;
-        state <= 0;
+        state <= 5;
         direction <= 5'b00000;
     end
     
@@ -54,24 +54,16 @@ module game_logic(
     );
     always @(key) begin
         case(key[7:0])
-            8'h1C: direction = 5'b00001;//left A
-            8'h1D: direction = 5'b00010;//up W
-            8'h1B: direction = 5'b00100;//down S
-            8'h23: direction = 5'b01000;//right D
+//            8'h1C: direction = 5'b00001;//left A
+//            8'h1D: direction = 5'b00010;//up W
+//            8'h1B: direction = 5'b00100;//down S
+//            8'h23: direction = 5'b01000;//right D
+//            8'h29: direction = 5'b10000;//spacebar 
+            8'h33: direction = 5'b00001;//left A
+            8'h3C: direction = 5'b00010;//up W
+            8'h3B: direction = 5'b00100;//down S
+            8'h42: direction = 5'b01000;//right D
             8'h29: direction = 5'b10000;//spacebar  
-//            8'h45: state = 0; //start 0
-//            8'h16: state = 1; //end 1
-//            8'h1E: state = 2; //title 2
-//            8'h26: state = 3; //map 3
-//            8'h25: state = 4; //hi 4
-//            8'h2E: state = 5; //atk 5
-//            8'h36: state = 6; //def 6
-//            8'h2C: pugType = 0; //burger t
-//            8'h35: pugType = 1; //pizza y
-//            8'h3C: pugType = 2; //kebab u
-//            8'h43: pugType = 3; //lollipop i
-//            8'h31: endFlag = 0; //lose n
-//            8'h3A: endFlag = 1; //win m
         endcase
         case(key[15:8])
            8'hF0 : direction = 5'b00000;
