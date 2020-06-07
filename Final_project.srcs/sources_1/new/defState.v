@@ -49,7 +49,7 @@ module defState(
     wire [2:0] isCollision;
     reg [2:0] checkbullet;
     reg VChangeState;
-    reg [11:0]counter;
+    reg [15:0]counter;
     reg [1:0]previousMonsType;
     assign bulletPosX = {abx,bbx,cbx};
     assign bulletPosY = {aby,bby,cby};
@@ -93,6 +93,7 @@ module defState(
     // MC 16x16 bullet 16x16 and 32x32 and 32x140 and dynamic
     always @(posedge game_clk)
         begin
+        if (state) begin
         if(previousMonsType == monsterType)
         begin
         casez({isCollision,monsterType})// assume play area 256x208 from (192,210)to(448,418) and MC 16x16
@@ -430,12 +431,14 @@ module defState(
                 end
         endcase
         if(
-            checkbullet == 3'b111 || 
-            counter>2000  
+            //checkbullet == 3'b111 || 
+            counter>5000 
             //VhpPlayer ==0
-            ) 
+            ) begin
             VChangeState = 1;
-        counter = (counter +1);
+            counter = 0;
+            end
+            counter = (counter +1);
         end
         else
         begin
@@ -492,8 +495,7 @@ module defState(
             counter = 0;
             VChangeState = 0;
             previousMonsType = monsterType;
-
-            
+        end
         end
         end
     always @(posedge game_clk)

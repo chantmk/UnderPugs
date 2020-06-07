@@ -119,7 +119,7 @@ module game_logic(
     wire m_reset;
      mapState supermap(
         .clk(clk),
-        .game_clk(clk),
+        .game_clk(game_clk),
         .direction(direction),
         .hpPlayer(hpPlayer),
         .xPlayer(m_xPlayer),
@@ -163,9 +163,14 @@ module game_logic(
                    end
             3'd5 : begin
                     if (a_hpMonster <= 0 ) begin state = 4; end
+                    else if (key[7:0] == 8'h29) begin state = 6; end
                    end
             3'd6 : begin
-                    if (d_changeState) begin state=5; end
+                    if (d_hpPlayer <= 0 ) begin state = 4; end
+                    else if (d_changeState) begin 
+                        if (d_hpPlayer > 0) begin state = 5; end
+                    end
+                    
                    end
         endcase
     end
