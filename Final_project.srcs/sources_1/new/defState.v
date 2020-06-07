@@ -497,6 +497,7 @@ module defState(
             previousMonsType = monsterType;
         end
         end
+        else VChangeState = 0;
         end
     always @(posedge game_clk)
         begin
