@@ -154,45 +154,6 @@ module vga(
         endcase
     end
     
-   
-//    wire [11:0] rgb_atk;
-//    atkScreen as(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .hpMonster(hpMonster),
-//        .rgb(rgb_atk)
-//    );
-
-//    wire [11:0] rgb_def;
-//    defScreen ds(
-//        .clk(clk),
-//        .p_tick(p_tick),
-//        .x(x),
-//        .y(y),
-//        .pos(pos),
-//        .bulletType(bulletType),
-//        .hpPlayer(hpPlayer),
-//        .xPlayer(xPlayer),
-//        .yPlayer(yPlayer),
-//        .hpMonster(hpMonster),
-//        .rgb(rgb_def)
-//    );
-
-//    // rgb buffer
-//    always @(posedge clk)
-//        begin
-//            case(screen_state)
-//            3'b000: rgb_reg <= BG_COLOR;
-//            3'b001: rgb_reg <= BG_COLOR;
-//            3'b010: rgb_reg <= BG_COLOR;
-//            3'b011: rgb_reg <= rgb_atk;
-//            3'b100: rgb_reg <= rgb_def;
-//            endcase
-//        end
     // output
     assign {vgaRed,vgaGreen,vgaBlue} = (video_on) ? rgb : BG_COLOR; //black
 endmodule

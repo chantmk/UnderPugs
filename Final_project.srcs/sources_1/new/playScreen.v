@@ -451,11 +451,6 @@ module playScreen(
             addr_milk = 16*(y-DEF_MilkL) + (x-DEF_MilkT);
             data = data_milk;
         end
-        else if (x>=xPlayer && x<=(xPlayer+16) && y>=yPlayer && y<=(yPlayer+16))
-        begin
-            addr_bone = 16*(y-yPlayer) + (x-xPlayer);
-            data = data_bone;
-        end
         //border defBox  x_area = [192,432] ,y_area = [210,402] in decimal
         else if( (x==192 | x== 447) && (y>=196 && y<=403)) begin data <= 8'h3F; end //white
         else if( (x>=192 && x<=447) && (y==196 | y==403)) begin data <= 8'h3F; end //white
@@ -470,6 +465,11 @@ module playScreen(
             begin
                 addr_burgerP = 89*(y-DEF_BurgerPugL) + (x-DEF_BurgerPugT);
                 data = data_burgerP;
+            end
+            else if (x>=xPlayer && x<=(xPlayer+16) && y>=yPlayer && y<=(yPlayer+16))
+            begin
+                addr_bone = 16*(y-yPlayer) + (x-xPlayer);
+                data = data_bone;
             end
             else if (x>=abx && x<=(abx+16) && y>=aby && y<=(aby+16))
             begin
@@ -495,6 +495,11 @@ module playScreen(
                 addr_pizzaP = 128*(y-DEF_PizzaPugL) + (x-DEF_PizzaPugT);
                 data = data_pizzaP;
             end
+           else if (x>=xPlayer && x<=(xPlayer+16) && y>=yPlayer && y<=(yPlayer+16))
+            begin
+                addr_bone = 16*(y-yPlayer) + (x-xPlayer);
+                data = data_bone;
+            end
             else if (x>=abx && x<=(abx+32) && y>=aby && y<=(aby+32))
             begin
                 addr_pizza = 32*(y-aby) + (x-abx);
@@ -519,6 +524,11 @@ module playScreen(
                 addr_kebabP = 107*(y-DEF_KebabPugL) + (x-DEF_KebabPugT);
                 data = data_kebabP;
             end
+            else if (x>=xPlayer && x<=(xPlayer+16) && y>=yPlayer && y<=(yPlayer+16))
+            begin
+                addr_bone = 16*(y-yPlayer) + (x-xPlayer);
+                data = data_bone;
+            end
             else if (x>=abx && x<=(abx+140) && y>=aby && y<=(aby+32))
             begin
                 addr_kebab = 140*(y-aby) + (x-abx);
@@ -542,6 +552,11 @@ module playScreen(
             begin
                 addr_lolipopP = 111*(y-DEF_LolipopPugL) + (x-DEF_LolipopPugT);
                 data = data_lolipopP;
+            end
+            else if (x>=xPlayer && x<=(xPlayer+16) && y>=yPlayer && y<=(yPlayer+16))
+            begin
+                addr_bone = 16*(y-yPlayer) + (x-xPlayer);
+                data = data_bone-32;
             end
             else if (x>=abx && x<=(abx+16) && y>=aby && y<=(aby+140))
             begin
