@@ -25,6 +25,7 @@ module defState(
         ,input game_clk
         ,input [4:0]direction
         ,input [1:0]monsterType
+        ,input state
         ,output reset
         ,output [9:0] xPlayer
         ,output [9:0] yPlayer
@@ -48,7 +49,7 @@ module defState(
     wire [2:0] isCollision;
     reg [2:0] checkbullet;
     reg VChangeState;
-    reg [7:0]counter;
+    reg [11:0]counter;
     reg [1:0]previousMonsType;
     assign bulletPosX = {abx,bbx,cbx};
     assign bulletPosY = {aby,bby,cby};
@@ -428,7 +429,10 @@ module defState(
                     endcase
                 end
         endcase
-        if(checkbullet == 3'b111 || counter>2000 || VhpPlayer ==0)VChangeState = 1;
+        if(
+            checkbullet == 3'b111 || 
+            //counter>2000 || 
+            VhpPlayer ==0) VChangeState = 1;
         counter = (counter +1);
         end
         else

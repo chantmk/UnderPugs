@@ -100,6 +100,7 @@ module game_logic(
      defState superdef( .clk(clk),
                     .game_clk(game_clk),
                     .direction(direction),
+                    .state(an6),
                     .reset(d_reset),
                     .xPlayer(d_xPlayer),
                     .yPlayer(d_yPlayer),

@@ -90,15 +90,18 @@ module atkState(
                     
                     // TODO: change state to defState
                     end
-                 if (VhpMonster == 0 && counterHp <= 60) counterHp = (counterHp+1) % 62; //count 0-61
-                    else if (VhpMonster == 0 && counterHp > 60) VhpMonster = 100;
-                    
-                    //change stop
-                 if (stop == 1 && counterStop <= 90) counterStop = (counterStop+1) % 92; //count 0-91 
-                    else if (stop == 1 && counterStop > 90) stop = 0;
                 stop = 1;
                 end   
             endcase
+            if (VhpMonster == 0 && counterHp <= 60) counterHp = (counterHp+1) % 62; //count 0-61
+                else if (VhpMonster == 0 && counterHp > 60) VhpMonster = 100;
+                    
+                    //change stop
+            if (stop == 1 && counterStop <= 90) counterStop = (counterStop+1) % 92; //count 0-91 
+                else if (stop == 1 && counterStop > 90) begin 
+                    stop = 0;
+                    counterStop = 0;
+                end
         end
     end
     
