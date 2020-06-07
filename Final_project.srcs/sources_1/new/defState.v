@@ -432,7 +432,7 @@ module defState(
         endcase
         if(
             //checkbullet == 3'b111 || 
-            counter>5000 
+            counter>2000 
             //VhpPlayer ==0
             ) begin
             VChangeState = 1;

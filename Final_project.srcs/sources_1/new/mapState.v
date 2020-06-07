@@ -81,41 +81,41 @@ module mapState(
                 checky = yPlayer;
                 if(isWall)xPlayer = xPlayer+1;
             end
-            else if(xPlayer >= 104 && xPlayer <= 120 && yPlayer >= 389 && yPlayer <= 405)
+            if(xPlayer >= 104 && xPlayer <= 120 && yPlayer >= 389 && yPlayer <= 405)
             begin
             found = 1;
             pugType = 0;
             end
-            else if(yPlayer <= 345 && yPlayer >= 325 && xPlayer >= 584 && xPlayer <= 600)
+            if(yPlayer <= 345 && yPlayer >= 325 && xPlayer >= 584 && xPlayer <= 600)
             begin
             found = 1;
             pugType = 1;
             end
-            else if(xPlayer >= 396 && xPlayer <= 408 && yPlayer >= 185 && yPlayer <= 201)
+            if(xPlayer >= 396 && xPlayer <= 408 && yPlayer >= 185 && yPlayer <= 201)
             begin
             found = 1;
             pugType = 2;
             end
-            else if(xPlayer >= 280 && xPlayer <= 296 && yPlayer >= 37 && yPlayer <= 43)
+            if(xPlayer >= 280 && xPlayer <= 296 && yPlayer >= 37 && yPlayer <= 43)
             begin
             found = 1;
             pugType = 3;
             end
-            else if(xPlayer >= 422 && xPlayer <= 438 && yPlayer >= 534 && yPlayer <= 550 && (milkStatus==2'b11 || milkStatus==2'b01))
+            if(xPlayer >= 422 && xPlayer <= 438 && yPlayer >= 534 && yPlayer <= 550 && (milkStatus==2'b11 || milkStatus==2'b01))
             begin
                 if(milkStatus == 2'b11) milkStatus = 2'b10;
                 else if(milkStatus == 2'b01) milkStatus = 2'b00; 
                 newHpPlayer = hpPlayer + 20;
                 if(newHpPlayer > 100) newHpPlayer = 100;
             end
-            else if(xPlayer >= 38 && xPlayer <= 54 && yPlayer >= 166 && yPlayer <= 182 && (milkStatus==2'b11 || milkStatus==2'b10))
+            if(xPlayer >= 38 && xPlayer <= 54 && yPlayer >= 166 && yPlayer <= 182 && (milkStatus==2'b11 || milkStatus==2'b10))
             begin
                 if(milkStatus == 2'b11) milkStatus = 2'b01;
                 else if(milkStatus == 2'b10) milkStatus = 2'b00;
                 newHpPlayer = hpPlayer + 20; 
                 if(newHpPlayer > 100) newHpPlayer = 100;
             end
-            else if(xPlayer >= 328 && xPlayer <= 344 && yPlayer >= 8 && yPlayer <= 24) endFlag = 1;
+            if(xPlayer >= 328 && xPlayer <= 344 && yPlayer >= 8 && yPlayer <= 24) endFlag = 1;
         end
     end
 endmodule

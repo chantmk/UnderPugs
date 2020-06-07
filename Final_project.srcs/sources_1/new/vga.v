@@ -57,22 +57,22 @@ module vga(
     );
 
     wire [7:0] data_start;
-    startScreen ss(
-        .clk(clk),
-        .p_tick(p_tick),
-        .x(x),
-        .y(y),
-        .data(data_start)
-    );
+//    startScreen ss(
+//        .clk(clk),
+//        .p_tick(p_tick),
+//        .x(x),
+//        .y(y),
+//        .data(data_start)
+//    );
         
     wire [7:0] data_title;
-    titleScreen ts(
-        .clk(clk),
-        .p_tick(p_tick),
-        .x(x),
-        .y(y),
-        .data(data_title)
-        );
+//    titleScreen ts(
+//        .clk(clk),
+//        .p_tick(p_tick),
+//        .x(x),
+//        .y(y),
+//        .data(data_title)
+//        );
         
         
     wire [7:0] data_map;
