@@ -86,12 +86,17 @@ module mapState(
             if(xPlayer >= 104 && xPlayer <= 120 && yPlayer >= 389 && yPlayer <= 405)
             begin
             found = 1;
-            pugType = 0;
+            pugType = 2'b00;
             end
             if(yPlayer <= 345 && yPlayer >= 325 && xPlayer >= 584 && xPlayer <= 600)
             begin
             found = 1;
-            pugType = 3;
+            pugType = 2'b01;
+            end
+            if(xPlayer >= 396 && xPlayer <= 408 && yPlayer >= 185 && yPlayer <= 201)
+            begin
+            found = 1;
+            pugType = 2'b10;
             end
 //            if(xPlayer >= 380 && xPlayer <= 420 && yPlayer >= 150 && yPlayer <= 220)
 //            begin
@@ -101,7 +106,7 @@ module mapState(
             if(xPlayer >= 280 && xPlayer <= 320 && yPlayer >= 10 && yPlayer <= 60)
             begin
             found = 1;
-            pugType = 1;
+            pugType = 2'b11;
             end
             if(xPlayer >= 422 && xPlayer <= 438 && yPlayer >= 534 && yPlayer <= 550 && (milkStatus==2'b11 || milkStatus==2'b01))
             begin
