@@ -25,6 +25,7 @@ module mapState(
     ,input game_clk
     ,input [4:0] direction
     ,input [6:0] hpPlayer
+    ,input state
     ,output reg [9:0] xPlayer
     ,output reg [9:0] yPlayer
     ,output reg [1:0] milkStatus
@@ -56,6 +57,7 @@ module mapState(
     always @(posedge game_clk)
     begin
         found = 0 ;
+        if(state)
         begin
             if(direction == 5'b00001) 
             begin
