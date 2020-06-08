@@ -556,7 +556,7 @@ module defState(
         end
     always @(posedge game_clk)
         begin
-        case(direction)// assume play area 256x208 from (192,196)to(448,403) and MC 16x16
+        casez(direction)// assume play area 256x208 from (192,196)to(448,403) and MC 16x16
             5'b00001: 
                 begin
                     if(xCurrent > 192)xCurrent <= xCurrent-1;//A
@@ -584,6 +584,13 @@ module defState(
                         begin
                             if(yCurrent<=386)yCurrent =yCurrent+1;
                         end
+                end
+            5'b?????:
+                begin
+                    if(monsterType == 2'b11)
+                        begin
+                            if(yCurrent<=386)yCurrent =yCurrent+1;
+                        end                    
                 end
 //            5'b10000: 
 //                begin
