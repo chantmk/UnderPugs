@@ -93,11 +93,11 @@ module mapState(
             found = 1;
             pugType = 3;
             end
-            if(xPlayer >= 380 && xPlayer <= 420 && yPlayer >= 150 && yPlayer <= 220)
-            begin
-            found = 1;
-            pugType = 2;
-            end
+//            if(xPlayer >= 380 && xPlayer <= 420 && yPlayer >= 150 && yPlayer <= 220)
+//            begin
+//            found = 1;
+//            pugType = 2;
+//            end
             if(xPlayer >= 280 && xPlayer <= 320 && yPlayer >= 10 && yPlayer <= 60)
             begin
             found = 1;

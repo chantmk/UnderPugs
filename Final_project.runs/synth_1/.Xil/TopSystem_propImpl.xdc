@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/HW_lab/underTale/LAST_COMMIT/HWProject/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc rfile:../../../Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{D:/HW_lab/underTale/LAST_COMMIT/HWProject - Copy/Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc} rfile:../../../Final_project.srcs/constrs_1/imports/HW_Lab/constraint.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W5 [get_ports clk]
 set_property src_info {type:XDC file:1 line:82 export:INPUT save:INPUT read:READ} [current_design]
