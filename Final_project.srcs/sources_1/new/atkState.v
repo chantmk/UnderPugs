@@ -82,6 +82,7 @@ module atkState(
                 stop = 1;
                 end   
             endcase
+        end
                     //reset hpMonster
             if (VhpMonster == 0 && counterHp <= 200) counterHp = (counterHp+1); //count 0-61
                 else if (VhpMonster == 0 && counterHp > 200) begin VhpMonster = 100;counterHp=0; end
@@ -92,7 +93,7 @@ module atkState(
                     stop = 0;
                     counterStop = 0;
                 end
-            if (!stop)
+            if (!stop && state)
             begin
                 if (left_right == 1)//right
                     begin 
@@ -111,7 +112,7 @@ module atkState(
                             end
                     end
             end
-        end
+        
     end
     
 //    always @(posedge game_clk)
