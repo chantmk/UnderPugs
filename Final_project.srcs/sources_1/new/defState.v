@@ -432,7 +432,7 @@ module defState(
         endcase
         if(
             //checkbullet == 3'b111 || 
-            counter>5000 
+            counter>2000 
             //VhpPlayer ==0
             ) begin
             VChangeState = 1;
@@ -497,10 +497,66 @@ module defState(
             previousMonsType = monsterType;
         end
         end
+        else 
+        begin
+        case(monsterType)
+            2'b00:
+            begin
+                abx = 222;
+                aby = 222;
+                bbx = 348;
+                bby = 333;
+                cbx = 278;
+                cby = 388;
+                left_right = 3'b101;
+            end
+            2'b01:
+            begin
+                abx = 300;
+                aby = 250;
+                bbx = 400;
+                bby = 380;
+                cbx = 278;
+                cby = 388;
+                up_down = 3'b001;
+            end
+            2'b10:
+            begin
+                abx = 193;
+                aby = 250;
+                bbx = 193;
+                bby = 380;
+                cbx = 263;
+                cby = 388;
+            end
+            2'b01:
+            begin
+                abx = 300;
+                aby = 250;
+                bbx = 400;
+                bby = 380;
+                cbx = 278;
+                cby = 388;
+            end
+            2'b01:
+            begin
+                abx = 300;
+                aby = 250;
+                bbx = 400;
+                bby = 380;
+                cbx = 278;
+                cby = 388;
+                left_right = 3'b110;
+            end
+            endcase
+        counter = 0;
+        VChangeState = 0;
+        
+        end
         end
     always @(posedge game_clk)
         begin
-        case(direction)// assume play area 256x208 from (192,196)to(448,403) and MC 16x16
+        casez(direction)// assume play area 256x208 from (192,196)to(448,403) and MC 16x16
             5'b00001: 
                 begin
                     if(xCurrent > 192)xCurrent <= xCurrent-1;//A
@@ -528,6 +584,13 @@ module defState(
                         begin
                             if(yCurrent<=386)yCurrent =yCurrent+1;
                         end
+                end
+            5'b00000:
+                begin
+                    if(monsterType == 2'b11)
+                        begin
+                            if(yCurrent<=386)yCurrent =yCurrent+1;
+                        end                    
                 end
 //            5'b10000: 
 //                begin

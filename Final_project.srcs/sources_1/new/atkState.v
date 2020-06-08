@@ -41,8 +41,8 @@ module atkState(
     reg prevState;
     //reg state = 1;
     wire [6:0] damage; 
-    reg [7:0]counterHp;
-    reg [7:0]counterStop;
+    reg [9:0]counterHp;
+    reg [9:0]counterStop;
     reg VChangeState;
     
     assign changeState=VChangeState;
@@ -69,46 +69,31 @@ module atkState(
 
     always @(posedge game_clk)
         begin
-        if (state)begin
+        if(state)begin
             case(direction)
             5'b10000: begin
                 xCurrent = xCurrent;//Spacebar  , attack
-//                if (state && (prevState ==0) && stop) begin
-//                    stop = 0;
-//                    prevState = 1;
-//                end
-//                if (!state) begin
-//                    prevState = 0;
-//                end
                 if ((VhpMonster <= damage) && (!stop)) begin 
                     VhpMonster = 0; //win
-                    // TODO: reset VhpMonster after 1 sec -> VhpMonster = 100;
-                    // TODO: change state to map
                 end
                 else if ((VhpMonster > damage) && (!stop))begin 
                     VhpMonster = VhpMonster - damage;
-                    
-                    // TODO: change state to defState
                     end
                 stop = 1;
                 end   
             endcase
-            if (VhpMonster == 0 && counterHp <= 60) counterHp = (counterHp+1) % 62; //count 0-61
-                else if (VhpMonster == 0 && counterHp > 60) VhpMonster = 100;
+        end
+                    //reset hpMonster
+            if (VhpMonster == 0 && counterHp <= 200) counterHp = (counterHp+1); //count 0-61
+                else if (VhpMonster == 0 && counterHp > 200) begin VhpMonster = 100;counterHp=0; end
                     
                     //change stop
-            if (stop == 1 && counterStop <= 90) counterStop = (counterStop+1) % 92; //count 0-91 
-                else if (stop == 1 && counterStop > 90) begin 
+            if (stop == 1 && counterStop <= 200) counterStop = (counterStop+1) ; //count 0-91 
+                else if (stop == 1 && counterStop > 200) begin 
                     stop = 0;
                     counterStop = 0;
                 end
-        end
-    end
-    
-    always @(posedge game_clk)
-        begin
-        if (state) begin
-        if (!stop)
+            if (!stop && state)
             begin
                 if (left_right == 1)//right
                     begin 
@@ -127,7 +112,32 @@ module atkState(
                             end
                     end
             end
-        end
-        end
+        
+    end
+    
+//    always @(posedge game_clk)
+//        begin
+//        if (state) begin
+//        if (!stop)
+//            begin
+//                if (left_right == 1)//right
+//                    begin 
+//                        xCurrent <= xCurrent+1;
+//                        if (xCurrent >= 544)
+//                            begin
+//                                left_right = 0; //left
+//                            end
+//                    end
+//                else if (left_right == 0) //left
+//                    begin
+//                        xCurrent <= xCurrent-1;
+//                        if (xCurrent <= 96)
+//                            begin
+//                                left_right = 1; //right
+//                            end
+//                    end
+//            end
+//        end
+//        end
        
 endmodule

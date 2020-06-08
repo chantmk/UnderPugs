@@ -53,15 +53,15 @@ module titleScreen(
     
     reg [15:0] addr_name;
     wire [7:0] data_name;
-//    spriteROM #(
-//        .DEPTH(42680),
-//        .DEPTH_BIT(16),
-//        .MEMFILE("name.mem")
-//        ) name (
-//        .clk(clk),
-//        .addr(addr_name),
-//        .data(data_name)
-//        );
+    spriteROM #(
+        .DEPTH(42680),
+        .DEPTH_BIT(16),
+        .MEMFILE("name.mem")
+        ) name (
+        .clk(clk),
+        .addr(addr_name),
+        .data(data_name)
+        );
         
     always @(p_tick)
     begin

@@ -37,13 +37,15 @@ module game_logic(
     reg [4:0] direction;
     wire [2:0] Vstate = state;
     reg [1:0] Vreset;
+    reg [3:0] meeted;
     reg an0,an1,an2,an3,an4,an5,an6;
 
     //assign state = Vstate;
     initial begin
         //Vstate <= 3;
-        state <= 5;
-        direction <= 5'b00000;
+        state <= 0;
+        direction <= 5'b00000; 
+        meeted <= 4'b0000;
     end
     
     //wire Ostate = Vstate;
@@ -58,20 +60,12 @@ module game_logic(
             8'h1D: direction = 5'b00010;//up W
             8'h1B: direction = 5'b00100;//down S
             8'h23: direction = 5'b01000;//right D
-            8'h29: direction = 5'b10000;//spacebar  
-//            8'h45: state = 0; //start 0
-//            8'h16: state = 1; //end 1
-//            8'h1E: state = 2; //title 2
-//            8'h26: state = 3; //map 3
-//            8'h25: state = 4; //hi 4
-//            8'h2E: state = 5; //atk 5
-//            8'h36: state = 6; //def 6
-//            8'h2C: pugType = 0; //burger t
-//            8'h35: pugType = 1; //pizza y
-//            8'h3C: pugType = 2; //kebab u
-//            8'h43: pugType = 3; //lollipop i
-//            8'h31: endFlag = 0; //lose n
-//            8'h3A: endFlag = 1; //win m
+            8'h29: direction = 5'b10000;//spacebar 
+//            8'h33: direction = 5'b00001;//left A
+//            8'h3C: direction = 5'b00010;//up W
+//            8'h3B: direction = 5'b00100;//down S
+//            8'h42: direction = 5'b01000;//right D
+//            8'h29: direction = 5'b10000;//spacebar  
         endcase
         case(key[15:8])
            8'hF0 : direction = 5'b00000;
@@ -120,6 +114,7 @@ module game_logic(
      mapState supermap(
         .clk(clk),
         .game_clk(game_clk),
+        .state(an4),
         .direction(direction),
         .hpPlayer(hpPlayer),
         .xPlayer(m_xPlayer),
@@ -133,9 +128,10 @@ module game_logic(
      always @ (state)
         begin
             case(state)
-                0: ;
-                1: ;
-                2: ;
+                0: begin {an0,an1,an2,an3,an4,an5,an6} = 7'b1000000; end
+                1: begin {an0,an1,an2,an3,an4,an5,an6} = 7'b0100000; end
+                2: begin {an0,an1,an2,an3,an4,an5,an6} = 7'b0010000; end
+                3: begin {an0,an1,an2,an3,an4,an5,an6} = 7'b0001000; end
                 4: begin
                     {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {m_reset,m_xPlayer,m_yPlayer,m_hpPlayer,7'd0};
                     {an0,an1,an2,an3,an4,an5,an6} = 7'b0000100;
@@ -156,17 +152,21 @@ module game_logic(
             3'd0 : if (key[7:0] == 8'h29) begin state = 4; end
             3'd3 : if (key[7:0] == 8'h5A) begin state = 5; end
             3'd4 : begin
-                   if (meetMonster[3] == 1) begin state = 3; end
-                      else if (meetMonster[2] == 1) begin state = 3; end
-                      else if (meetMonster[1] == 1) begin state = 3; end
-                      else if (meetMonster[0] == 1) begin state = 3; end
+                   if (endFlag) begin state=2; end
+                   if (found) begin
+                      if (pugType == 0 && meeted[0] == 0) begin state = 3; meeted[0]=1; end
+                      else if (pugType == 1 && meeted[1] == 0) begin state = 3; meeted[1]=1; end
+                      else if (pugType == 2 && meeted[2] == 0) begin state = 3; meeted[2]=1; end
+                      else if (pugType == 3 && meeted[3] == 0) begin state = 3; meeted[3]=1; end
+                   end
                    end
             3'd5 : begin
-                    if (a_hpMonster <= 0 ) begin state = 4; end
-                    else if (key[7:0] == 8'h29) begin state = 6; end
+                    if (key[7:0] == 8'h29) begin state = 6; end
+                    //if (a_hpMonster <= 0 ) begin state = 4; end
                    end
             3'd6 : begin
-                    if (d_hpPlayer <= 0 ) begin state = 4; end
+                    if (a_hpMonster <= 0 ) begin state = 4; end
+                    if (d_hpPlayer <= 0 ) begin state = 2; end
                     else if (d_changeState) begin 
                         if (d_hpPlayer > 0) begin state = 5; end
                     end
