@@ -114,6 +114,7 @@ module game_logic(
      mapState supermap(
         .clk(clk),
         .game_clk(game_clk),
+        .state(an4),
         .direction(direction),
         .hpPlayer(hpPlayer),
         .xPlayer(m_xPlayer),
@@ -127,9 +128,10 @@ module game_logic(
      always @ (state)
         begin
             case(state)
-                0: ;
-                1: ;
-                2: ;
+                0: begin {an0,an1,an2,an3,an4,an5,an6} = 7'b1000000; end
+                1: begin {an0,an1,an2,an3,an4,an5,an6} = 7'b0100000; end
+                2: begin {an0,an1,an2,an3,an4,an5,an6} = 7'b0010000; end
+                3: begin {an0,an1,an2,an3,an4,an5,an6} = 7'b0001000; end
                 4: begin
                     {reset,xPlayer,yPlayer,hpPlayer,hpMonster} = {m_reset,m_xPlayer,m_yPlayer,m_hpPlayer,7'd0};
                     {an0,an1,an2,an3,an4,an5,an6} = 7'b0000100;

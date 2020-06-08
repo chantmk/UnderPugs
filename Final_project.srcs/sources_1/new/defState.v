@@ -585,7 +585,7 @@ module defState(
                             if(yCurrent<=386)yCurrent =yCurrent+1;
                         end
                 end
-            5'b?????:
+            5'b00000:
                 begin
                     if(monsterType == 2'b11)
                         begin

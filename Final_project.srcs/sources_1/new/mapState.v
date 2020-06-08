@@ -91,17 +91,17 @@ module mapState(
             if(yPlayer <= 345 && yPlayer >= 325 && xPlayer >= 584 && xPlayer <= 600)
             begin
             found = 1;
-            pugType = 1;
+            pugType = 3;
             end
-            if(xPlayer >= 396 && xPlayer <= 408 && yPlayer >= 185 && yPlayer <= 201)
+            if(xPlayer >= 380 && xPlayer <= 420 && yPlayer >= 150 && yPlayer <= 220)
             begin
             found = 1;
             pugType = 2;
             end
-            if(xPlayer >= 280 && xPlayer <= 296 && yPlayer >= 37 && yPlayer <= 43)
+            if(xPlayer >= 280 && xPlayer <= 320 && yPlayer >= 10 && yPlayer <= 60)
             begin
             found = 1;
-            pugType = 3;
+            pugType = 1;
             end
             if(xPlayer >= 422 && xPlayer <= 438 && yPlayer >= 534 && yPlayer <= 550 && (milkStatus==2'b11 || milkStatus==2'b01))
             begin
