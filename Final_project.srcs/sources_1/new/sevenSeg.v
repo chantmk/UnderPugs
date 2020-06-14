@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: Chulalongkorn University
+// Engineer: Thammakorn Kobkuachaiyapong
 // 
 // Create Date: 05/17/2020 11:00:52 AM
 // Design Name: 

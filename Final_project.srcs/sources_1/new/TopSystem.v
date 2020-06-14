@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Chulalongkorn university
+// Company: Chulalongkorn University
+// Organization: This pug is on fire!
 // Engineer: Thammakorn Kobkuachaiyapong
 // 
 // Create Date: 05/08/2020 10:57:14 AM
